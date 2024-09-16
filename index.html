@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/menu.css" />
+
+    <title>CIC</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="header__container">
+        <!-- Links de navegação à esquerda -->
+        <div class="header__links">
+          <nav class="menu">
+            <ul>
+              <li>
+                <a id="overview-link" class="menu__link" href="#overview"
+                  >Overview</a
+                >
+              </li>
+              <li>
+                <a id="dashboard-link" class="menu__link" href="#dashboard"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a id="controle-link" class="menu__link" href="#controle"
+                  >Controle</a
+                >
+              </li>
+              <li>
+                <a id="compliance-link" class="menu__link" href="#compliance"
+                  >Compliance</a
+                >
+              </li>
+              <li>
+                <a id="arquivo-link" class="menu__link" href="#arquivo"
+                  >Arquivo</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Logo e ícones à direita -->
+        <div class="header__right">
+          <a href="#" class="header__logo">
+            <div class="header__user">
+              <img
+                class="header__logo-img"
+                src="assets/img/perfil.png"
+                alt="profile image"
+              />
+            </div>
+          </a>
+
+          <ul class="menu__icons-right">
+            <li>
+              <a class="menu__icons-link" href="#contato">
+                <i class="ri-question-line"></i>
+              </a>
+            </li>
+            <li>
+              <a class="menu__icons-link" href="#contato">
+                <i class="ri-settings-3-fill"></i>
+              </a>
+            </li>
+            <li>
+              <a class="menu__icons-link" href="#contato">
+                <i class="ri-notification-3-line"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!--=============== SIDEBAR ===============-->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar__container">
+        <div class="sidebar__user">
+          <div class="sidebar__info">
+            <!-- Adicione a foto do perfil ou qualquer outra informação do usuário aqui -->
+          </div>
+          <a href="#">
+          <h1>Menu</h1>
+        </a>
+        </div>
+
+        <a href="#overview" class="sidebar__link overview-link active-link">
+          <i class="ri-dashboard-fill"></i>
+          <span>Overview</span>
+        </a>
+        <div class="sidebar__content">
+          <div>
+            <div class="sidebar__list">
+              <a href="#dashboard" class="sidebar__link">
+                <i class="ri-pie-chart-2-fill"></i>
+                <span>Dashboard</span>
+              </a>
+
+              <a href="#controle" class="sidebar__link">
+                <i class="ri-wallet-3-fill"></i>
+                <span>Controle</span>
+              </a>
+
+              <a href="#compliance" class="sidebar__link">
+                <i class="ri-calendar-fill"></i>
+                <span>Compliance</span>
+              </a>
+
+              <a href="#arquivo" class="sidebar__link">
+                <i class="ri-arrow-up-down-line"></i>
+                <span>Arquivo</span>
+              </a>
+            </div>
+          </div>
+
+          <hr />
+
+          <div>
+            <h3 class="sidebar__title"></h3>
+
+            <div class="sidebar__list">
+              <a href="#" class="sidebar__link">
+                <i class="ri-settings-3-fill"></i>
+                <span>Configurações</span>
+              </a>
+
+              <a href="#" class="sidebar__link">
+                <i class="ri-user-fill"></i>
+                <span>Usuário</span>
+              </a>
+
+              <a href="#" class="sidebar__link">
+                <i class="ri-question-line"></i>
+                <span>Help</span>
+              </a>
+
+              <!-- Link "Tema" com o ID e classes corretos -->
+              <div class="sidebar__actions">
+                <button>
+                  <i
+                    class="ri-moon-clear-fill sidebar__link sidebar__theme"
+                    id="theme-button"
+                  >
+                    <span>Tema</span>
+                  </i>
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!--=============== MAIN ===============-->
+    <main class="main container" id="main">
+      <nav class="menu__container">
+        <ul class="menu__dash">
+          <div id="popup">
+            <h2>Selecione para visualizar os dados</h2>
+            <p>Filtre de acordo com a sua necessidade</p>
+            <label>
+              <input type="checkbox" id="verde" value="Verde" /> Gráficos -
+              Erros de apuração
+            </label>
+            <img src="assets/img/perfil.png" alt="" />
+            <hr />
+            <label>
+              <input type="checkbox" id="amarelo" value="Amarelo" />
+              Saldo acumulado
+            </label>
+            <img src="assets/img/perfil.png" alt="" />
+            <hr />
+            <label>
+              <input type="checkbox" id="azul" value="Azul" /> Priorização de
+              tarefas
+            </label>
+            <img src="assets/img/perfil.png" alt="" />
+            <hr />
+            <button onclick="confirmarEscolha()">Confirmar</button>
+            <button onclick="fecharPopup()">Cancelar</button>
+          </div>
+
+          <button onclick="abrirPopup()">CONFINS</button>
+
+          <li><a class="menu__dash-link" href="#">IRPF</a></li>
+          <li><a class="menu__dash-link" href="#">IRPJ</a></li>
+          <li><a class="menu__dash-link" href="#">PIS</a></li>
+          <li><a class="menu__dash-link" href="#">PASEP</a></li>
+          <li><a class="menu__dash-link" href="#">CSS</a></li>
+          <li><a class="menu__dash-link" href="#">GERAL</a></li>
+          <li>
+            <input
+              class="input-container"
+              type="text"
+              name="username"
+              placeholder="Procure Aqui"
+            />
+            <i class="ri-search-line"></i>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="menu__container2">
+        <ul class="menu__confins"></ul>
+
+        <ul class="menu__confins">
+          <li><a class="menu__dash-link" href="#">CONFINS</a></li>
+          <div class="menu__right">
+            <li><a class="menu__dash-link" href="#">Esse Mês</a></li>
+            <li><a class="menu__dash-link" href="#">Mês Passado</a></li>
+            <li><a class="menu__dash-link" href="#">Este ano</a></li>
+            <li><a class="menu__dash-link" href="#">Últimos 12 meses</a></li>
+            <li>
+              <a class="menu__dash-link" href="#">
+                <i class="ri-calendar-line"></i> Selecionar período
+              </a>
+            </li>
+          </div>
+        </ul>
+      </nav>
+
+      <section class="content">
+        <div class="content__left">
+          <div class="card__container-1">
+            <div class="card__info1">
+              <h2>Nome da Empresa</h2>
+              <div class="info1__renda">
+                <p>R$30.000</p>
+                <div class="info1__renda__progresso">
+                <img src="assets/img/icons/seta.svg" alt="seta para cima">
+                <p>12,5%</p>
+              </div>
+              </div>
+              <div class="info1__governo">
+                <p>Governo</p>
+                <p>R$30.000</p>
+              </div>
+            </div>
+
+            <div class="card__info2"></div>
+          </div>
+        </div>
+        <div class="content__right">
+          <p class="title_dash">Saldo acumulado</p>
+          <div class="card__container-3">
+            <div class="card__info3">
+              <h2>23</h2>
+              <div class="info3__icon">
+                <img src="" alt="">
+              </div>
+              <p class="card__item">Débito</p>
+              <p class="card__item">2 adicionadas</p>
+              <div class="info3__barra"></div>
+            </div>
+            <div class="card__info4">
+              <h2>R$5.2mil</h2>
+              <div class="info3__icon">
+                <img src="" alt="">
+              </div>
+              <p class="card__item">Crédito</p>
+              <p class="card__item">+ 10% de aumento</p>
+              <div class="info4__barra"></div>
+            </div>
+            <div class="card__info5">
+              <h2>R$13.mil</h2>
+              <div class="info3__icon">
+                <img src="" alt="">
+              </div>
+              <p class="card__item">Resultado</p>
+              <p class="card__item">+ 18.5% de aumento</p>
+              <div class="info5__barra"></div>
+            </div>
+          </div>
+          <p class="title_dash">Priorização de tarefas</p>
+          <div class="card__container-6">
+            <div class="card__info6">
+              <h2>Cofins - ID 0001 | 19 de maio</h2>
+              <img src="" alt="">
+              <p>Valor declarado a menos</p>
+              <p>Progresso</p>
+              <div></div>
+              <p>21 de maio</p>
+              <div>
+                <img src="" alt="">
+              </div>
+            </div>
+
+            <div class="card__info7">
+              <h2>Cofins - ID 0002 | 19 de maio</h2>
+              <img src="" alt="">
+              <p>Valor declarado a menos</p>
+              <p>Progresso</p>
+              <div></div>
+              <p>21 de maio</p>
+              <div>
+                <img src="" alt="">
+              </div>
+            </div>
+
+            <div class="card__container-8">
+              <div class="card__info8"></div>
+            </div>
+          </div>
+
+          <!--=============== MAIN JS ===============-->
+          <script src="assets/js/menu.js"></script>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

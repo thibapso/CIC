@@ -1,0 +1,806 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(212, 44%, 55%);
+  --title-color: hsl(228, 18%, 16%);
+  --text-color: hsl(228, 8%, 56%);
+  --body-color: hsl(228, 100%, 99%);
+  --side-color: hsl(0, 0%, 100%);
+  --shadow-color: hsla(228, 80%, 4%, 0.1);
+  --button-color: rgba(245, 248, 255, 1);
+  --textHeader-color: hsl(216, 100%, 48%);
+  --textMenu-color: hsl(222, 86%, 22%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Nunito Sans", system-ui;
+  --normal-font-size: 0.938rem;
+  --smaller-font-size: 0.75rem;
+  --tiny-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --normal-font-size: 1rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: background-color 0.4s;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  all: unset;
+}
+
+/*=============== VARIABLES DARK THEME ===============*/
+body.dark-theme {
+  --first-color: hsl(228, 70%, 63%);
+  --title-color: hsl(228, 18%, 96%);
+  --text-color: hsl(228, 12%, 61%);
+  --body-color: hsl(228, 24%, 16%);
+  --side-color: hsl(0, 0%, 100%);
+  --shadow-color: hsla(228, 80%, 4%, 0.3);
+  --button-color: hsl(227, 20%, 18%);
+  --textHeader-color: hsl(216, 70%, 77%);
+  --textMenu-color: hsl(221, 41%, 64%);
+}
+
+/*========== 
+    Color changes in some parts of 
+    the website, in dark theme
+  ==========*/
+.dark-theme .sidebar__content::-webkit-scrollbar {
+  background-color: hsl(228, 16%, 30%);
+}
+
+.dark-theme .sidebar__content::-webkit-scrollbar-thumb {
+  background-color: hsl(228, 16%, 40%);
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  margin-inline: 1.5rem;
+}
+
+.main {
+  padding-top: 5rem;
+}
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  margin: 0.75rem;
+}
+
+.header__container {
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--body-color);
+  box-shadow: 0 2px 24px var(--shadow-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1.5rem;
+  border-radius: 1rem;
+  transition: background-color 0.4s;
+}
+
+.header__links {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu__link {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 10px; /* Adiciona padding para melhorar a área clicável */
+  transition: all 0.3s ease; /* Adiciona uma transição suave */
+  border-radius: 0; /* Remove o border-radius padrão */
+}
+
+/* Estilo de hover e ativo dos links do header */
+.menu__link:hover,
+.menu__link.active {
+  border-radius: 10px;
+  background-color: var(--button-color);
+  color: var(--textHeader-color);
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-img {
+  width: 40px;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+}
+
+.menu__icons-right {
+  display: flex;
+  list-style: none;
+  margin-left: 1rem;
+}
+
+.menu__icons-right li {
+  margin-left: 0.75rem;
+}
+
+.menu__icons-link {
+  color: var(--text-color);
+  font-size: 1.2rem;
+}
+
+/*=============== SIDEBAR ===============*/
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: var(--z-fixed);
+  width: 288px;
+  background-color: #283d5c;
+  padding-block: 1.5rem;
+  border-radius: 0px 20px 20px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Estilo do cabeçalho do menu */
+.sidebar__user {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem; /* Ajuste o padding como desejar */
+  margin-bottom: 2rem; /* Espaço inferior para separar do conteúdo abaixo */
+}
+
+.sidebar__user h1 {
+  color: var(--white-100, #fff);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Estilo da foto do perfil do usuário */
+.sidebar__info {
+  margin-left: 2rem; /* Ajuste conforme necessário para espaçamento da foto do perfil */
+}
+
+/* Estilo da seção de conteúdo, faz com que os links ocupem o espaço restante */
+.sidebar__content {
+  flex-grow: 1; /* Permite que o conteúdo cresça para ocupar o espaço restante */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo da lista de links */
+.sidebar__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem; /* Ajuste o espaçamento entre os links, aumente se necessário */
+}
+
+/* Link "Overview" */
+.sidebar__link.overview-link {
+  margin-top: 0.8rem; /* Ajuste o valor para aumentar o espaçamento superior do "Overview" */
+  margin-bottom: 2rem;
+  border-radius: 0 0.6rem 0.6rem 0;
+}
+
+/* Links na sidebar */
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Tamanho e espaçamento dos ícones */
+.sidebar__link i {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* Estilo do HR */
+hr {
+  border: none; /* Remove a borda padrão */
+  border-top: 1px solid #fff; /* Adiciona uma linha horizontal fina */
+  margin: 3rem 0; /* Aumenta as margens acima e abaixo do HR */
+}
+
+/*=============== MAIN ===============*/
+/* Estilo para links no hover e quando clicados */
+.menu__dash-link {
+  text-decoration: none;
+  color: var(--text-color);
+  position: relative;
+  padding: 0.5rem 1rem; /* Ajuste o padding conforme necessário */
+  transition: color 0.3s, background-color 0.3s;
+  border-radius: 10px;
+}
+
+/* Estilo de hover e foco */
+.menu__dash-link:hover,
+.menu__dash-link:focus,
+.menu__dash-link.active {
+  color: var(--textMenu-color);
+  border-radius: 0 10px 10px 0;
+}
+
+.menu__dash-link:hover::after,
+.menu__dash-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px; /* Ajuste a altura da linha conforme necessário */
+  background-color: var(--textMenu-color);
+  border-radius: 0 10px 10px 0;
+}
+
+/* Estilo dos links no menu de configurações e outros menus */
+.menu__icons-link {
+  color: var(--text-color);
+  font-size: 1.2rem;
+}
+
+.menu__confins {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+
+.title_dash {
+  margin: 1.2rem;
+  margin-left: 0;
+}
+
+.menu__right {
+  display: flex;
+  gap: 30px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content__left {
+  width: 30%;
+  padding: 1.5rem;
+  padding-top: 1rem;
+  padding-left: 3rem;
+  display: flex;
+  justify-self: flex-start;
+}
+.card__container-1 {
+  padding-top: 1rem;
+  gap: 3rem;
+}
+
+.card__container-3 {
+  display: grid;
+  gap: 1rem;
+  padding-top: -1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+.card__info1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  background-color: rgba(40, 61, 92, 1);
+  width: 20rem;
+  height: 10rem;
+  margin-bottom: 2rem;
+  border-radius: 0.75rem;
+}
+
+.card__info1 h2 {
+  padding: 1.5rem 1rem;
+}
+
+.info1__renda {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.info1__renda__progresso {
+  display: flex;
+  padding: 0.1rem;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: rgba(34, 41, 47, 1);
+}
+
+.info1__governo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: rgba(57, 217, 138, 1);
+  border-radius: 5px;
+  margin-top: auto; /* empurra a div para a parte inferior */
+  height: 3rem;
+}
+
+.card__info2 {
+  border: 1px solid #929397;
+  width: 20rem;
+  height: 26rem;
+  border-radius: 0.75rem;
+}
+
+/* Estilos para garantir que os cards fiquem lado a lado */
+.card__container {
+  display: flex; /* Coloca os cards lado a lado */
+}
+
+.card__info3,
+.card__info4,
+.card__info5 {
+  border: 1px solid #929397;
+  height: 10rem;
+  background-color: #ffffff;
+  border-radius: 1rem 1rem 0 0; /* Apenas a parte superior arredondada */
+  color: #283d5c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card__info3 h2,
+.card__info4 h2,
+.card__info5 h2 {
+  padding: 1.2rem;
+  font-size: 40px;
+}
+
+.card__item {
+  margin-left: 1.2rem;
+}
+
+.card__info3,
+.card__info4,
+.card__info5 {
+  /* Garante que os cards tenham espaço suficiente para as barras */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info3__barra,
+.info4__barra,
+.info5__barra {
+  height: 1.2rem; /* Ajuste a altura conforme necessário */
+  margin: 0; /* Remove qualquer margem */
+  padding: 0; /* Remove qualquer padding */
+  border-radius: 0; /* Remove o arredondado das barras */
+  width: 100%; /* Garante que a barra ocupe toda a largura do card */
+}
+
+.info3__barra {
+  background-color: #ffded2;
+}
+
+.info4__barra {
+  background-color: #d9f7e7;
+}
+
+.info5__barra {
+  background-color: #fef2d6;
+}
+
+.card__container-6 {
+  display: grid;
+  gap: 2rem;
+  padding-top: -1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card__info6 {
+  border: 1px solid #929397;
+  padding: 1rem;
+  width: 90%;
+  height: 9rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+}
+
+.card__info7 {
+  border: 1px solid #929397;
+  padding: 1rem;
+  width: 90%;
+  height: 9rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+}
+
+.card__info6 h2,
+.card__info7 h2 {
+  color: #283d5c;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.card__container-8 {
+  display: grid;
+  gap: 2rem;
+  padding-top: -1rem;
+}
+
+.card__info8 {
+  border: 1px solid #929397;
+  width: 200%;
+  height: 12.7rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+}
+
+.content__right {
+  position: relative;
+  width: 70%;
+}
+
+.content__left {
+  margin: 1.5rem -2rem;
+}
+
+.menu__icons-link {
+  color: var(--text-color);
+}
+
+.menu__dash {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu__dash-link {
+  color: var(--text-color);
+}
+
+.menu {
+  display: flex;
+  justify-content: left;
+  padding: 10px;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.menu__container {
+  font-size: 0.9rem;
+  width: 90%;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  color: var(--text-color);
+  padding: 0;
+  display: flex;
+}
+
+.menu ul li {
+  margin-right: 2rem;
+}
+
+.menu__container ul {
+  list-style-type: none;
+  margin: 0;
+  color: var(--text-color);
+  padding: 0;
+  display: flex;
+  margin-left: 1.8rem;
+}
+
+.menu__container ul li {
+  margin-right: 2rem;
+}
+
+.input-container {
+  border: none;
+  margin: 0 4rem;
+  background-color: var(--body-color);
+}
+
+.menu__confins {
+  list-style-type: none;
+  display: flex;
+}
+
+.sidebar__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  column-gap: 1rem;
+  color: var(--side-color);
+  transition: color 0.4s, opacity 0.4s;
+  padding: 1.2rem;
+}
+
+.sidebar__link i {
+  font-size: 1.25rem;
+}
+
+.sidebar__link span {
+  font-weight: var(--font-semi-bold);
+}
+
+.sidebar__link:hover {
+  color: #dbdbf5;
+}
+
+.sidebar__link span:hover {
+  color: #dbdbf5;
+}
+
+.sidebar__actions {
+  margin-top: auto;
+}
+
+.sidebar__actions button {
+  cursor: pointer;
+}
+
+.sidebar__theme {
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.sidebar__theme span {
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+/* Show sidebar */
+.show-sidebar {
+  left: 0;
+}
+
+/* Active link */
+.active-link {
+  background-color: var(--first-color);
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 20px;
+  background-color: var(--first-color);
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+@media screen and (max-width: 460px) {
+  .header__container {
+    padding-inline: 1rem;
+  }
+
+  .sidebar {
+    width: max-content;
+  }
+
+  .sidebar__info,
+  .sidebar__link span {
+    display: none;
+  }
+  .sidebar__user,
+  .sidebar__list,
+  .sidebar__actions {
+    justify-content: center;
+    order: 2;
+  }
+  .sidebar__user,
+  .sidebar__link {
+    grid-template-columns: max-content;
+  }
+  .sidebar__user {
+    padding: 0;
+  }
+  .sidebar__link {
+    padding-inline: 2rem;
+  }
+  .sidebar__title {
+    padding-inline: 0.5rem;
+    margin-inline: auto;
+  }
+
+  .menu__container ul li {
+    margin: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu__icons {
+    display: none;
+  }
+
+  .header__links {
+    display: none;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+  .header {
+    padding-left: 21rem;
+    transition: padding 0.4s;
+  }
+  .header__container {
+    height: calc(var(--header-height) + 2rem);
+    padding-inline: 2rem;
+  }
+  .header__logo {
+    order: 1;
+  }
+
+  .header__logo {
+    justify-content: space-between;
+  }
+
+  .sidebar {
+    left: 0;
+    width: 316px;
+  }
+  .sidebar__info,
+  .sidebar__link span {
+    transition: opacity 0.4s;
+  }
+  .sidebar__user,
+  .sidebar__title {
+    transition: padding 0.4s;
+  }
+
+  /* Reduce sidebar */
+  .show-sidebar {
+    width: 90px;
+  }
+  .show-sidebar .sidebar__user {
+    padding-left: 1.25rem;
+  }
+  .show-sidebar .sidebar__title {
+    padding-left: 0;
+    margin-inline: auto;
+  }
+  .show-sidebar .sidebar__info,
+  .show-sidebar .sidebar__link span {
+    opacity: 0;
+  }
+
+  .main {
+    padding-left: 340px;
+    padding-top: 10rem;
+    transition: padding 0.4s;
+  }
+
+  /* Add padding left */
+  .left-pd {
+    padding-left: 114px;
+  }
+}
+
+/* teste */
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  border: 2px solid rgba(40, 61, 92, 1);
+  border-radius: 25px;
+}
+
+#popup h2 {
+  font-size: 20px;
+  color: rgba(40, 61, 92, 1);
+}
+
+#popup p {
+  color: rgba(28, 29, 34, 0.5);
+}
+
+#popup hr {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(40, 61, 92, 1);
+  margin: 2px;
+}
+
+#popup button {
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
