@@ -55,6 +55,7 @@ body {
   background-color: var(--body-color);
   color: var(--text-color);
   transition: background-color 0.4s;
+  transition: color 0.4s;
 }
 
 a {
@@ -187,6 +188,12 @@ body.dark-theme {
   font-size: 1.2rem;
 }
 
+.header__toggle {
+  font-size: 2.5rem;
+  color: var(--body-color);
+  cursor: pointer;
+}
+
 /*=============== SIDEBAR ===============*/
 .sidebar {
   position: fixed;
@@ -194,7 +201,7 @@ body.dark-theme {
   top: 0;
   bottom: 0;
   z-index: var(--z-fixed);
-  width: 288px;
+  width: 188px;
   background-color: #283d5c;
   padding-block: 1.5rem;
   border-radius: 0px 20px 20px 0px;
@@ -366,7 +373,7 @@ hr {
   color: #ffffff;
   background-color: rgba(40, 61, 92, 1);
   width: 20rem;
-  height: 10rem;
+  height: 11rem;
   margin-bottom: 2rem;
   border-radius: 0.75rem;
 }
@@ -375,6 +382,10 @@ hr {
   padding: 1.5rem 1rem;
 }
 
+.card__info2 h2 {
+  padding: 1.5rem 1rem;
+  color: var(--title-color);
+}
 .info1__renda {
   display: flex;
   justify-content: space-between;
@@ -547,15 +558,14 @@ hr {
 .card__container-6 {
   display: grid;
   gap: 2rem;
-  padding-top: -1rem;
   grid-template-columns: repeat(2, 1fr);
+  height: 28vh; /* Faz o container ocupar toda a altura da tela */
 }
 
-.card__info6,
-.card__info7 {
+.card__info6, .card__info7 {
   border: 1px solid #929397;
   padding: 1rem;
-  width: 90%;
+  width: 100%; /* Ocupa o espaço total da coluna */
   height: auto; /* Deixa a altura ajustável conforme o conteúdo */
   background-color: #ffffff;
   border-radius: 0.75rem;
@@ -567,46 +577,45 @@ hr {
   justify-content: space-between;
 }
 
-.card__info6 h2,
-.card__info7 h2 {
+.card__info6 h2, .card__info7 h2 {
   color: #283d5c;
   font-size: 16px;
   font-weight: 700;
 }
 
-.card__info6 img,
-.card__info7 img {
+.card__info6 img, .card__info7 img {
   border-radius: 100%;
 }
 
 .container__barra {
   width: 100%;
   background-color: rgba(237, 237, 238, 1);
-  border-radius: 0.5rem; /* Bordas arredondadas para a barra */
-  overflow: hidden; /* Garante que a barra de progresso não saia dos limites */
+  border-radius: 0.5rem;
+  overflow: hidden;
   margin: 10px 0;
 }
 
 .skills {
   text-align: right;
-  padding: 5px 10px; /* Reduzi a altura do padding */
+  padding: 5px 10px;
   color: #ffffff;
-  font-size: 14px; /* Ajustei o tamanho do texto */
-  line-height: 1.2; /* Melhora o alinhamento vertical */
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.progress__info6, .progress__info7 {
+  height: 30px;
+  border-radius: 0.2rem;
 }
 
 .progress__info6 {
   width: 90%;
   background-color: #39d98a;
-  height: 30px; /* Altura fixa para a barra */
-  border-radius: 0.2rem; /* Bordas arredondadas na barra */
 }
 
 .progress__info7 {
   width: 20%;
   background-color: #f5b354;
-  height: 30px; /* Altura fixa para a barra */
-  border-radius: 0.2rem; /* Bordas arredondadas na barra */
 }
 
 .card__date {
@@ -631,18 +640,113 @@ hr {
   padding: 0.2rem;
 }
 
+/* Card de Divergências */
 .card__container-8 {
-  display: grid;
-  gap: 2rem;
-  padding-top: -1rem;
+  grid-column: span 2;
+  height: 100%;
 }
 
 .card__info8 {
   border: 1px solid #929397;
-  width: 200%;
-  height: 12.7rem;
   background-color: #ffffff;
   border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 100%;
+}
+
+.info8__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 2rem;
+}
+
+.card__info8 ul {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* Colunas com largura igual */
+  gap: 0.5rem;
+  margin: 0.4rem 1rem;
+  padding: 0;
+  list-style: none;
+  text-align: center; /* Centraliza o texto */
+}
+
+.card__info8 ul li {
+  padding: 0;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
+  background: none;
+  align-self: center; /* Alinha verticalmente */
+}
+
+/* Estilos para a descrição */
+.description {
+  border-radius: 0.4rem;
+  text-align: center; /* Centraliza o texto dentro da descrição */
+}
+
+.certo {
+  background-color: rgba(230, 239, 252, 1) !important;
+  color: rgba(7, 100, 230, 1);
+}
+
+.verificar {
+  background-color: rgba(255, 248, 231, 1) !important;
+  color: rgba(28, 28, 28, 1);
+}
+
+.list__credito {
+  font-weight: bolder;
+  color: #39d98a;
+}
+
+.list__diferenca {
+  font-weight: bolder;
+  color: rgba(7, 100, 230, 1);
+}
+
+hr {
+  margin: 0.5rem 0;
+  border: none;
+  border-top: 1px solid #929397;
+}
+
+.title__calendar,
+.title__equalizer {
+  display: flex;
+  align-items: center;
+}
+
+.title__calendar {
+  gap: 0.5rem;
+  color: rgba(145, 149, 171, 1);
+}
+
+.title__equalizer {
+  gap: 1rem;
+  color: #ffffff;
+  background-color: rgba(7, 100, 230, 1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+}
+
+.linha__title {
+  color: rgba(233, 235, 237, 1);
+}
+
+.list__title {
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(145, 149, 171, 1);
+  text-align: center; /* Centraliza o título */
+}
+
+.list__title li {
+  padding: 0;
 }
 
 .content__right {
@@ -651,7 +755,7 @@ hr {
 }
 
 .content__left {
-  margin: 1.5rem -2rem;
+  margin: 1.1rem -2rem;
 }
 
 .menu__icons-link {
@@ -674,7 +778,7 @@ hr {
 }
 
 .choose {
-  color: #3354F4;
+  color: #3354f4;
 }
 
 .menu {
@@ -861,6 +965,16 @@ hr {
     order: 1;
   }
 
+  .header__toggle {
+    font-size: 1.5rem;
+    color: var(--side-color);
+    cursor: pointer;
+  }
+
+  .sidebar__user h1 {
+    font-size: 1.5rem;
+  }
+
   .header__logo {
     justify-content: space-between;
   }
@@ -880,8 +994,9 @@ hr {
 
   /* Reduce sidebar */
   .show-sidebar {
-    width: 90px;
+    width: 140px;
   }
+
   .show-sidebar .sidebar__user {
     padding-left: 1.25rem;
   }

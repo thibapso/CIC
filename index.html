@@ -13,6 +13,9 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/menu.css" />
 
+    <!--=============== CHART JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>CIC</title>
   </head>
   <body>
@@ -91,8 +94,14 @@
           <div class="sidebar__info">
             <!-- Adicione a foto do perfil ou qualquer outra informação do usuário aqui -->
           </div>
+
           <a href="#">
-            <h1>Menu</h1>
+            <h1 class="menu_text">
+              <button class="header__toggle" id="header-toggle">
+                <i class="ri-menu-line"></i>
+              </button>
+              Menu
+            </h1>
           </a>
         </div>
 
@@ -190,15 +199,15 @@
                 <button onclick="confirmarEscolha()">Confirmar</button>
                 <button onclick="fecharPopup()">Cancelar</button>
               </div>
-
-              <button onclick="abrirPopup()">COFINS</button>
+              <li><a class="menu__dash-link active" href="#">GERAL</a></li>
+              <li><a class="menu__dash-link" href="#">COFINS</a></li>
 
               <li><a class="menu__dash-link" href="#">IRPF</a></li>
               <li><a class="menu__dash-link" href="#">IRPJ</a></li>
               <li><a class="menu__dash-link" href="#">PIS</a></li>
               <li><a class="menu__dash-link" href="#">PASEP</a></li>
               <li><a class="menu__dash-link" href="#">CSS</a></li>
-              <li><a class="menu__dash-link" href="#">GERAL</a></li>
+
               <li>
                 <input
                   class="input-container"
@@ -216,11 +225,10 @@
 
             <ul class="menu__confins">
               <div class="confins__choose">
-              <li><a class="menu__dash-link choose" href="#">COFINS</a></li>
-              <img src="assets/img/icons/filter.svg" alt="ícone de filtragem">
-            </div>
+                <li><a class="menu__dash-link" href="#"></a></li>
+              </div>
               <div class="menu__right">
-                <li><a class="menu__dash-link" href="#">Esse Mês</a></li>
+                <li><a class="menu__dash-link active" href="#">Esse Mês</a></li>
                 <li><a class="menu__dash-link" href="#">Mês Passado</a></li>
                 <li><a class="menu__dash-link" href="#">Este ano</a></li>
                 <li>
@@ -256,7 +264,12 @@
                   </div>
                 </div>
 
-                <div class="card__info2"></div>
+                <div class="card__info2">
+                  <div class="card__upper">
+                    <h2>Categoria</h2>
+                  </div>
+                  <canvas id="graficoU"></canvas>
+                </div>
               </div>
             </div>
             <div class="content__right">
@@ -365,12 +378,110 @@
                 </div>
 
                 <div class="card__container-8">
-                  <div class="card__info8"></div>
+                  <div class="card__info8">
+                    <div class="info8__title">
+                      <h2>Divergências</h2>
+                      <input
+                        class="input-container"
+                        type="text"
+                        name="username"
+                        placeholder="Pesquisar"
+                      />
+                      <div class="title__calendar">
+                        <i class="ri-calendar-line"></i>
+                        <p>10 Maio - 20 Maio</p>
+                      </div>
+                      <div class="title__equalizer">
+                        <i class="ri-equalizer-line"></i>
+                        <p>Filtrar</p>
+                      </div>
+                    </div>
+                    <hr class="linha__title" />
+                    <ul class="list__title">
+                      <li>NF</li>
+                      <li>Municipio</li>
+                      <li>Valor da nota</li>
+                      <li>Valor do governo</li>
+                      <li>Data</li>
+                      <li>Descrição</li>
+                      <li>Crédito</li>
+                      <li>Diferença</li>
+                    </ul>
+                    <hr class="linha__title" />
+                    <ul>
+                      <li>0008472</li>
+                      <li>(BH)</li>
+                      <li>R$37.054</li>
+                      <li>R$35.054</li>
+                      <li>25/05/2024</li>
+                      <li class="description certo">Tudo certo</li>
+                      <li class="list__credito">R$ 2.000</li>
+                      <li class="list__diferenca">R$-</li>
+                    </ul>
+                    <hr />
+                    <ul>
+                      <li>0003452</li>
+                      <li>(RJ)</li>
+                      <li>R$48.245</li>
+                      <li>R$46.245</li>
+                      <li>19/05/2024</li>
+                      <li class="description verificar">Verificar</li>
+                      <li>R$ 0</li>
+                      <li>-R$2.000</li>
+                    </ul>
+                    <hr />
+                    <ul>
+                      <li>0009872</li>
+                      <li>(SP)</li>
+                      <li>R$150.000</li>
+                      <li>R$150.150</li>
+                      <li>19/05/2024</li>
+                      <li class="description verificar">Verificar</li>
+                      <li>R$ 0</li>
+                      <li>-R$150</li>
+                    </ul>
+                    <hr />
+                  </div>
                 </div>
               </div>
 
               <!--=============== MAIN JS ===============-->
               <script src="assets/js/menu.js"></script>
+
+              <script>
+                var ctx = document.getElementById("graficoU").getContext("2d");
+                var graficoU = new Chart(ctx, {
+                  type: "doughnut",
+                  data: {
+                    datasets: [
+                      {
+                        data: [1, 85, 5, 3, 20],
+                        backgroundColor: [
+                          "rgba(75, 192, 192, 0.9)",
+                          "rgba(255, 159, 64, 0.9)",
+                          "rgba(255, 99, 132, 0.9)",
+
+                          "rgba(153, 102, 255, 0.9)",
+                          "rgba(201, 203, 207, 0.9)",
+                        ],
+                        borderColor: "rgba(0, 0, 0, 0.1)", // Ajustando a borda
+                        borderWidth: 2,
+                      },
+                    ],
+                  },
+                  options: {
+                    responsive: true,
+                    rotation: Math.PI / 4, // Inicia no ponto inferior
+                    circumference: 109.5 * Math.PI, // Faz com que o
+                    cutout: "50%",
+                    plugins: {
+                      legend: {
+                        position: "top",
+                      },
+                    },
+                  },
+                });
+              </script>
             </div>
           </section>
         </main>
