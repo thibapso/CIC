@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Popup com Checkbox</title>    
+</head>
+<body>
+
+    <div id="overlay"></div>
+
+    <div id="popup">
+        <h2>Escolha suas cores favoritas</h2>
+        <label>
+            <input type="checkbox" id="verde" value="Verde"> Verde
+        </label><br>
+        <label>
+            <input type="checkbox" id="amarelo" value="Amarelo"> Amarelo
+        </label><br>
+        <label>
+            <input type="checkbox" id="azul" value="Azul"> Azul
+        </label><br><br>
+        <button onclick="confirmarEscolha()">Confirmar</button>
+        <button onclick="fecharPopup()">Cancelar</button>
+    </div>
+
+    <button onclick="abrirPopup()">Abrir Popup</button>   
+
+    <script src="popup.js"></script>
+
+</body>
+</html>
