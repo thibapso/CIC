@@ -16,6 +16,7 @@
   --button-color: rgba(245, 248, 255, 1);
   --textHeader-color: hsl(216, 100%, 48%);
   --textMenu-color: hsl(222, 86%, 22%);
+  --titleCard-color: hsl(216, 39%, 26%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -81,6 +82,7 @@ body.dark-theme {
   --button-color: hsl(227, 20%, 18%);
   --textHeader-color: hsl(216, 70%, 77%);
   --textMenu-color: hsl(221, 41%, 64%);
+  --titleCard-color: hsl(216, 27%, 71%);
 }
 
 /*========== 
@@ -321,6 +323,12 @@ hr {
   margin-left: 0;
 }
 
+.title_card {
+  color: var(--titleCard-color);
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .menu__right {
   display: flex;
   gap: 30px;
@@ -329,12 +337,13 @@ hr {
 .content {
   display: flex;
   justify-content: space-between;
+  color: #283d5c;
 }
 
 .content__left {
   width: 30%;
   padding: 1.5rem;
-  padding-top: 1rem;
+  padding-top: 2rem;
   padding-left: 3rem;
   display: flex;
   justify-self: flex-start;
@@ -374,7 +383,7 @@ hr {
 
 .info1__renda__progresso {
   display: flex;
-  padding: 0.1rem;
+  padding: 0.1rem 0.4rem;
   border-radius: 6px;
   background-color: #ffffff;
   color: rgba(34, 41, 47, 1);
@@ -394,7 +403,7 @@ hr {
 .card__info2 {
   border: 1px solid #929397;
   width: 20rem;
-  height: 26rem;
+  height: 30rem;
   border-radius: 0.75rem;
 }
 
@@ -423,8 +432,83 @@ hr {
   font-size: 40px;
 }
 
-.card__item {
-  margin-left: 1.2rem;
+.card__action {
+  width: 2rem;
+  height: 2rem;
+  background-color: #e6eaf5;
+  padding: 0.5rem; /* Ajuste o padding conforme necessário */
+  border-radius: 100%;
+  box-sizing: content-box; /* Garante que o padding não afete o tamanho da imagem */
+}
+
+.card__duvida {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 2rem;
+}
+
+.card__duvida img {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.card__grow {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  gap: 0.8rem;
+}
+
+.card__grow p {
+  width: auto; /* Permite que o texto ocupe o espaço necessário */
+  white-space: nowrap; /* Impede a quebra de linha */
+}
+
+/* Propriedades comuns para todas as classes */
+.debito,
+.credito,
+.resultado {
+  width: 0.7rem; /* Aumente o valor conforme necessário */
+  height: 0.7rem; /* Aumente o valor conforme necessário */
+  padding: 0.4rem; /* Ajuste o padding conforme necessário */
+  border-radius: 100%;
+  box-sizing: content-box; /* Certifique-se que o padding não afete o tamanho da imagem */
+}
+
+/* Propriedade de cor específica para .debito */
+.debito {
+  background-color: #f1d5d5;
+}
+
+/* Propriedades de cor para .credito e .resultado */
+.credito,
+.resultado {
+  background-color: #e0f1d5;
+}
+
+/* Estilos da imagem */
+.card__grow img {
+  width: 0.7rem; /* Aumente o valor conforme necessário */
+  height: 0.7rem; /* Aumente o valor conforme necessário */
+}
+
+.card__number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0.5rem;
+  padding-right: 1rem;
+}
+
+.card__progress {
+  display: flex;
+  color: rgba(28, 29, 34, 0.5);
+  align-items: center;
+  gap: 0.4rem;
+  margin: 15px 0 5px 0;
 }
 
 .card__info3,
@@ -434,6 +518,7 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: auto;
 }
 
 .info3__barra,
@@ -444,6 +529,7 @@ hr {
   padding: 0; /* Remove qualquer padding */
   border-radius: 0; /* Remove o arredondado das barras */
   width: 100%; /* Garante que a barra ocupe toda a largura do card */
+  border-top: solid 0.01px #929397;
 }
 
 .info3__barra {
@@ -465,22 +551,20 @@ hr {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.card__info6 {
-  border: 1px solid #929397;
-  padding: 1rem;
-  width: 90%;
-  height: 9rem;
-  background-color: #ffffff;
-  border-radius: 0.75rem;
-}
-
+.card__info6,
 .card__info7 {
   border: 1px solid #929397;
   padding: 1rem;
   width: 90%;
-  height: 9rem;
+  height: auto; /* Deixa a altura ajustável conforme o conteúdo */
   background-color: #ffffff;
   border-radius: 0.75rem;
+  box-sizing: border-box; /* Garante que o padding seja incluído no tamanho */
+}
+
+.card__upper {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card__info6 h2,
@@ -488,6 +572,63 @@ hr {
   color: #283d5c;
   font-size: 16px;
   font-weight: 700;
+}
+
+.card__info6 img,
+.card__info7 img {
+  border-radius: 100%;
+}
+
+.container__barra {
+  width: 100%;
+  background-color: rgba(237, 237, 238, 1);
+  border-radius: 0.5rem; /* Bordas arredondadas para a barra */
+  overflow: hidden; /* Garante que a barra de progresso não saia dos limites */
+  margin: 10px 0;
+}
+
+.skills {
+  text-align: right;
+  padding: 5px 10px; /* Reduzi a altura do padding */
+  color: #ffffff;
+  font-size: 14px; /* Ajustei o tamanho do texto */
+  line-height: 1.2; /* Melhora o alinhamento vertical */
+}
+
+.progress__info6 {
+  width: 90%;
+  background-color: #39d98a;
+  height: 30px; /* Altura fixa para a barra */
+  border-radius: 0.2rem; /* Bordas arredondadas na barra */
+}
+
+.progress__info7 {
+  width: 20%;
+  background-color: #f5b354;
+  height: 30px; /* Altura fixa para a barra */
+  border-radius: 0.2rem; /* Bordas arredondadas na barra */
+}
+
+.card__date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__date p {
+  color: #ff7979;
+  background-color: rgba(255, 121, 121, 0.1);
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 0.4rem;
+}
+
+.card__date i {
+  color: #8d8d90;
+  background-color: #ededee;
+  border-radius: 100%;
+  font-size: 14px;
+  padding: 0.2rem;
 }
 
 .card__container-8 {
@@ -526,6 +667,14 @@ hr {
 
 .menu__dash-link {
   color: var(--text-color);
+}
+
+.confins__choose {
+  display: flex;
+}
+
+.choose {
+  color: #3354F4;
 }
 
 .menu {
@@ -757,7 +906,7 @@ hr {
   }
 }
 
-/* teste */
+/*=============== POPUP ===============*/
 
 #popup {
   display: none;

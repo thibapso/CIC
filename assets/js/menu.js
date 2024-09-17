@@ -84,9 +84,7 @@ menuDashLinks.forEach((link) => {
   link.addEventListener("click", handleMenuLinkClick);
 });
 
-
-
-// Teste
+/*=============== POPUP ===============*/
 
 function abrirPopup() {
   document.getElementById("popup").style.display = "block";
