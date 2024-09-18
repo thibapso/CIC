@@ -286,6 +286,12 @@ hr {
 
 /*=============== MAIN ===============*/
 /* Estilo para links no hover e quando clicados */
+
+.menu__dash {
+  display: flex;
+  justify-content: space-between;
+}
+
 .menu__dash-link {
   text-decoration: none;
   color: var(--text-color);
