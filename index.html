@@ -170,72 +170,63 @@
           </div>
         </div>
       </nav>
-
+      
         <!--=============== MAIN ===============-->
         <main class="main container" id="main">
+          <!-- Menu -->
           <nav class="menu__container">
             <ul class="menu__dash">
-              <div id="popup">
-                <h2>Selecione para visualizar os dados</h2>
-                <p>Filtre de acordo com a sua necessidade</p>
-                <label>
-                  <input type="checkbox" id="verde" value="Verde" /> Gráficos -
-                  Erros de apuração
-                </label>
-                <img src="assets/img/perfil.png" alt="" />
-                <hr />
-                <label>
-                  <input type="checkbox" id="amarelo" value="Amarelo" />
-                  Saldo acumulado
-                </label>
-                <img src="assets/img/perfil.png" alt="" />
-                <hr />
-                <label>
-                  <input type="checkbox" id="azul" value="Azul" /> Priorização
-                  de tarefas
-                </label>
-                <img src="assets/img/perfil.png" alt="" />
-                <hr />
-                <button onclick="confirmarEscolha()">Confirmar</button>
-                <button onclick="fecharPopup()">Cancelar</button>
-              </div>
-              <li><a class="menu__dash-link active" href="#">GERAL</a></li>
+              <li>
+                <a class="menu__dash-link active geral" href="#">GERAL</a>
+              </li>
               <li><a class="menu__dash-link" href="#">COFINS</a></li>
-
               <li><a class="menu__dash-link" href="#">IRPF</a></li>
               <li><a class="menu__dash-link" href="#">IRPJ</a></li>
               <li><a class="menu__dash-link" href="#">PIS</a></li>
               <li><a class="menu__dash-link" href="#">PASEP</a></li>
               <li><a class="menu__dash-link" href="#">CSS</a></li>
-
-              <li>
-                <input
-                  class="input-container"
-                  type="text"
-                  name="username"
-                  placeholder="Procure Aqui"
-                />
-                <i class="ri-search-line"></i>
-              </li>
             </ul>
           </nav>
 
-          <nav class="menu__container2">
-            <ul class="menu__confins"></ul>
+          <!-- Popup -->
+          <div id="popup">
+            <h2>Selecione para visualizar os dados</h2>
+            <p>Filtre de acordo com a sua necessidade</p>
+            <label
+              ><input type="checkbox" id="verde" value="Verde" /> Gráficos -
+              Erros de apuração</label
+            >
+            <hr />
+            <label
+              ><input type="checkbox" id="amarelo" value="Amarelo" /> Saldo
+              acumulado</label
+            >
+            <hr />
+            <label
+              ><input type="checkbox" id="azul" value="Azul" /> Priorização de
+              tarefas</label
+            >
+            <hr />
+            <button onclick="confirmarEscolha()">Confirmar</button>
+            <button onclick="fecharPopup()">Cancelar</button>
+          </div>
+          <div id="overlay"></div>
 
+          <nav class="menu__container2">
             <ul class="menu__confins">
-              <div class="confins__choose">
-             
-              </div>
+              <div class="confins__choose"></div>
               <div class="menu__right">
-                <li><a class="menu__dash-link active" href="#">Esse Mês</a></li>
-                <li><a class="menu__dash-link" href="#">Mês Passado</a></li>
-                <li><a class="menu__dash-link" href="#">Este ano</a></li>
+                <li><a class="item__time first" href="#">Esse Mês</a></li>
+                <li><a class="item__time" href="#">Mês Passado</a></li>
+                <li><a class="item__time" href="#">Este ano</a></li>
                 <li>
-                  <a class="menu__dash-link" href="#">Últimos 12 meses</a>
+                  <a class="item__time last" href="#">Últimos 12 meses</a>
                 </li>
+              </div>
+
+              <div class="menu__calendar">
                 <li>
-                  <a class="menu__dash-link" href="#">
+                  <a class="item__time" href="#">
                     <i class="ri-calendar-line"></i> Selecionar período
                   </a>
                 </li>

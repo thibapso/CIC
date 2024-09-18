@@ -156,6 +156,10 @@ body.dark-theme {
   color: var(--textHeader-color);
 }
 
+.geral {
+  font-weight: 800;
+}
+
 .header__right {
   display: flex;
   align-items: center;
@@ -286,19 +290,20 @@ hr {
   text-decoration: none;
   color: var(--text-color);
   position: relative;
-  padding: 0.5rem 1rem; /* Ajuste o padding conforme necessário */
+  padding: 0.5rem 1rem;
   transition: color 0.3s, background-color 0.3s;
   border-radius: 10px;
 }
 
-/* Estilo de hover e foco */
+/* Estilo de hover, foco e active */
 .menu__dash-link:hover,
 .menu__dash-link:focus,
 .menu__dash-link.active {
-  color: var(--textMenu-color);
+  color: var(--textMenu-color); /* Cor do texto para hover e active */
   border-radius: 0 10px 10px 0;
 }
 
+/* Linha decorativa ao passar o mouse ou ao estar ativo */
 .menu__dash-link:hover::after,
 .menu__dash-link.active::after {
   content: "";
@@ -306,23 +311,9 @@ hr {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 2px; /* Ajuste a altura da linha conforme necessário */
-  background-color: var(--textMenu-color);
+  height: 2px;
+  background-color: var(--textMenu-color); /* Linha embaixo com a cor do texto */
   border-radius: 0 10px 10px 0;
-}
-
-/* Estilo dos links no menu de configurações e outros menus */
-.menu__icons-link {
-  color: var(--text-color);
-  font-size: 1.2rem;
-}
-
-.menu__confins {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
 }
 
 .title_dash {
@@ -334,11 +325,6 @@ hr {
   color: var(--titleCard-color);
   font-size: 20px;
   font-weight: 600;
-}
-
-.menu__right {
-  display: flex;
-  gap: 30px;
 }
 
 .content {
@@ -562,7 +548,8 @@ hr {
   height: 28vh; /* Faz o container ocupar toda a altura da tela */
 }
 
-.card__info6, .card__info7 {
+.card__info6,
+.card__info7 {
   border: 1px solid #929397;
   padding: 1rem;
   width: 100%; /* Ocupa o espaço total da coluna */
@@ -577,13 +564,15 @@ hr {
   justify-content: space-between;
 }
 
-.card__info6 h2, .card__info7 h2 {
+.card__info6 h2,
+.card__info7 h2 {
   color: #283d5c;
   font-size: 16px;
   font-weight: 700;
 }
 
-.card__info6 img, .card__info7 img {
+.card__info6 img,
+.card__info7 img {
   border-radius: 100%;
 }
 
@@ -603,7 +592,8 @@ hr {
   line-height: 1.2;
 }
 
-.progress__info6, .progress__info7 {
+.progress__info6,
+.progress__info7 {
   height: 30px;
   border-radius: 0.2rem;
 }
@@ -829,8 +819,52 @@ hr {
 }
 
 .menu__confins {
+  margin: 3.5rem 0 1rem 1.5rem;
   list-style-type: none;
   display: flex;
+  justify-content: flex-start;
+}
+
+.menu__right {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.menu__calendar {
+  display: flex;
+  margin: 1rem;
+}
+
+.menu__calendar a {
+  border-radius: 10px;
+}
+
+.item__time {
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(236, 239, 242, 1);
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(81, 103, 120, 1);
+}
+
+/* Estilização para hover */
+.item__time:hover {
+  background-color: rgba(239, 246, 255, 1);
+  color: rgba(0, 99, 247, 1);
+}
+
+/* Estilização para link clicado (ativo) */
+.item__time.active {
+  background-color: rgba(239, 246, 255, 1); /* Mesmo estilo do hover */
+  color: rgba(0, 99, 247, 1); /* Mesmo estilo do hover */
+}
+
+.first {
+  border-radius: 10px 0 0 10px;
+}
+
+.last {
+  border-radius: 0 10px 10px 0;
 }
 
 .sidebar__link {
@@ -1032,7 +1066,7 @@ hr {
   background-color: white;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: 1000;
   border: 2px solid rgba(40, 61, 92, 1);
   border-radius: 25px;
 }
@@ -1067,4 +1101,5 @@ hr {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: none;
+  z-index: 500;
 }
