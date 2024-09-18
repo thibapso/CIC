@@ -132,7 +132,7 @@ function fecharPopup() {
   if (currentSelectedLink && currentSelectedLink !== previousSelectedLink) {
     currentSelectedLink.classList.remove("active");  // Remove 'active' do link que foi clicado
   }
-  
+
   // Fecha o popup e o overlay
   document.getElementById("popup").style.display = "none";
   document.getElementById("overlay").style.display = "none";
@@ -152,8 +152,6 @@ function confirmarEscolha() {
   if (document.getElementById("azul").checked) {
     coresEscolhidas.push("Azul");
   }
-
-  alert("Você escolheu: " + (coresEscolhidas.length > 0 ? coresEscolhidas.join(", ") : "Nenhuma cor"));
 
   // Atualiza o link ativo corretamente
   if (currentSelectedLink) {

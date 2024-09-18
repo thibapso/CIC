@@ -400,7 +400,7 @@ hr {
 .card__info2 {
   border: 1px solid #929397;
   width: 20rem;
-  height: 30rem;
+  height: auto;
   border-radius: 0.75rem;
 }
 
@@ -564,6 +564,58 @@ hr {
   justify-content: space-between;
 }
 
+.grafico__dados {
+  margin-top: 10px;
+}
+
+.grafico__1, .grafico__2, .grafico__3 {
+  display: flex;
+  font-weight: 700;
+  align-items: center;
+  padding-left: 1.5rem;
+  margin: 0.5rem;
+}
+
+.grafico__clipboard i, .grafico__calendar i, .grafico__chart i {
+  font-size: 20px;
+}
+
+.grafico__1 p, .grafico__2 p, .grafico__3 p {
+  color: #101828;
+  margin: 0 20px;
+  font-size: 12px;
+}
+
+.grafico__1 .grafico__porcentagem, .grafico__2 .grafico__porcentagem, .grafico__3 .grafico__porcentagem {
+  color: #668091;
+  margin-left: 1rem;
+}
+
+.grafico__3 .grafico__porcentagem {
+  margin-left: 2.4rem;
+}
+
+.grafico__clipboard {
+  background-color: #11A7AA;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.grafico__calendar {
+  background-color: #E54B69;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.grafico__chart {
+  background-color: #F5B354;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
 .card__info6 h2,
 .card__info7 h2 {
   color: #283d5c;
@@ -599,12 +651,12 @@ hr {
 }
 
 .progress__info6 {
-  width: 90%;
+  width: 95%;
   background-color: #39d98a;
 }
 
 .progress__info7 {
-  width: 20%;
+  width: 70%;
   background-color: #f5b354;
 }
 
@@ -1060,8 +1112,8 @@ hr {
 #popup {
   display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 40%;
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
