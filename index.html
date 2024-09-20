@@ -1,490 +1,657 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css"
+    />
 
-  <!--=============== REMIXICONS ===============-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/menu.css" />
 
-  <!--=============== CSS ===============-->
-  <link rel="stylesheet" href="assets/css/menu.css" />
+    <!--=============== CHART JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!--=============== CHART JS ===============-->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>CIC</title>
+  </head>
 
-  <title>CIC</title>
-</head>
+  <body>
+    <header class="header" id="header">
+      <div class="header__container">
+        <!-- Links de navegação à esquerda -->
+        <div class="header__links">
+          <nav class="menu">
+            <ul>
+              <li>
+                <a id="overview-link" class="menu__link" href="#overview"
+                  >Overview</a
+                >
+              </li>
+              <li>
+                <a id="dashboard-link" class="menu__link" href="#dashboard"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a id="controle-link" class="menu__link" href="#controle"
+                  >Controle</a
+                >
+              </li>
+              <li>
+                <a id="compliance-link" class="menu__link" href="#compliance"
+                  >Compliance</a
+                >
+              </li>
+              <li>
+                <a id="arquivo-link" class="menu__link" href="#arquivo"
+                  >Arquivo</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
 
-<body>
-  <header class="header" id="header">
-    <div class="header__container">
-      <!-- Links de navegação à esquerda -->
-      <div class="header__links">
-        <nav class="menu">
-          <ul>
+        <!-- Logo e ícones à direita -->
+        <div class="header__right">
+          <a href="#" class="header__logo">
+            <div class="header__user">
+              <img
+                class="header__logo-img"
+                src="assets/img/perfil.png"
+                alt="profile image"
+              />
+            </div>
+          </a>
+
+          <ul class="menu__icons-right">
             <li>
-              <a id="overview-link" class="menu__link" href="#overview">Overview</a>
+              <a class="menu__icons-link" href="#contato">
+                <i class="ri-question-line"></i>
+              </a>
             </li>
             <li>
-              <a id="dashboard-link" class="menu__link" href="#dashboard">Dashboard</a>
+              <a class="menu__icons-link" href="#contato">
+                <i class="ri-settings-3-fill"></i>
+              </a>
             </li>
             <li>
-              <a id="controle-link" class="menu__link" href="#controle">Controle</a>
-            </li>
-            <li>
-              <a id="compliance-link" class="menu__link" href="#compliance">Compliance</a>
-            </li>
-            <li>
-              <a id="arquivo-link" class="menu__link" href="#arquivo">Arquivo</a>
+              <a class="menu__icons-link" href="#contato">
+                <i class="ri-notification-3-line"></i>
+              </a>
             </li>
           </ul>
-        </nav>
-      </div>
-
-      <!-- Logo e ícones à direita -->
-      <div class="header__right">
-        <a href="#" class="header__logo">
-          <div class="header__user">
-            <img class="header__logo-img" src="assets/img/perfil.png" alt="profile image" />
-          </div>
-        </a>
-
-        <ul class="menu__icons-right">
-          <li>
-            <a class="menu__icons-link" href="#contato">
-              <i class="ri-question-line"></i>
-            </a>
-          </li>
-          <li>
-            <a class="menu__icons-link" href="#contato">
-              <i class="ri-settings-3-fill"></i>
-            </a>
-          </li>
-          <li>
-            <a class="menu__icons-link" href="#contato">
-              <i class="ri-notification-3-line"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </header>
-
-
- 
-    
-  
-
-  <!--=============== SIDEBAR ===============-->
-  <nav class="sidebar" id="sidebar">
-    <div class="sidebar__container">
-      <div class="sidebar__user">
-        <div class="sidebar__info">
-          <!-- Adicione a foto do perfil ou qualquer outra informação do usuário aqui -->
         </div>
-
-        <a href="#">
-          <h1 class="menu_text">
-            <button class="header__toggle" id="header-toggle">
-              <i class="ri-menu-line"></i>
-            </button>
-            
-          </h1>
-        </a>
       </div>
+    </header>
 
-      <a href="#overview" class="sidebar__link overview-link active-link">
-        <i class="ri-dashboard-fill"></i>
-        <span>Overview</span>
-      </a>
-      <div class="sidebar__content">
-        <div>
-          <div class="sidebar__list">
-            <a href="#dashboard" class="sidebar__link">
-              <i class="ri-pie-chart-2-fill"></i>
-              <span>Dashboard</span>
-            </a>
-
-            <a href="#controle" class="sidebar__link">
-              <i class="ri-list-check"></i>
-              <span>Controle</span>
-            </a>
-
-            <a href="#compliance" class="sidebar__link">
-              <i class="ri-calendar-fill"></i>
-              <span>Compliance</span>
-            </a>
-
-            <a href="#arquivo" class="sidebar__link">
-              <i class="ri-arrow-up-down-line"></i>
-              <span>Arquivo</span>
-            </a>
+    <!--=============== SIDEBAR ===============-->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar__container">
+        <div class="sidebar__user">
+          <div class="sidebar__info">
+            <!-- Adicione a foto do perfil ou qualquer outra informação do usuário aqui -->
           </div>
-        </div>
 
-        <hr />
-
-        <div>
-          <h3 class="sidebar__title"></h3>
-
-          <div class="sidebar__list">
-            <a href="#" class="sidebar__link">
-              <i class="ri-settings-3-fill"></i>
-              <span>Configurações</span>
-            </a>
-
-            <a href="#" class="sidebar__link">
-              <i class="ri-user-fill"></i>
-              <span>Usuário</span>
-            </a>
-
-            <a href="#" class="sidebar__link">
-              <i class="ri-question-line"></i>
-              <span>Help</span>
-            </a>
-
-            <!-- Link "Tema" com o ID e classes corretos -->
-            <div class="sidebar__actions">
-              <button>
-                <i class="ri-moon-clear-fill sidebar__link sidebar__theme" id="theme-button">
-                  <span>Tema</span>
-                </i>
+          <a href="#">
+            <h1 class="menu_text">
+              <button class="header__toggle" id="header-toggle">
+                <i class="ri-menu-line"></i>
               </button>
-            </div>
-          </div>
+            </h1>
+          </a>
         </div>
-      </div>
-  </nav>
 
-  <!--=============== MAIN ===============-->
-  <main class="main container" id="main">
-    <!-- Menu -->
-    <nav class="menu__container">
-      <ul class="menu__dash">
-        <li>
-          <a class="menu__dash-link active geral" href="#">GERAL</a>
-        </li>
-        <li><a class="menu__dash-link" href="#">COFINS</a></li>
-        <li><a class="menu__dash-link" href="#">IRPF</a></li>
-        <li><a class="menu__dash-link" href="#">IRPJ</a></li>
-        <li><a class="menu__dash-link" href="#">PIS</a></li>
-        <li><a class="menu__dash-link" href="#">PASEP</a></li>
-        <li><a class="menu__dash-link" href="#">CSS</a></li>
-        <li class="icon">
-          <div class="input__menu">
-          <a class="menu__dash-link" href="#">
-          <i class="ri-search-line icon-1"></i>
-          <input class="input-container" type="text" name="username" placeholder="Procure Aqui" />
-          <i class="ri-search-line icon-2"></i>
+        <a href="#overview" class="sidebar__link overview-link active-link">
+          <i class="ri-dashboard-fill"></i>
+          <span>Overview</span>
         </a>
-        </li>
-      
+        <div class="sidebar__content">
+          <div>
+            <div class="sidebar__list">
+              <a href="#dashboard" class="sidebar__link">
+                <i class="ri-pie-chart-2-fill"></i>
+                <span>Dashboard</span>
+              </a>
 
-          
+              <a href="#controle" class="sidebar__link">
+                <i class="ri-list-check"></i>
+                <span>Controle</span>
+              </a>
+
+              <a href="#compliance" class="sidebar__link">
+                <i class="ri-calendar-fill"></i>
+                <span>Compliance</span>
+              </a>
+
+              <a href="#arquivo" class="sidebar__link">
+                <i class="ri-arrow-up-down-line"></i>
+                <span>Arquivo</span>
+              </a>
+            </div>
+          </div>
+
+          <hr />
+
+          <div>
+            <h3 class="sidebar__title"></h3>
+
+            <div class="sidebar__list">
+              <a href="#" class="sidebar__link">
+                <i class="ri-settings-3-fill"></i>
+                <span>Configurações</span>
+              </a>
+
+              <a href="#" class="sidebar__link">
+                <i class="ri-user-fill"></i>
+                <span>Usuário</span>
+              </a>
+
+              <a href="#" class="sidebar__link">
+                <i class="ri-question-line"></i>
+                <span>Help</span>
+              </a>
+
+              <!-- Link "Tema" com o ID e classes corretos -->
+              <div class="sidebar__actions">
+                <button>
+                  <i
+                    class="ri-moon-clear-fill sidebar__link sidebar__theme"
+                    id="theme-button"
+                  >
+                    <span>Tema</span>
+                  </i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-         
-        
-  
-      </ul>
-      
-      <a href="#" class="header__logo2">
-        <div class="header__user2">
-          <img class="header__logo-img2" src="assets/img/perfil.png" alt="profile image" />
-        </div>
-      </a>  
-    </nav>
+      </nav>
 
-    <!-- Popup -->
-    <div id="popup">
-      <h2>Selecione para visualizar os dados</h2>
-      <p>Filtre de acordo com a sua necessidade</p>
-      <label><input type="checkbox" id="verde" value="Verde" /> Gráficos -
-        Erros de apuração</label>
-      <hr />
-      <label><input type="checkbox" id="amarelo" value="Amarelo" /> Saldo
-        acumulado</label>
-      <hr />
-      <label><input type="checkbox" id="azul" value="Azul" /> Priorização de
-        tarefas</label>
-      <hr />
-      <button onclick="confirmarEscolha()">Confirmar</button>
-      <button onclick="fecharPopup()">Cancelar</button>
-    </div>
-    <div id="overlay"></div>
+        <!--=============== MAIN ===============-->
+        <main class="main container" id="main">
+          <!-- Menu -->
+          <nav class="menu__container">
+            <ul class="menu__dash">
+              <li>
+                <a class="menu__dash-link active geral" href="#">GERAL</a>
+              </li>
+              <li><a class="menu__dash-link" href="#">COFINS</a></li>
+              <li><a class="menu__dash-link" href="#">IRPF</a></li>
+              <li><a class="menu__dash-link" href="#">IRPJ</a></li>
+              <li><a class="menu__dash-link" href="#">PIS</a></li>
+              <li><a class="menu__dash-link" href="#">PASEP</a></li>
+              <li><a class="menu__dash-link" href="#">CSS</a></li>
+              <li class="icon">
+                <div class="input__menu">
+                  <a class="menu__dash-link" href="#">
+                    <i class="ri-search-line icon-1"></i>
+                    <input
+                      class="input-container"
+                      type="text"
+                      name="username"
+                      placeholder="Procure Aqui"
+                    />
+                    <i class="ri-search-line icon-2"></i>
+                  </a>
+                </div>
+              </li>
+            </ul>
 
-    <nav class="menu__container2">
-      <ul class="menu__confins">
-        <div class="confins__choose"></div>
-        <div class="menu__right">
-          <li><a class="item__time first" href="#">Esse Mês</a></li>
-          <li><a class="item__time" href="#">Mês Passado</a></li>
-          <li><a class="item__time" href="#">Este ano</a></li>
-          <li>
-            <a class="item__time last" href="#">Últimos 12 meses</a>
-          </li>
-        </div>
-
-        <div class="menu__calendar">
-          <li>
-            <a class="item__time" href="#">
-              <i class="ri-calendar-line"></i> Selecionar período
+            <a href="#" class="header__logo2">
+              <div class="header__user2">
+                <img
+                  class="header__logo-img2"
+                  src="assets/img/perfil.png"
+                  alt="profile image"
+                />
+              </div>
             </a>
-          </li>
-        </div>
-      </ul>
+          </nav>
+
+          <!-- Popup -->
+          <div id="popup">
+            <div class="popup__title">
+              <h2>Selecione para visualizar os dados</h2>
+              <div class="popup__close" onclick="fecharPopup()">
+                <i class="ri-close-circle-line"></i>
+              </div>
+            </div>
+            <p class="popup__subtitle">
+              Filtre de acordo com a sua necessidade
+            </p>
+
+            <div class="popup__escolha">
+              <p>Gráficos - Erros de apuração</p>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  checked
+                  data-target=".grafico"
+                  onchange="toggleImagem(this)"
+                />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="popup__imagem grafico">
+              <img src="assets/img/popup/grafico.png" alt="" />
+            </div>
+
+            <hr />
+
+            <div class="popup__escolha">
+              <p>Saldo acumulado</p>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  checked
+                  data-target=".saldo"
+                  onchange="toggleImagem(this)"
+                />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="popup__imagem saldo">
+              <img src="assets/img/popup/debito.jpg" alt="" />
+              <img src="assets/img/popup/credito.jpg" alt="" />
+            </div>
+
+            <hr />
+
+            <div class="popup__escolha">
+              <p>Priorização de tarefas</p>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  checked
+                  data-target=".prioridade"
+                  onchange="toggleImagem(this)"
+                />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="popup__imagem prioridade">
+              <img src="assets/img/popup/prioridade.jpg" alt="" />
+            </div>
+
+            <hr />
+
+            <div class="popup__escolha">
+              <p>Divergências</p>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  checked
+                  data-target=".divergencias"
+                  onchange="toggleImagem(this)"
+                />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="popup__imagem divergencias">
+              <img src="assets/img/popup/divergencias.jpg" alt="" />
+            </div>
+
+            <hr />
+
+            <button class="popup__cancelar" onclick="fecharPopup()">
+              Cancelar
+            </button>
+            <button class="popup__confirmar" onclick="confirmarEscolha()">
+              Confirmar
+            </button>
+          </div>
+
+          <div id="overlay"></div>
+
+          <nav class="menu__container2">
+            <ul class="menu__confins">
+              <div class="confins__choose"></div>
+              <div class="menu__right">
+                <li><a class="item__time first" href="#">Esse Mês</a></li>
+                <li><a class="item__time" href="#">Mês Passado</a></li>
+                <li><a class="item__time" href="#">Este ano</a></li>
+                <li>
+                  <a class="item__time last" href="#">Últimos 12 meses</a>
+                </li>
+              </div>
+
+              <div class="menu__calendar">
+                <li>
+                  <a class="item__time" href="#">
+                    <i class="ri-calendar-line"></i> Selecionar período
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </nav>
+
+          <section class="content">
+            <div class="content__left">
+              <div class="card__container-1">
+                <div class="card__info1">
+                  <h2>Nome da Empresa</h2>
+                  <div class="info1__renda">
+                    <p>R$30.000</p>
+                    <div class="info1__renda__progresso">
+                      <img
+                        src="assets/img/icons/seta.svg"
+                        alt="seta para cima"
+                      />
+                      <p>12,5%</p>
+                    </div>
+                  </div>
+                  <div class="info1__governo">
+                    <p>Governo</p>
+                    <p>R$30.000</p>
+                  </div>
+                </div>
+
+                <div class="card__info2">
+                  <div class="card__upper">
+                    <h2>Categorias</h2>
+                  </div>
+                  <canvas id="graficoU"></canvas>
+                  <div class="grafico__dados">
+                    <div class="grafico__1">
+                      <div class="grafico__clipboard">
+                        <i class="ri-clipboard-line"></i>
+                      </div>
+                      <p>Declarações de compensação</p>
+                      <p class="grafico__porcentagem">41,35%</p>
+                    </div>
+                    <hr />
+                    <div class="grafico__2">
+                      <div class="grafico__calendar">
+                        <i class="ri-calendar-line"></i>
+                      </div>
+                      <p>Processo administrativo</p>
+                      <p class="grafico__porcentagem">21,51%</p>
+                    </div>
+                    <hr />
+                    <div class="grafico__3">
+                      <div class="grafico__chart">
+                        <i class="ri-bar-chart-line"></i>
+                      </div>
+                      <p>Pedidos de crédito</p>
+                      <p class="grafico__porcentagem">21,51%</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content__right">
+              <p class="title_dash title_card">Saldo acumulado</p>
+              <div class="card__container-3">
+                <div class="card__info3">
+                  <div class="card__number">
+                    <h2>23</h2>
+                    <img
+                      class="card__action"
+                      src="assets/img/icons/saldo1.svg"
+                      alt="ícone de lupa com moeda"
+                    />
+                  </div>
+                  <div class="card__duvida">
+                    <p class="card__item">Pedidos</p>
+                    <img
+                      class="duvidaIcon"
+                      src="assets/img/icons/duvida.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__grow debito">
+                    <img src="assets/img/icons/quantidade.svg" alt="" />
+                    <p class="card__item">2 adicionadas</p>
+                  </div>
+
+                  <div class="info3__barra"></div>
+                </div>
+
+                <div class="card__info4">
+                  <div class="card__number">
+                    <h2>R$5.2mil</h2>
+                    <img
+                      class="card__action"
+                      src="assets/img/icons/saldo2.svg"
+                      alt="ícone de relogio contador"
+                    />
+                  </div>
+                  <div class="card__duvida">
+                    <p class="card__item">Créditos disponíveis</p>
+                    <img
+                      class="duvidaIcon"
+                      src="assets/img/icons/duvida.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__grow credito">
+                    <img src="assets/img/icons/aumentar.svg" alt="" />
+                    <p class="card__item">+ 10% de aumento</p>
+                  </div>
+
+                  <div class="info4__barra"></div>
+                </div>
+
+                <div class="card__info5">
+                  <div class="card__number">
+                    <h2>R$13.mil</h2>
+                    <img
+                      class="card__action"
+                      src="assets/img/icons/saldo3.svg"
+                      alt="ícone de nubem com relógio"
+                    />
+                  </div>
+                  <div class="card__duvida">
+                    <p class="card__item">Compensações pagas</p>
+                    <img
+                      class="duvidaIcon"
+                      src="assets/img/icons/duvida.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__grow resultado">
+                    <img src="assets/img/icons/aumentar.svg" alt="" />
+                    <p class="card__item">+ 18.5% de aumento</p>
+                  </div>
+                  <div class="info5__barra"></div>
+                </div>
+              </div>
+              <p class="title_dash title_card">Priorização de tarefas</p>
+              <div class="card__container-6">
+                <div class="card__info6">
+                  <div class="card__upper">
+                    <h2>Cofins - ID 0001 | 19 de maio</h2>
+                    <img src="assets/img/perfil__card6.png" alt="" />
+                  </div>
+                  <p>Valor declarado a menos</p>
+                  <div class="card__progress">
+                    <i class="ri-list-check"></i>
+                    <p>Progresso</p>
+                  </div>
+                  <div class="container__barra">
+                    <div class="skills progress__info6">95%</div>
+                  </div>
+                  <div class="card__date">
+                    <p>21 de maio</p>
+                    <i class="ri-arrow-down-s-line"></i>
+                  </div>
+                </div>
+
+                <div class="card__info7">
+                  <div class="card__upper">
+                    <h2>Cofins - ID 0002 | 19 de maio</h2>
+                    <img src="assets/img/perfil__card7.png" alt="" />
+                  </div>
+                  <p>Valor declarado a menos</p>
+                  <div class="card__progress">
+                    <i class="ri-list-check"></i>
+                    <p>Progresso</p>
+                  </div>
+                  <div class="container__barra">
+                    <div class="skills progress__info7">70%</div>
+                  </div>
+                  <div class="card__date">
+                    <p>21 de maio</p>
+                    <i class="ri-arrow-down-s-line"></i>
+                  </div>
+                </div>
+                <div class="info-popup" id="infoPopup6" style="display: none">
+                  <div class="info-popup__content">
+                    <span class="close" id="closeInfoPopup6">&times;</span>
+                    <div class="popup-card__title">
+                      <h3>Classificação</h3>
+                      <h3>Status</h3>
+                    </div>
+                    <div class="popup-card__item">
+                      Divergência 01
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <div class="popup-card__item">
+                      Divergência 02
+                      <i class="ri-check-line"></i>
+                    </div>
+                    <div class="popup-card__item">
+                      Divergência 03
+                      <i class="ri-check-line"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="info-popup" id="infoPopup7" style="display: none">
+                  <div class="info-popup__content">
+                    <span class="close" id="closeInfoPopup7">&times;</span>
+                    <div class="popup-card__title">
+                      <h3>Classificação</h3>
+                      <h3>Status</h3>
+                    </div>
+                    <div class="popup-card__item">
+                      Divergência 01
+                      <i class="ri-error-warning-line"></i>
+                    </div>
+                    <div class="popup-card__item">
+                      Divergência 02
+                      <i class="ri-error-warning-line"></i>
+                    </div>
+                    <div class="popup-card__item">
+                      Divergência 03
+                      <i class="ri-error-warning-line"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card__container-8">
+                  <div class="card__info8">
+                    <div class="info8__title">
+                      <h2>Divergências</h2>
+                      <input
+                        class="input-container2"
+                        type="text"
+                        name="username"
+                        placeholder="Pesquisar"
+                      />
+                      <div class="title__calendar">
+                        <i class="ri-calendar-line"></i>
+                        <p>10 Maio - 20 Maio</p>
+                      </div>
+                      <div class="title__equalizer">
+                        <i class="ri-equalizer-line"></i>
+                        <p>Filtrar</p>
+                      </div>
+                    </div>
+                    <hr class="linha__title" />
+                    <ul class="list__title">
+                      <li>NF</li>
+                      <li>Municipio</li>
+                      <li>Valor da nota</li>
+                      <li>Valor do governo</li>
+                      <li>Data</li>
+                      <li>Descrição</li>
+                      <li>Crédito</li>
+                      <li>Diferença</li>
+                    </ul>
+                    <hr class="linha__title" />
+                    <ul>
+                      <li>0008472</li>
+                      <li>(BH)</li>
+                      <li>R$37.054</li>
+                      <li>R$35.054</li>
+                      <li>25/05/2024</li>
+                      <li class="description certo">Tudo certo</li>
+                      <li class="list__credito">R$ 2.000</li>
+                      <li class="list__diferenca">R$-</li>
+                    </ul>
+                    <hr />
+                    <ul>
+                      <li>0003452</li>
+                      <li>(RJ)</li>
+                      <li>R$48.245</li>
+                      <li>R$46.245</li>
+                      <li>19/05/2024</li>
+                      <li class="description verificar">Verificar</li>
+                      <li>R$ 0</li>
+                      <li>-R$2.000</li>
+                    </ul>
+                    <hr />
+                    <ul>
+                      <li>0009872</li>
+                      <li>(SP)</li>
+                      <li>R$150.000</li>
+                      <li>R$150.150</li>
+                      <li>19/05/2024</li>
+                      <li class="description verificar">Verificar</li>
+                      <li>R$ 0</li>
+                      <li>-R$150</li>
+                    </ul>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+
+              <!--=============== MAIN JS ===============-->
+              <script src="assets/js/menu.js"></script>
+
+              <script>
+                var ctx = document.getElementById("graficoU").getContext("2d");
+                var graficoU = new Chart(ctx, {
+                  type: "doughnut",
+                  data: {
+                    datasets: [
+                      {
+                        data: [1, 85, 5, 3, 20],
+                        backgroundColor: [
+                          "rgba(75, 192, 192, 0.9)",
+                          "rgba(255, 159, 64, 0.9)",
+                          "rgba(255, 99, 132, 0.9)",
+
+                          "rgba(153, 102, 255, 0.9)",
+                          "rgba(201, 203, 207, 0.9)",
+                        ],
+                        borderColor: "rgba(0, 0, 0, 0.1)", // Ajustando a borda
+                        borderWidth: 2,
+                      },
+                    ],
+                  },
+                  options: {
+                    responsive: true,
+                    rotation: Math.PI / 4, // Inicia no ponto inferior
+                    circumference: 109.5 * Math.PI, // Faz com que o
+                    cutout: "50%",
+                    plugins: {
+                      legend: {
+                        position: "top",
+                      },
+                    },
+                  },
+                });
+              </script>
+            </div>
+          </section>
+        </main>
+      </div>
     </nav>
-
-    <section class="content">
-      <div class="content__left">
-        <div class="card__container-1">
-          <div class="card__info1">
-            <h2>Nome da Empresa</h2>
-            <div class="info1__renda">
-              <p>R$30.000</p>
-              <div class="info1__renda__progresso">
-                <img src="assets/img/icons/seta.svg" alt="seta para cima" />
-                <p>12,5%</p>
-              </div>
-            </div>
-            <div class="info1__governo">
-              <p>Governo</p>
-              <p>R$30.000</p>
-            </div>
-          </div>
-
-          <div class="card__info2">
-            <div class="card__upper">
-              <h2>Categorias</h2>
-            </div>
-            <canvas id="graficoU"></canvas>
-            <div class="grafico__dados">
-              <div class="grafico__1">
-                <div class="grafico__clipboard">
-                  <i class="ri-clipboard-line"></i>
-                </div>
-                <p>Declarações de compensação</p>
-                <p class="grafico__porcentagem">41,35%</p>
-              </div>
-              <hr>
-              <div class="grafico__2">
-                <div class="grafico__calendar">
-                  <i class="ri-calendar-line"></i>
-                </div>
-                <p>Processo administrativo</p>
-                <p class="grafico__porcentagem">21,51%</p>
-              </div>
-              <hr>
-              <div class="grafico__3">
-                <div class="grafico__chart">
-                  <i class="ri-bar-chart-line"></i>
-                </div>
-                <p>Pedidos de crédito</p>
-                <p class="grafico__porcentagem">21,51%</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="content__right">
-        <p class="title_dash title_card">Saldo acumulado</p>
-        <div class="card__container-3">
-          <div class="card__info3">
-            <div class="card__number">
-              <h2>23</h2>
-              <img class="card__action" src="assets/img/icons/saldo1.svg" alt="ícone de lupa com moeda" />
-            </div>
-            <div class="card__duvida">
-              <p class="card__item">Pedidos</p>
-              <img src="assets/img/icons/duvida.svg" alt="" />
-            </div>
-            <div class="card__grow debito">
-              <img src="assets/img/icons/quantidade.svg" alt="" />
-              <p class="card__item">2 adicionadas</p>
-            </div>
-
-            <div class="info3__barra"></div>
-          </div>
-
-          <div class="card__info4">
-            <div class="card__number">
-              <h2>R$5.2mil</h2>
-              <img class="card__action" src="assets/img/icons/saldo2.svg" alt="ícone de relogio contador" />
-            </div>
-            <div class="card__duvida">
-              <p class="card__item">Créditos disponíveis</p>
-              <img src="assets/img/icons/duvida.svg" alt="" />
-            </div>
-            <div class="card__grow credito">
-              <img src="assets/img/icons/aumentar.svg" alt="" />
-              <p class="card__item">+ 10% de aumento</p>
-            </div>
-
-            <div class="info4__barra"></div>
-          </div>
-
-          <div class="card__info5">
-            <div class="card__number">
-              <h2>R$13.mil</h2>
-              <img class="card__action" src="assets/img/icons/saldo3.svg" alt="ícone de nubem com relógio" />
-            </div>
-            <div class="card__duvida">
-              <p class="card__item">Compensações pagas</p>
-              <img src="assets/img/icons/duvida.svg" alt="" />
-            </div>
-            <div class="card__grow resultado">
-              <img src="assets/img/icons/aumentar.svg" alt="" />
-              <p class="card__item">+ 18.5% de aumento</p>
-            </div>
-            <div class="info5__barra"></div>
-          </div>
-        </div>
-        <p class="title_dash title_card">Priorização de tarefas</p>
-        <div class="card__container-6">
-          <div class="card__info6">
-            <div class="card__upper">
-              <h2>Cofins - ID 0001 | 19 de maio</h2>
-              <img src="assets/img/perfil__card6.png" alt="" />
-            </div>
-            <p>Valor declarado a menos</p>
-            <div class="card__progress">
-              <i class="ri-list-check"></i>
-              <p>Progresso</p>
-            </div>
-            <div class="container__barra">
-              <div class="skills progress__info6">95%</div>
-            </div>
-            <div class="card__date">
-              <p>21 de maio</p>
-              <i class="ri-arrow-down-s-line"></i>
-            </div>
-          </div>
-
-          <div class="card__info7">
-            <div class="card__upper">
-              <h2>Cofins - ID 0002 | 19 de maio</h2>
-              <img src="assets/img/perfil__card7.png" alt="" />
-            </div>
-            <p>Valor declarado a menos</p>
-            <div class="card__progress">
-              <i class="ri-list-check"></i>
-              <p>Progresso</p>
-            </div>
-            <div class="container__barra">
-              <div class="skills progress__info7">70%</div>
-            </div>
-            <div class="card__date">
-              <p>21 de maio</p>
-              <i class="ri-arrow-down-s-line"></i>
-            </div>
-          </div>
-
-          <div class="card__container-8">
-            <div class="card__info8">
-              <div class="info8__title">
-                <h2>Divergências</h2>
-                <input class="input-container2" type="text" name="username" placeholder="Pesquisar" />
-                <div class="title__calendar">
-                  <i class="ri-calendar-line"></i>
-                  <p>10 Maio - 20 Maio</p>
-                </div>
-                <div class="title__equalizer">
-                  <i class="ri-equalizer-line"></i>
-                  <p>Filtrar</p>
-                </div>
-              </div>
-              <hr class="linha__title" />
-              <ul class="list__title">
-                <li>NF</li>
-                <li>Municipio</li>
-                <li>Valor da nota</li>
-                <li>Valor do governo</li>
-                <li>Data</li>
-                <li>Descrição</li>
-                <li>Crédito</li>
-                <li>Diferença</li>
-              </ul>
-              <hr class="linha__title" />
-              <ul>
-                <li>0008472</li>
-                <li>(BH)</li>
-                <li>R$37.054</li>
-                <li>R$35.054</li>
-                <li>25/05/2024</li>
-                <li class="description certo">Tudo certo</li>
-                <li class="list__credito">R$ 2.000</li>
-                <li class="list__diferenca">R$-</li>
-              </ul>
-              <hr />
-              <ul>
-                <li>0003452</li>
-                <li>(RJ)</li>
-                <li>R$48.245</li>
-                <li>R$46.245</li>
-                <li>19/05/2024</li>
-                <li class="description verificar">Verificar</li>
-                <li>R$ 0</li>
-                <li>-R$2.000</li>
-              </ul>
-              <hr />
-              <ul>
-                <li>0009872</li>
-                <li>(SP)</li>
-                <li>R$150.000</li>
-                <li>R$150.150</li>
-                <li>19/05/2024</li>
-                <li class="description verificar">Verificar</li>
-                <li>R$ 0</li>
-                <li>-R$150</li>
-              </ul>
-              <hr />
-            </div>
-          </div>
-        </div>
-
-        <!--=============== MAIN JS ===============-->
-        <script src="assets/js/menu.js"></script>
-
-        <script>
-          var ctx = document.getElementById("graficoU").getContext("2d");
-          var graficoU = new Chart(ctx, {
-            type: "doughnut",
-            data: {
-              datasets: [
-                {
-                  data: [1, 85, 5, 3, 20],
-                  backgroundColor: [
-                    "rgba(75, 192, 192, 0.9)",
-                    "rgba(255, 159, 64, 0.9)",
-                    "rgba(255, 99, 132, 0.9)",
-
-                    "rgba(153, 102, 255, 0.9)",
-                    "rgba(201, 203, 207, 0.9)",
-                  ],
-                  borderColor: "rgba(0, 0, 0, 0.1)", // Ajustando a borda
-                  borderWidth: 2,
-                },
-              ],
-            },
-            options: {
-              responsive: true,
-              rotation: Math.PI / 4, // Inicia no ponto inferior
-              circumference: 109.5 * Math.PI, // Faz com que o
-              cutout: "50%",
-              plugins: {
-                legend: {
-                  position: "top",
-                },
-              },
-            },
-          });
-        </script>
-      </div>
-    </section>
-  </main>
-  </div>
-  </nav>
-</body>
-
+  </body>
 </html>

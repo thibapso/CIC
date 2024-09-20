@@ -99,10 +99,69 @@ const setActiveLinkForMenuTime = (selector) => {
 // Aplica a função aos links no menu de tempo
 setActiveLinkForMenuTime(".item__time");
 
-
 // Adiciona um evento de clique a cada link
 menuDashLinks.forEach((link) => {
   link.addEventListener("click", handleMenuLinkClick);
+});
+
+/*=============== Hover Duvida ===============*/
+
+const duvidaIcons = document.querySelectorAll(".duvidaIcon");
+
+// Cria o tooltip
+const tooltip = document.createElement("div");
+tooltip.className = "tooltip";
+tooltip.textContent =
+  "Pedidos refere a compensações de pagamentos recolhidos indevidamente ou a maior.";
+document.body.appendChild(tooltip);
+
+/*=============== POPUP TAREFAS ===============*/
+
+const infoPopup6 = document.getElementById("infoPopup6");
+const closeInfoPopup6 = document.getElementById("closeInfoPopup6");
+const infoPopup7 = document.getElementById("infoPopup7");
+const closeInfoPopup7 = document.getElementById("closeInfoPopup7");
+const arrowIcons = document.querySelectorAll(
+  ".card__date i.ri-arrow-down-s-line"
+);
+
+arrowIcons[0].addEventListener("click", () => {
+  infoPopup6.style.display = "flex"; // Mostra o popup do card 6
+});
+
+arrowIcons[1].addEventListener("click", () => {
+  infoPopup7.style.display = "flex"; // Mostra o popup do card 7
+});
+
+closeInfoPopup6.addEventListener("click", () => {
+  infoPopup6.style.display = "none"; // Esconde o popup do card 6
+});
+
+closeInfoPopup7.addEventListener("click", () => {
+  infoPopup7.style.display = "none"; // Esconde o popup do card 7
+});
+
+// Fecha os popups ao clicar fora do conteúdo
+window.addEventListener("click", (event) => {
+  if (event.target === infoPopup6) {
+    infoPopup6.style.display = "none";
+  }
+  if (event.target === infoPopup7) {
+    infoPopup7.style.display = "none";
+  }
+});
+
+// Adiciona eventos de hover para cada ícone de dúvida
+duvidaIcons.forEach((icon) => {
+  icon.addEventListener("mouseover", function (event) {
+    tooltip.style.display = "block";
+    tooltip.style.left = event.pageX + "px";
+    tooltip.style.top = event.pageY + 20 + "px"; // Posiciona o tooltip
+  });
+
+  icon.addEventListener("mouseout", function () {
+    tooltip.style.display = "none";
+  });
 });
 
 /*=============== POPUP ===============*/
@@ -110,6 +169,26 @@ menuDashLinks.forEach((link) => {
 // Variável para armazenar o link anteriormente selecionado
 let previousSelectedLink = document.querySelector(".menu__dash-link.active");
 let currentSelectedLink = null;
+
+function confirmarEscolha() {
+  // Fecha o popup
+  fecharPopup();
+
+  // Remove a classe 'active' do item anterior, se houver
+  if (previousSelectedLink) {
+    previousSelectedLink.classList.remove("active");
+  }
+
+  // Verifica se o link clicado está armazenado e aplica o estilo 'active'
+  if (currentSelectedLink) {
+    currentSelectedLink.classList.add("active");
+  }
+
+  // Atualiza o anterior para o atual
+  previousSelectedLink = currentSelectedLink;
+
+  console.log("Escolha confirmada!");
+}
 
 // Função para abrir o popup
 function abrirPopup(event) {
@@ -127,10 +206,10 @@ function abrirPopup(event) {
 function fecharPopup() {
   // Se o usuário cancelar, reativa o link anterior e remove 'active' do atual
   if (previousSelectedLink) {
-    previousSelectedLink.classList.add("active");  // Adiciona 'active' ao link anterior
+    previousSelectedLink.classList.add("active"); // Adiciona 'active' ao link anterior
   }
   if (currentSelectedLink && currentSelectedLink !== previousSelectedLink) {
-    currentSelectedLink.classList.remove("active");  // Remove 'active' do link que foi clicado
+    currentSelectedLink.classList.remove("active"); // Remove 'active' do link que foi clicado
   }
 
   // Fecha o popup e o overlay
@@ -138,43 +217,50 @@ function fecharPopup() {
   document.getElementById("overlay").style.display = "none";
 }
 
+function toggleImagem(checkbox) {
+  const target = document.querySelector(checkbox.getAttribute("data-target"));
 
-// Função para confirmar a escolha
-function confirmarEscolha() {
-  let coresEscolhidas = [];
-
-  if (document.getElementById("verde").checked) {
-    coresEscolhidas.push("Verde");
-  }
-  if (document.getElementById("amarelo").checked) {
-    coresEscolhidas.push("Amarelo");
-  }
-  if (document.getElementById("azul").checked) {
-    coresEscolhidas.push("Azul");
-  }
-
-  // Atualiza o link ativo corretamente
-  if (currentSelectedLink) {
-    // Remove a classe 'active' do link anterior
-    if (previousSelectedLink) {
-      previousSelectedLink.classList.remove("active");
+  // Exibe ou oculta a imagem associada
+  if (checkbox.checked) {
+    // Verifica se é a div .saldo e mantém display flex
+    if (target.classList.contains("saldo")) {
+      target.style.display = "flex";
+    } else {
+      target.style.display = "block";
     }
-
-    // Adiciona a classe 'active' ao link atual
-    currentSelectedLink.classList.add("active");
-
-    // Atualiza o link anterior para o próximo uso
-    previousSelectedLink = currentSelectedLink;
+  } else {
+    target.style.display = "none";
   }
 
-  // Fecha o popup após confirmar
-  fecharPopup();
+  // Controle de opacidade para "Gráficos - Erros de apuração"
+  if (checkbox.getAttribute("data-target") === ".grafico") {
+    const cardInfo2 = document.querySelector(".card__info2");
+    cardInfo2.style.opacity = checkbox.checked ? "1" : "0.2";
+  }
+
+  // Controle de opacidade para "Saldo acumulado"
+  if (checkbox.getAttribute("data-target") === ".saldo") {
+    const cardContainer3 = document.querySelector(".card__container-3");
+    cardContainer3.style.opacity = checkbox.checked ? "1" : "0.2";
+  }
+
+  // Controle de opacidade para "Priorização de tarefas"
+  if (checkbox.getAttribute("data-target") === ".prioridade") {
+    const cardContainer6 = document.querySelector(".card__container-6");
+    cardContainer6.style.opacity = checkbox.checked ? "1" : "0.2";
+  }
+
+  // Controle de opacidade para "Divergências"
+  if (checkbox.getAttribute("data-target") === ".divergencias") {
+    const cardContainer8 = document.querySelector(".card__container-8");
+    cardContainer8.style.opacity = checkbox.checked ? "1" : "0.2";
+  }
 }
 
 // Seleciona todos os links do menu
 const menuLinks = document.querySelectorAll(".menu__dash-link");
 
 // Adiciona o evento de clique em cada link para abrir o popup
-menuLinks.forEach(link => {
+menuLinks.forEach((link) => {
   link.addEventListener("click", abrirPopup);
 });

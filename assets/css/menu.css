@@ -331,8 +331,27 @@ hr {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--textMenu-color); /* Linha embaixo com a cor do texto */
+  background-color: var(
+    --textMenu-color
+  ); /* Linha embaixo com a cor do texto */
   border-radius: 0 10px 10px 0;
+}
+
+/* Remove o hover para o input dentro do menu */
+.input__menu .menu__dash-link:hover,
+.input__menu .menu__dash-link:focus {
+  background-color: transparent; /* Remove qualquer cor de fundo no hover */
+  color: inherit; /* Mantém a cor original */
+}
+
+/* Ajuste para o próprio input, caso precise */
+.input__menu input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
 }
 
 .title_dash {
@@ -418,7 +437,6 @@ hr {
   height: 3rem;
 }
 
-
 .card__info2 {
   border: 1px solid #929397;
   width: 20rem;
@@ -471,6 +489,25 @@ hr {
 .card__duvida img {
   width: 0.8rem;
   height: 0.8rem;
+}
+
+/* Tooltip estilizado */
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 14px;
+  color: #333;
+  border-radius: 4px;
+  z-index: 100;
+}
+
+/* Estilização do ícone de dúvida */
+.duvidaIcon {
+  position: relative;
+  cursor: pointer;
 }
 
 .card__grow {
@@ -587,11 +624,69 @@ hr {
   justify-content: space-between;
 }
 
+.info-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Certifique-se de que fique acima de outros elementos */
+}
+
+.info-popup__content {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-width: 400px; /* Limita a largura do popup */
+  width: 90%; /* Responsivo */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333; /* Cor do botão de fechar */
+}
+
+.popup-card__title {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-bottom: 0.4rem;
+}
+
+.popup-card__item {
+  display: flex;
+  justify-content: space-between;
+  width: 83%;
+  margin: 0.4rem;
+}
+
+.ri-check-line {
+  color: rgba(57, 217, 138, 1);
+  font-size: 20px;
+}
+
+.ri-error-warning-line {
+  color: rgba(246, 189, 106, 1);
+  font-size: 20px;
+}
+
 .grafico__dados {
   margin-top: 10px;
 }
 
-.grafico__1, .grafico__2, .grafico__3 {
+.grafico__1,
+.grafico__2,
+.grafico__3 {
   display: flex;
   font-weight: 700;
   align-items: center;
@@ -599,17 +694,23 @@ hr {
   margin: 0.5rem;
 }
 
-.grafico__clipboard i, .grafico__calendar i, .grafico__chart i {
+.grafico__clipboard i,
+.grafico__calendar i,
+.grafico__chart i {
   font-size: 20px;
 }
 
-.grafico__1 p, .grafico__2 p, .grafico__3 p {
+.grafico__1 p,
+.grafico__2 p,
+.grafico__3 p {
   color: #101828;
   margin: 0 20px;
   font-size: 12px;
 }
 
-.grafico__1 .grafico__porcentagem, .grafico__2 .grafico__porcentagem, .grafico__3 .grafico__porcentagem {
+.grafico__1 .grafico__porcentagem,
+.grafico__2 .grafico__porcentagem,
+.grafico__3 .grafico__porcentagem {
   color: #668091;
   margin-left: 1rem;
 }
@@ -619,21 +720,21 @@ hr {
 }
 
 .grafico__clipboard {
-  background-color: #11A7AA;
+  background-color: #11a7aa;
   color: #ffffff;
   border-radius: 50%;
   padding: 0.5rem;
 }
 
 .grafico__calendar {
-  background-color: #E54B69;
+  background-color: #e54b69;
   color: #ffffff;
   border-radius: 50%;
   padding: 0.5rem;
 }
 
 .grafico__chart {
-  background-color: #F5B354;
+  background-color: #f5b354;
   color: #ffffff;
   border-radius: 50%;
   padding: 0.5rem;
@@ -1034,13 +1135,11 @@ hr {
   }
   .sidebar__user,
   .sidebar__link {
-    
     grid-template-columns: max-content;
   }
 
-  .header__toggle{
-   padding: 0 2rem;
-   
+  .header__toggle {
+    padding: 0 2rem;
   }
   .sidebar__user {
     padding: 0;
@@ -1085,14 +1184,12 @@ hr {
     order: 2;
   }
 
-  .icon-1{
+  .icon-1 {
     display: none;
   }
-  .icon-1{
+  .icon-1 {
     display: none;
   }
- 
-  
 
   .header__toggle {
     font-size: 1.5rem;
@@ -1108,11 +1205,10 @@ hr {
     justify-content: space-between;
   }
 
-
-.header__logo2, .header__logo-img2{
-  display: none;
-}
-
+  .header__logo2,
+  .header__logo-img2 {
+    display: none;
+  }
 
   .sidebar {
     left: 0;
@@ -1161,7 +1257,7 @@ hr {
 #popup {
   display: none;
   position: fixed;
-  top: 40%;
+  top: 55%;
   left: 40%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -1177,8 +1273,70 @@ hr {
   color: rgba(40, 61, 92, 1);
 }
 
+.popup__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.popup__subtitle {
+  margin-bottom: 1.3rem;
+}
+
+.popup__close i {
+  color: rgba(85, 129, 178, 1);
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.popup__escolha {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.4rem;
+}
+
 #popup p {
   color: rgba(28, 29, 34, 0.5);
+}
+
+.popup__escolha p {
+  color: rgba(40, 61, 92, 1) !important;
+}
+
+/* Alinha as imagens no início */
+.popup__imagem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 6.6rem;
+  height: 4.6rem;
+  margin: 0.5rem;
+}
+
+/* Controla a visibilidade das imagens sem remover a estrutura do layout */
+.popup__imagem img {
+  width: 100%; /* Ajusta o tamanho da imagem para o container */
+  height: auto;
+}
+
+/* Quando o switch desativa, esconde a imagem mas mantém a estrutura flex */
+.popup__imagem.hidden {
+  visibility: hidden; /* Esconde a imagem, mas preserva o espaço no layout */
+}
+
+/* Especificamente para a div .saldo */
+.saldo {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap; /* Garante que as imagens fiquem sempre lado a lado */
+}
+
+.grafico {
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 #popup hr {
@@ -1190,8 +1348,23 @@ hr {
 
 #popup button {
   margin: 10px;
-  padding: 10px 20px;
+  padding: 3px 28px;
   cursor: pointer;
+}
+
+.popup__cancelar {
+  border: 2px solid rgba(85, 129, 178, 1);
+  color: rgba(85, 129, 178, 1);
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.popup__confirmar {
+  border: 2px solid rgba(85, 129, 178, 1);
+  background-color: rgba(85, 129, 178, 1);
+  color: #ffffff;
+  border-radius: 5px;
+  font-weight: 600;
 }
 
 #overlay {
@@ -1205,113 +1378,190 @@ hr {
   z-index: 500;
 }
 
+/*=============== POPUP SWITCH ===============*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px; /* Certifica-se de que o fundo seja arredondado */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px; /* Reduz o tamanho da bolinha */
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%; /* Bolinha arredondada */
+}
+
+input:checked + .slider {
+  background-color: rgba(0, 79, 198, 1);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgba(0, 79, 198, 1);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px); /* Ajustado para o tamanho da bolinha menor */
+}
 
 /*=============== BREAKPOINTS ===============*/
 
 @media (min-width: 768px) and (max-width: 1104px) {
-  
-.header__container ul li{
-  display: none;
-  
-  
-}
+  .header__container ul li {
+    display: none;
+  }
 
-.input__menu  .icon-1 {
-  display: none;
-  padding-right: 9rem
-}
+  .input__menu .icon-1 {
+    display: none;
+    padding-right: 9rem;
+  }
 
-
-  .menu, .header__links{
+  .menu,
+  .header__links {
     display: flex;
-   display: none;
+    display: none;
   }
 
-.header__right , .header__logo{
-  display: none;
-}
-
-header{
-  display: none;
-}
-
-
-.menu__container, .menu__dash{
-  padding-left: 2.9rem;
-  
-  padding: 0 5rem;
-  
-  margin-top: -3rem;
-  display: flex;
-  align-items: center;
-  
-  
-}
-
-@media (min-width: 768px) and (max-width: 1204px) {
-
-
-  
-
-
-  .menu__container2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0 1rem;
-    ma
-    max-width: 100%;
+  .header__right,
+  .header__logo {
+    display: none;
   }
 
-  .menu__confins {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 1rem;
+  header {
+    display: none;
   }
 
-  .menu__right {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+  .menu__container,
+  .menu__dash {
+    padding-left: 2.9rem;
 
-  .item__time {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(236, 239, 242, 1);
-    color: rgba(81, 103, 120, 1);
-    border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-  }
+    padding: 0 5rem;
 
-  .item__time:hover {
-    background-color: rgba(239, 246, 255, 1);
-    color: rgba(0, 99, 247, 1);
-  }
-
-  .first {
-    border-radius: 10px 0 0 10px;
-  }
-
-  .last {
-    border-radius: 0 10px 10px 0;
-  }
-
-  .menu__calendar {
+    margin-top: -3rem;
     display: flex;
     align-items: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 1204px) {
+    .menu__container2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+      max-width: 100%;
+    }
+
+    .menu__confins {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 1rem;
+    }
+
+    .menu__right {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .item__time {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(236, 239, 242, 1);
+      color: rgba(81, 103, 120, 1);
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .item__time:hover {
+      background-color: rgba(239, 246, 255, 1);
+      color: rgba(0, 99, 247, 1);
+    }
+
+    .first {
+      border-radius: 10px 0 0 10px;
+    }
+
+    .last {
+      border-radius: 0 10px 10px 0;
+    }
+
+    .menu__calendar {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu__calendar a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(236, 239, 242, 1);
+      border-radius: 10px;
+      color: rgba(81, 103, 120, 1);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .menu__calendar a:hover {
+      background-color: rgba(239, 246, 255, 1);
+      color: rgba(0, 99, 247, 1);
+    }
+
+    .menu__calendar i {
+      margin-right: 0.5rem;
+    }
+
+    .menu__right,
+    .menu__calendar {
+      flex: 1 1 auto;
+      min-width: 180px;
+    }
+
+    .confins__choose {
+      display: none;
+    }
   }
 
   .menu__calendar a {
@@ -1322,7 +1572,7 @@ header{
     border: 1px solid rgba(236, 239, 242, 1);
     border-radius: 10px;
     color: rgba(81, 103, 120, 1);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-decoration: none;
     transition: all 0.3s ease;
   }
@@ -1332,216 +1582,163 @@ header{
     color: rgba(0, 99, 247, 1);
   }
 
+  /* Para o ícone de calendário */
   .menu__calendar i {
-    margin-right: 0.5rem;
+    margin-right: 0.5rem; /* Espaçamento entre o ícone e o texto */
   }
 
-  .menu__right, .menu__calendar {
-    flex: 1 1 auto;
-    min-width: 180px;
+  /* Se a tela for muito pequena, fazer os itens quebrarem */
+  .menu__right,
+  .menu__calendar {
+    flex: 1 1 auto; /* Permite que os itens ocupem o espaço disponível */
+    min-width: 180px; /* Define um limite mínimo para os itens não ficarem muito pequenos */
   }
 
+  /* Estilo para o contêiner que permite a escolha entre confins */
   .confins__choose {
+    display: none; /* Por enquanto, mantemos este div oculto */
+  }
+
+  .item__time {
+    font-size: 0.7rem;
+  }
+
+  .input__menu,
+  .icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu__container ul {
+    gap: 1px;
+  }
+
+  .menu__dash-link {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .menu__container ul li {
+    margin: -1rem;
+    padding: 1rem;
+    padding-right: -1rem;
+  }
+
+  .menu__dash-link:hover::after,
+  .menu__dash-link.active::after {
     display: none;
   }
+
+  .menu__container2 {
+    padding-left: 5.9rem;
+  }
+  .input-container {
+    border: none;
+
+    max-width: 60%;
+
+    margin: 0 1.1rem;
+    background-color: var(--body-color);
+  }
+
+  .header__user2 img {
+    width: 100%;
+    margin-left: 2rem;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 60px 1fr; /* Define a sidebar de 60px e o restante para o conteúdo */
+    grid-gap: 2rem; /* Espaçamento entre os itens */
+    padding: 1rem;
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 0 auto;
+    overflow-x: hidden; /* Impede o transbordamento horizontal */
+  }
+
+  /* O conteúdo principal ocupa a segunda coluna do grid */
+  .content__left,
+  .content__right {
+    grid-column: 2;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Reorganiza o card "Nome da Empresa" para ficar após "Divergências" */
+  .card__container-1 {
+    order: 2; /* Move para a última posição */
+  }
+
+  /* Reorganiza o card de "Divergências" para ficar acima */
+  .card__container-8 {
+    order: 1; /* Coloca divergências no topo */
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr; /* Mantém em uma única coluna */
+  }
+
+  /* Layout dos outros cards em grid de duas colunas */
+  .card__container-3,
+  .card__container-6 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dois cartões por linha */
+    gap: 1rem; /* Espaçamento entre os cartões */
+    max-width: 100%;
+  }
+
+  /* Estilo para os cards */
+  .card__info3,
+  .card__info4,
+  .card__info5,
+  .card__info6,
+  .card__info7 {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* Ajustes de fonte e layout */
+  .card__grow {
+    font-size: 0.8rem;
+  }
+
+  .card__upper h2 {
+    font-size: 1rem;
+  }
+
+  .skills {
+    font-size: 0.75rem;
+  }
+
+  .card__date p {
+    font-size: 0.75rem;
+  }
+
+  .card__number h2 {
+    font-size: 1.2rem;
+  }
+
+  .title_dash {
+    font-size: 1.5rem;
+  }
+
+  .title_card {
+    font-size: 1.2rem;
+  }
+
+  /* Estilo para os gráficos */
+  .grafico__dados {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .grafico__1,
+  .grafico__2,
+  .grafico__3 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
-
-
-
-
-.menu__calendar a {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(236, 239, 242, 1);
-  border-radius: 10px;
-  color: rgba(81, 103, 120, 1);
-  font-size: 0.8rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.menu__calendar a:hover {
-  background-color: rgba(239, 246, 255, 1);
-  color: rgba(0, 99, 247, 1);
-}
-
-/* Para o ícone de calendário */
-.menu__calendar i {
-  margin-right: 0.5rem; /* Espaçamento entre o ícone e o texto */
-}
-
-/* Se a tela for muito pequena, fazer os itens quebrarem */
-.menu__right, .menu__calendar {
-  flex: 1 1 auto; /* Permite que os itens ocupem o espaço disponível */
-  min-width: 180px; /* Define um limite mínimo para os itens não ficarem muito pequenos */
-}
-
-/* Estilo para o contêiner que permite a escolha entre confins */
-.confins__choose {
-  display: none; /* Por enquanto, mantemos este div oculto */
-}
-
-
-.item__time{
-  font-size: 0.7rem;
-}
-
-
-
-.input__menu, .icon{
-
-  display: flex;
-  align-items: center;
-  
-}
-
-.menu__container ul{
-  gap: 1px;
-}
-
-.menu__dash-link{
-  
-  padding: 0.5rem 0.8rem;
-  font-size: 0.9rem;
-
-}
-
-.menu__container ul li {
-  margin: -1rem;
-  padding: 1rem;
-  padding-right: -1rem;
-}
-
-
-
-
-
-
-
-.menu__dash-link:hover::after,
-.menu__dash-link.active::after {
-  display: none;
-}
-
-
-.menu__container2{
-  padding-left: 5.9rem;
-}
-.input-container  {
-  border: none;
-  
-  max-width: 60%;
-  
-  margin: 0 1.1rem;
-  background-color: var(--body-color);
-    
-}
-
-.header__user2 img{
-  width: 100%;
-  margin-left: 2rem;
-}
-
-.content {
-  display: grid;
-  grid-template-columns: 60px 1fr; /* Define a sidebar de 60px e o restante para o conteúdo */
-  grid-gap: 2rem; /* Espaçamento entre os itens */
-  padding: 1rem;
-  max-width: 1200px; /* Limita a largura máxima */
-  margin: 0 auto;
-  overflow-x: hidden; /* Impede o transbordamento horizontal */
-}
-
-/* O conteúdo principal ocupa a segunda coluna do grid */
-.content__left, 
-.content__right {
-  grid-column: 2;
-  width: 100%;
-  max-width: 100%;
-}
-
-/* Reorganiza o card "Nome da Empresa" para ficar após "Divergências" */
-.card__container-1 {
-  order: 2; /* Move para a última posição */
-}
-
-/* Reorganiza o card de "Divergências" para ficar acima */
-.card__container-8 {
-  order: 1; /* Coloca divergências no topo */
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr; /* Mantém em uma única coluna */
-}
-
-/* Layout dos outros cards em grid de duas colunas */
-.card__container-3,
-.card__container-6 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dois cartões por linha */
-  gap: 1rem; /* Espaçamento entre os cartões */
-  max-width: 100%;
-}
-
-/* Estilo para os cards */
-.card__info3,
-.card__info4,
-.card__info5,
-.card__info6,
-.card__info7 {
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 1rem;
-}
-
-/* Ajustes de fonte e layout */
-.card__grow {
-  font-size: 0.8rem;
-}
-
-.card__upper h2 {
-  font-size: 1rem;
-}
-
-.skills {
-  font-size: 0.75rem;
-}
-
-.card__date p {
-  font-size: 0.75rem;
-}
-
-.card__number h2 {
-  font-size: 1.2rem;
-}
-
-.title_dash {
-  font-size: 1.5rem;
-}
-
-.title_card {
-  font-size: 1.2rem;
-}
-
-/* Estilo para os gráficos */
-.grafico__dados {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.grafico__1,
-.grafico__2,
-.grafico__3 {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-
-}
-
-  
-
