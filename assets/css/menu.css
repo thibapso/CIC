@@ -17,6 +17,7 @@
   --textHeader-color: hsl(216, 100%, 48%);
   --textMenu-color: hsl(222, 86%, 22%);
   --titleCard-color: hsl(216, 39%, 26%);
+  --container-color: hsl(0, 0%, 100%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -84,6 +85,7 @@ body.dark-theme {
   --textHeader-color: hsl(216, 70%, 77%);
   --textMenu-color: hsl(221, 41%, 64%);
   --titleCard-color: hsl(216, 27%, 71%);
+  --container-color: hsl(0, 0%, 100%);
 }
 
 /*========== 
@@ -172,6 +174,17 @@ body.dark-theme {
 }
 
 .header__logo-img {
+  width: 40px;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+}
+
+.header__logo2 {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-img2 {
   width: 40px;
   border: 2px solid var(--text-color);
   border-radius: 50%;
@@ -376,7 +389,8 @@ hr {
 
 .card__info2 h2 {
   padding: 1.5rem 1rem;
-  color: var(--title-color);
+  color: var(--text-color);
+  background-color: var(--container-colorr);
 }
 .info1__renda {
   display: flex;
@@ -399,15 +413,18 @@ hr {
   padding: 0 1rem;
   background-color: rgba(57, 217, 138, 1);
   border-radius: 5px;
+
   margin-top: auto; /* empurra a div para a parte inferior */
   height: 3rem;
 }
+
 
 .card__info2 {
   border: 1px solid #929397;
   width: 20rem;
   height: auto;
   border-radius: 0.75rem;
+  background-color: var(--container-color);
 }
 
 /* Estilos para garantir que os cards fiquem lado a lado */
@@ -869,6 +886,11 @@ hr {
 .menu__container ul li {
   margin-right: 2rem;
 }
+.input-container2 {
+  border: none;
+  margin: 0 4rem;
+  background-color: var(--container-color);
+}
 
 .input-container {
   border: none;
@@ -991,7 +1013,7 @@ hr {
 
 /*=============== BREAKPOINTS ===============*/
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 1160px) {
   .header__container {
     padding-inline: 1rem;
   }
@@ -1008,11 +1030,17 @@ hr {
   .sidebar__list,
   .sidebar__actions {
     justify-content: center;
-    order: 2;
+    order: 1;
   }
   .sidebar__user,
   .sidebar__link {
+    
     grid-template-columns: max-content;
+  }
+
+  .header__toggle{
+   padding: 0 2rem;
+   
   }
   .sidebar__user {
     padding: 0;
@@ -1054,8 +1082,17 @@ hr {
     padding-inline: 2rem;
   }
   .header__logo {
-    order: 1;
+    order: 2;
   }
+
+  .icon-1{
+    display: none;
+  }
+  .icon-1{
+    display: none;
+  }
+ 
+  
 
   .header__toggle {
     font-size: 1.5rem;
@@ -1070,6 +1107,12 @@ hr {
   .header__logo {
     justify-content: space-between;
   }
+
+
+.header__logo2, .header__logo-img2{
+  display: none;
+}
+
 
   .sidebar {
     left: 0;
@@ -1161,3 +1204,344 @@ hr {
   display: none;
   z-index: 500;
 }
+
+
+/*=============== BREAKPOINTS ===============*/
+
+@media (min-width: 768px) and (max-width: 1104px) {
+  
+.header__container ul li{
+  display: none;
+  
+  
+}
+
+.input__menu  .icon-1 {
+  display: none;
+  padding-right: 9rem
+}
+
+
+  .menu, .header__links{
+    display: flex;
+   display: none;
+  }
+
+.header__right , .header__logo{
+  display: none;
+}
+
+header{
+  display: none;
+}
+
+
+.menu__container, .menu__dash{
+  padding-left: 2.9rem;
+  
+  padding: 0 5rem;
+  
+  margin-top: -3rem;
+  display: flex;
+  align-items: center;
+  
+  
+}
+
+@media (min-width: 768px) and (max-width: 1204px) {
+
+
+  
+
+
+  .menu__container2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    ma
+    max-width: 100%;
+  }
+
+  .menu__confins {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+  }
+
+  .menu__right {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .item__time {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(236, 239, 242, 1);
+    color: rgba(81, 103, 120, 1);
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .item__time:hover {
+    background-color: rgba(239, 246, 255, 1);
+    color: rgba(0, 99, 247, 1);
+  }
+
+  .first {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .last {
+    border-radius: 0 10px 10px 0;
+  }
+
+  .menu__calendar {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu__calendar a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(236, 239, 242, 1);
+    border-radius: 10px;
+    color: rgba(81, 103, 120, 1);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .menu__calendar a:hover {
+    background-color: rgba(239, 246, 255, 1);
+    color: rgba(0, 99, 247, 1);
+  }
+
+  .menu__calendar i {
+    margin-right: 0.5rem;
+  }
+
+  .menu__right, .menu__calendar {
+    flex: 1 1 auto;
+    min-width: 180px;
+  }
+
+  .confins__choose {
+    display: none;
+  }
+}
+
+
+
+
+.menu__calendar a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(236, 239, 242, 1);
+  border-radius: 10px;
+  color: rgba(81, 103, 120, 1);
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu__calendar a:hover {
+  background-color: rgba(239, 246, 255, 1);
+  color: rgba(0, 99, 247, 1);
+}
+
+/* Para o ícone de calendário */
+.menu__calendar i {
+  margin-right: 0.5rem; /* Espaçamento entre o ícone e o texto */
+}
+
+/* Se a tela for muito pequena, fazer os itens quebrarem */
+.menu__right, .menu__calendar {
+  flex: 1 1 auto; /* Permite que os itens ocupem o espaço disponível */
+  min-width: 180px; /* Define um limite mínimo para os itens não ficarem muito pequenos */
+}
+
+/* Estilo para o contêiner que permite a escolha entre confins */
+.confins__choose {
+  display: none; /* Por enquanto, mantemos este div oculto */
+}
+
+
+.item__time{
+  font-size: 0.7rem;
+}
+
+
+
+.input__menu, .icon{
+
+  display: flex;
+  align-items: center;
+  
+}
+
+.menu__container ul{
+  gap: 1px;
+}
+
+.menu__dash-link{
+  
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+
+}
+
+.menu__container ul li {
+  margin: -1rem;
+  padding: 1rem;
+  padding-right: -1rem;
+}
+
+
+
+
+
+
+
+.menu__dash-link:hover::after,
+.menu__dash-link.active::after {
+  display: none;
+}
+
+
+.menu__container2{
+  padding-left: 5.9rem;
+}
+.input-container  {
+  border: none;
+  
+  max-width: 60%;
+  
+  margin: 0 1.1rem;
+  background-color: var(--body-color);
+    
+}
+
+.header__user2 img{
+  width: 100%;
+  margin-left: 2rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 60px 1fr; /* Define a sidebar de 60px e o restante para o conteúdo */
+  grid-gap: 2rem; /* Espaçamento entre os itens */
+  padding: 1rem;
+  max-width: 1200px; /* Limita a largura máxima */
+  margin: 0 auto;
+  overflow-x: hidden; /* Impede o transbordamento horizontal */
+}
+
+/* O conteúdo principal ocupa a segunda coluna do grid */
+.content__left, 
+.content__right {
+  grid-column: 2;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Reorganiza o card "Nome da Empresa" para ficar após "Divergências" */
+.card__container-1 {
+  order: 2; /* Move para a última posição */
+}
+
+/* Reorganiza o card de "Divergências" para ficar acima */
+.card__container-8 {
+  order: 1; /* Coloca divergências no topo */
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr; /* Mantém em uma única coluna */
+}
+
+/* Layout dos outros cards em grid de duas colunas */
+.card__container-3,
+.card__container-6 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dois cartões por linha */
+  gap: 1rem; /* Espaçamento entre os cartões */
+  max-width: 100%;
+}
+
+/* Estilo para os cards */
+.card__info3,
+.card__info4,
+.card__info5,
+.card__info6,
+.card__info7 {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Ajustes de fonte e layout */
+.card__grow {
+  font-size: 0.8rem;
+}
+
+.card__upper h2 {
+  font-size: 1rem;
+}
+
+.skills {
+  font-size: 0.75rem;
+}
+
+.card__date p {
+  font-size: 0.75rem;
+}
+
+.card__number h2 {
+  font-size: 1.2rem;
+}
+
+.title_dash {
+  font-size: 1.5rem;
+}
+
+.title_card {
+  font-size: 1.2rem;
+}
+
+/* Estilo para os gráficos */
+.grafico__dados {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.grafico__1,
+.grafico__2,
+.grafico__3 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+}
+
+  
+
