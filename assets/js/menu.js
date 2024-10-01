@@ -194,6 +194,12 @@ function confirmarEscolha() {
 function abrirPopup(event) {
   event.preventDefault();
 
+  // Verifica se o clique foi na última <li> (que contém o input de busca)
+  const lastLi = document.querySelector(".menu__dash li.icon");
+  if (lastLi.contains(event.target)) {
+    return; // Não faz nada se o clique foi na última li (input de busca)
+  }
+
   // Define o link atual como o clicado, mas sem remover a classe 'active' ainda
   currentSelectedLink = event.target;
 
@@ -217,44 +223,48 @@ function fecharPopup() {
   document.getElementById("overlay").style.display = "none";
 }
 
-function toggleImagem(checkbox) {
-  const target = document.querySelector(checkbox.getAttribute("data-target"));
+function confirmarEscolha() {
+  // Fecha o popup
+  fecharPopup();
 
-  // Exibe ou oculta a imagem associada
-  if (checkbox.checked) {
-    // Verifica se é a div .saldo e mantém display flex
-    if (target.classList.contains("saldo")) {
-      target.style.display = "flex";
-    } else {
-      target.style.display = "block";
-    }
-  } else {
-    target.style.display = "none";
+  // Remove a classe 'active' do item anterior, se houver
+  if (previousSelectedLink) {
+    previousSelectedLink.classList.remove("active");
   }
+
+  // Verifica se o link clicado está armazenado e aplica o estilo 'active'
+  if (currentSelectedLink) {
+    currentSelectedLink.classList.add("active");
+  }
+
+  // Atualiza o anterior para o atual
+  previousSelectedLink = currentSelectedLink;
 
   // Controle de opacidade para "Gráficos - Erros de apuração"
-  if (checkbox.getAttribute("data-target") === ".grafico") {
-    const cardInfo2 = document.querySelector(".card__info2");
-    cardInfo2.style.opacity = checkbox.checked ? "1" : "0.2";
-  }
+  const graficoCheckbox = document.querySelector("[data-target='.grafico']");
+  const cardInfo2 = document.querySelector(".card__info2");
+  cardInfo2.style.opacity = graficoCheckbox.checked ? "1" : "0";
 
   // Controle de opacidade para "Saldo acumulado"
-  if (checkbox.getAttribute("data-target") === ".saldo") {
-    const cardContainer3 = document.querySelector(".card__container-3");
-    cardContainer3.style.opacity = checkbox.checked ? "1" : "0.2";
-  }
+  const saldoCheckbox = document.querySelector("[data-target='.saldo']");
+  const cardContainer3 = document.querySelector(".card__container-3");
+  cardContainer3.style.opacity = saldoCheckbox.checked ? "1" : "0";
 
   // Controle de opacidade para "Priorização de tarefas"
-  if (checkbox.getAttribute("data-target") === ".prioridade") {
-    const cardContainer6 = document.querySelector(".card__container-6");
-    cardContainer6.style.opacity = checkbox.checked ? "1" : "0.2";
-  }
+  const prioridadeCheckbox = document.querySelector(
+    "[data-target='.prioridade']"
+  );
+  const cardContainer6 = document.querySelector(".card__container-6");
+  cardContainer6.style.opacity = prioridadeCheckbox.checked ? "1" : "0";
 
   // Controle de opacidade para "Divergências"
-  if (checkbox.getAttribute("data-target") === ".divergencias") {
-    const cardContainer8 = document.querySelector(".card__container-8");
-    cardContainer8.style.opacity = checkbox.checked ? "1" : "0.2";
-  }
+  const divergenciasCheckbox = document.querySelector(
+    "[data-target='.divergencias']"
+  );
+  const cardContainer8 = document.querySelector(".card__container-8");
+  cardContainer8.style.opacity = divergenciasCheckbox.checked ? "1" : "0";
+
+  console.log("Escolha confirmada!");
 }
 
 // Seleciona todos os links do menu
@@ -263,4 +273,36 @@ const menuLinks = document.querySelectorAll(".menu__dash-link");
 // Adiciona o evento de clique em cada link para abrir o popup
 menuLinks.forEach((link) => {
   link.addEventListener("click", abrirPopup);
+});
+
+// Previne popup no hover do input
+menuLinks.forEach((link) => {
+  link.addEventListener("mouseenter", (event) => {
+    const lastLi = document.querySelector(".menu__dash li.icon");
+    if (lastLi.contains(event.target)) {
+      event.stopPropagation(); // Impede o hover de ativar o popup
+    }
+  });
+});
+
+// Seleciona o botão de "Salvar" e o popup
+const salvarButton = document.getElementById("dashboard-salvar");
+const popup = document.getElementById("popup");
+const closeButton = document.querySelector(".popup .close");
+
+// Adiciona o evento de clique ao botão de "Salvar"
+salvarButton.addEventListener("click", () => {
+  popup.style.display = "block"; // Exibe o popup
+});
+
+// Adiciona o evento de clique ao botão de fechar o popup
+closeButton.addEventListener("click", () => {
+  popup.style.display = "none"; // Esconde o popup
+});
+
+// Fecha o popup ao clicar fora do conteúdo
+window.addEventListener("click", (event) => {
+  if (event.target === popup) {
+    popup.style.display = "none";
+  }
 });

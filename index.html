@@ -32,13 +32,13 @@
                 >
               </li>
               <li>
-                <a id="dashboard-link" class="menu__link" href="#dashboard"
-                  >Dashboard</a
+                <a id="controle-link" class="menu__link" href="#dashboard"
+                  >Controle</a
                 >
               </li>
               <li>
-                <a id="controle-link" class="menu__link" href="#controle"
-                  >Controle</a
+                <a id="biblioteca-link" class="menu__link" href="#controle"
+                  >Biblioteca</a
                 >
               </li>
               <li>
@@ -113,13 +113,13 @@
           <div>
             <div class="sidebar__list">
               <a href="#dashboard" class="sidebar__link">
-                <i class="ri-pie-chart-2-fill"></i>
-                <span>Dashboard</span>
+                <i class="ri-list-check"></i>
+                <span>Controle</span>
               </a>
 
               <a href="#controle" class="sidebar__link">
-                <i class="ri-list-check"></i>
-                <span>Controle</span>
+                <i class="ri-git-repository-line"></i>
+                <span>Biblioteca</span>
               </a>
 
               <a href="#compliance" class="sidebar__link">
@@ -255,8 +255,14 @@
               </label>
             </div>
             <div class="popup__imagem saldo">
-              <img src="assets/img/popup/debito.jpg" alt="card de saldo de débito" />
-              <img src="assets/img/popup/credito.jpg" alt="card de saldo de crédito" />
+              <img
+                src="assets/img/popup/debito.jpg"
+                alt="card de saldo de débito"
+              />
+              <img
+                src="assets/img/popup/credito.jpg"
+                alt="card de saldo de crédito"
+              />
             </div>
 
             <hr />
@@ -274,7 +280,10 @@
               </label>
             </div>
             <div class="popup__imagem prioridade">
-              <img src="assets/img/popup/prioridade.jpg" alt="card de prioridade de tarefas" />
+              <img
+                src="assets/img/popup/prioridade.jpg"
+                alt="card de prioridade de tarefas"
+              />
             </div>
 
             <hr />
@@ -292,7 +301,10 @@
               </label>
             </div>
             <div class="popup__imagem divergencias">
-              <img src="assets/img/popup/divergencias.jpg" alt="card de lista de divergências" />
+              <img
+                src="assets/img/popup/divergencias.jpg"
+                alt="card de lista de divergências"
+              />
             </div>
 
             <hr />
@@ -404,7 +416,10 @@
                     />
                   </div>
                   <div class="card__grow debito">
-                    <img src="assets/img/icons/quantidade.svg" alt="ícone de adição" />
+                    <img
+                      src="assets/img/icons/quantidade.svg"
+                      alt="ícone de adição"
+                    />
                     <p class="card__item">2 adicionadas</p>
                   </div>
 
@@ -429,7 +444,10 @@
                     />
                   </div>
                   <div class="card__grow credito">
-                    <img src="assets/img/icons/aumentar.svg" alt="ícone de aumento" />
+                    <img
+                      src="assets/img/icons/aumentar.svg"
+                      alt="ícone de aumento"
+                    />
                     <p class="card__item">+ 10% de aumento</p>
                   </div>
 
@@ -454,7 +472,10 @@
                     />
                   </div>
                   <div class="card__grow resultado">
-                    <img src="assets/img/icons/aumentar.svg" alt="ícone de aumento" />
+                    <img
+                      src="assets/img/icons/aumentar.svg"
+                      alt="ícone de aumento"
+                    />
                     <p class="card__item">+ 18.5% de aumento</p>
                   </div>
                   <div class="info5__barra"></div>
@@ -465,7 +486,10 @@
                 <div class="card__info6">
                   <div class="card__upper">
                     <h2>Cofins - ID 0001 | 19 de maio</h2>
-                    <img src="assets/img/perfil__card6.png" alt="ícone de mulher responsável pelo card" />
+                    <img
+                      src="assets/img/perfil__card6.png"
+                      alt="ícone de mulher responsável pelo card"
+                    />
                   </div>
                   <p>Valor declarado a menos</p>
                   <div class="card__progress">
@@ -484,7 +508,10 @@
                 <div class="card__info7">
                   <div class="card__upper">
                     <h2>Cofins - ID 0002 | 19 de maio</h2>
-                    <img src="assets/img/perfil__card7.png" alt="ícone de mulher responsável pelo card" />
+                    <img
+                      src="assets/img/perfil__card7.png"
+                      alt="ícone de mulher responsável pelo card"
+                    />
                   </div>
                   <p>Valor declarado a menos</p>
                   <div class="card__progress">
@@ -580,7 +607,7 @@
                       <li>R$37.054</li>
                       <li>R$35.054</li>
                       <li>25/05/2024</li>
-                      <li class="description certo">Tudo certo</li>
+                      <li class="description certo">Resolvido</li>
                       <li class="list__credito">R$ 2.000</li>
                       <li class="list__diferenca">R$-</li>
                     </ul>
@@ -610,10 +637,19 @@
                   </div>
                 </div>
               </div>
-
               <!--=============== MAIN JS ===============-->
               <script src="assets/js/menu.js"></script>
-
+              <script src="assets/js/abas.js"></script>
+              <div vw class="enabled">
+                <div vw-access-button class="active"></div>
+                <div vw-plugin-wrapper>
+                  <div class="vw-plugin-top-wrapper"></div>
+                </div>
+              </div>
+              <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+              <script>
+                new window.VLibras.Widget("https://vlibras.gov.br/app");
+              </script>
               <script>
                 var ctx = document.getElementById("graficoU").getContext("2d");
                 var graficoU = new Chart(ctx, {
@@ -648,6 +684,272 @@
                   },
                 });
               </script>
+            </div>
+          </section>
+
+          <!--=============== MAIN DASHBOARD ===============-->
+          <section class="dashboard-tela hidden" id="dashboard-container">
+            <div class="dashboard-select" id="dashboard-select">
+              <h1 id="dashboard-message">Detalhes da tarefa</h1>
+              <select name="select">
+                <option value="valor1" selected>Resolvido</option>
+                <option value="valor2">Verificar</option>
+              </select>
+              <div id="dashboard-calendario">
+                <i class="ri-calendar-line"></i>
+                <p id="dashboard-message-paragraph">22/05/2024</p>
+              </div>
+            </div>
+
+            <div id="dashboard-number">
+              <p>
+                Número de ID
+                <strong><span id="dashboard-id">0005000</span></strong>
+              </p>
+            </div>
+
+            <div class="dashboard-valor">
+              <div class="dashboard-valor-item">
+                <p>Valor da Nota</p>
+                <strong><p>R$90.000</p></strong>
+              </div>
+              <div class="dashboard-valor-item">
+                <p>Valor do Governo</p>
+                <strong><p>R$50.000</p></strong>
+              </div>
+            </div>
+
+            <div id="dashboard-local">
+              <h2>Município</h2>
+              <h2>Crédito</h2>
+              <h2>Diferença</h2>
+            </div>
+
+            <div id="dashboard-dados">
+              <h2>São Paulo</h2>
+              <h2>R$40.000</h2>
+              <h2>R$----</h2>
+            </div>
+
+            <h3 id="dashboard-description">Descrição</h3>
+            <article id="dashboard-article">
+              A COFINS (Contribuição para o Financiamento da Seguridade Social)
+              é um tributo federal brasileiro que incide sobre a receita bruta
+              das empresas e financia áreas como saúde pública, previdência e
+              assistência social. Ela pode ser recolhida sob dois regimes: o
+              cumulativo, com alíquota de 3%, aplicável a empresas do lucro
+              presumido e sem possibilidade de dedução de créditos; e o não
+              cumulativo, com alíquota de 7,6%, para empresas do lucro real,
+              permitindo deduzir créditos de insumos.
+            </article>
+
+            <input id="dashboard-upload" type="file" name="fileupload" />
+
+            <div id="dashboard-enviar">
+              <div id="dashboard-excel">
+                <img src="assets/img/icons/excel.svg" alt="ícone do excel" />
+                <p>Exportar Dados</p>
+              </div>
+              <div id="dashboard-salvar">
+                <p>Salvar</p>
+              </div>
+            </div>
+          </section>
+
+          <!--=============== MAIN CONTROLE  ===============-->
+          <section class="controle-tela hidden">
+            <h1 id="controle-message" class="hidden">
+              Biblioteca de lições aprendidas
+            </h1>
+            <p id="controle-message-paragraph" class="hidden">
+              Consulte as principais dúvidas sobre os impostos
+            </p>
+
+            <div id="controle-search">
+              <div class="controle-pesquisas">
+                <img src="assets/img/icons/lupa.svg" alt="ícone de lupa" />
+                <p>Pesquisar</p>
+              </div>
+              <div class="controle-procurar">
+                <p>Procurar</p>
+              </div>
+            </div>
+
+            <div id="controle-popular">
+              <h1>POPULAR:</h1>
+              <p>Qual é a % do imposto IRPF?</p>
+              <p>Qual é a % do imposto ISS?</p>
+            </div>
+
+            <div id="controle-cards-1">
+              <div id="controle-card-cofins">
+                <div id="card-titulo-cofins">
+                  <div id="card-icon-cofins">
+                    <img
+                      src="assets/img/icons/frame.svg"
+                      alt="ícone do card na biblioteca"
+                    />
+                  </div>
+                  <h1>
+                    <a
+                      href="https://docs.google.com/spreadsheets/d/1OUk2d0nU8Ak-jBiF5teC0h5BvIStD_9G/edit?usp=sharing&ouid=106101464830344703865&rtpof=true&sd=true"
+                      target="_blank"
+                      >Cofins</a
+                    >
+                  </h1>
+                </div>
+                <div id="card-texto-cofins-1">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>Como a não cumulatividade funciona na prática?</p>
+                </div>
+                <div id="card-texto-cofins-2">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>
+                    Quais são as principais dificuldades na apuração do crédito?
+                  </p>
+                </div>
+              </div>
+
+              <div id="controle-card-irpf">
+                <div id="card-titulo-irpf">
+                  <div id="card-icon-irpf">
+                    <img
+                      src="assets/img/icons/frame.svg"
+                      alt="ícone do card na biblioteca"
+                    />
+                  </div>
+                  <h1>
+                    <a
+                      href="https://docs.google.com/spreadsheets/d/1OmzAi4hdDOEugygyqli80cK2QFbS7xGq/edit?usp=sharing&ouid=106101464830344703865&rtpof=true&sd=true"
+                      target="_blank"
+                      >IRPF</a
+                    >
+                  </h1>
+                </div>
+                <div id="card-texto-irpf-1">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>
+                    Como tratar os rendimentos de pessoas físicas que atuam como
+                    profissionais liberais?
+                  </p>
+                </div>
+                <div id="card-texto-irpf-2">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>
+                    Quais as implicações do IRPF para os sócios de empresas?
+                  </p>
+                </div>
+              </div>
+
+              <div id="controle-card-irpj">
+                <div id="card-titulo-irpj">
+                  <div id="card-icon-irpj">
+                    <img
+                      src="assets/img/icons/frame.svg"
+                      alt="ícone do card na biblioteca"
+                    />
+                  </div>
+                  <h1>
+                    <a
+                      href="https://docs.google.com/spreadsheets/d/1OjfV1lY6S14ZELu98KA3Q-DU_ioe-mRn/edit?usp=sharing&ouid=106101464830344703865&rtpof=true&sd=true"
+                      target="_blank"
+                      >IRPJ</a
+                    >
+                  </h1>
+                </div>
+                <div id="card-texto-irpj-1">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>Como tratar a base de cálculo negativa do IRPJ?</p>
+                </div>
+                <div id="card-texto-irpj-2">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>Impacto da reforma tributária no IRPJ</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="controle-cards-2">
+              <div id="controle-card-pis">
+                <div id="card-titulo-pis">
+                  <div id="card-icon-pis">
+                    <img
+                      src="assets/img/icons/frame.svg"
+                      alt="ícone do card na biblioteca"
+                    />
+                  </div>
+                  <h1>
+                    <a
+                      href="https://docs.google.com/spreadsheets/d/1OjVzE4Ry7chYN748ZAVyin4U8qxLCZ2W/edit?usp=sharing&ouid=106101464830344703865&rtpof=true&sd=true"
+                      target="_blank"
+                      >PIS</a
+                    >
+                  </h1>
+                </div>
+                <div id="card-texto-pis-1">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>Base de cálculo do PIS para diferentes setores</p>
+                </div>
+                <div id="card-texto-pis-2">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>PIS e o Simples Nacional</p>
+                </div>
+              </div>
+
+              <div id="controle-card-pasep">
+                <div id="card-titulo-pasep">
+                  <div id="card-icon-pasep">
+                    <img
+                      src="assets/img/icons/frame.svg"
+                      alt="ícone do card na biblioteca"
+                    />
+                  </div>
+                  <h1>
+                    <a
+                      href="https://docs.google.com/spreadsheets/d/1Oi05ctwG9d9IquhjDoy3a_IhyPU1ZBv9/edit?usp=sharing&ouid=106101464830344703865&rtpof=true&sd=true"
+                      target="_blank"
+                      >PASEP</a
+                    >
+                  </h1>
+                </div>
+                <div id="card-texto-pasep-1">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>PASEP e a reforma da previdência</p>
+                </div>
+                <div id="card-texto-pasep-2">
+                  <img
+                    src="assets/img/icons/documento.svg"
+                    alt="ícone de documento na biblioteca"
+                  />
+                  <p>Como consultar o saldo do PASEP</p>
+                </div>
+              </div>
             </div>
           </section>
         </main>
