@@ -108,6 +108,7 @@ body.dark-theme {
 .main {
   padding-top: 5rem;
 }
+
 /*=============== HEADER ===============*/
 .header {
   position: fixed;
@@ -145,9 +146,12 @@ body.dark-theme {
   margin-right: 1rem;
   text-decoration: none;
   color: var(--text-color);
-  padding: 10px; /* Adiciona padding para melhorar a área clicável */
-  transition: all 0.3s ease; /* Adiciona uma transição suave */
-  border-radius: 0; /* Remove o border-radius padrão */
+  padding: 10px;
+  /* Adiciona padding para melhorar a área clicável */
+  transition: all 0.3s ease;
+  /* Adiciona uma transição suave */
+  border-radius: 0;
+  /* Remove o border-radius padrão */
 }
 
 /* Estilo de hover e ativo dos links do header */
@@ -236,8 +240,10 @@ body.dark-theme {
 .sidebar__user {
   display: flex;
   flex-direction: column;
-  padding-left: 2rem; /* Ajuste o padding como desejar */
-  margin-bottom: 2rem; /* Espaço inferior para separar do conteúdo abaixo */
+  padding-left: 2rem;
+  /* Ajuste o padding como desejar */
+  margin-bottom: 2rem;
+  /* Espaço inferior para separar do conteúdo abaixo */
 }
 
 .sidebar__user h1 {
@@ -251,12 +257,14 @@ body.dark-theme {
 
 /* Estilo da foto do perfil do usuário */
 .sidebar__info {
-  margin-left: 2rem; /* Ajuste conforme necessário para espaçamento da foto do perfil */
+  margin-left: 2rem;
+  /* Ajuste conforme necessário para espaçamento da foto do perfil */
 }
 
 /* Estilo da seção de conteúdo, faz com que os links ocupem o espaço restante */
 .sidebar__content {
-  flex-grow: 1; /* Permite que o conteúdo cresça para ocupar o espaço restante */
+  flex-grow: 1;
+  /* Permite que o conteúdo cresça para ocupar o espaço restante */
   display: flex;
   flex-direction: column;
 }
@@ -265,12 +273,14 @@ body.dark-theme {
 .sidebar__list {
   display: flex;
   flex-direction: column;
-  row-gap: 1.2rem; /* Ajuste o espaçamento entre os links, aumente se necessário */
+  row-gap: 1.2rem;
+  /* Ajuste o espaçamento entre os links, aumente se necessário */
 }
 
 /* Link "Overview" */
 .sidebar__link.overview-link {
-  margin-top: 0.8rem; /* Ajuste o valor para aumentar o espaçamento superior do "Overview" */
+  margin-top: 0.8rem;
+  /* Ajuste o valor para aumentar o espaçamento superior do "Overview" */
   margin-bottom: 2rem;
   border-radius: 0 0.6rem 0.6rem 0;
 }
@@ -281,26 +291,34 @@ body.dark-theme {
   align-items: center;
   color: #fff;
   text-decoration: none;
-  padding: 0.5rem 1rem; /* Adicione padding para melhorar o espaçamento */
-  border-radius: 0.5rem; /* Adicione bordas arredondadas para melhor aparência */
-  transition: background-color 0.3s ease; /* Transição suave para o hover */
-  width: 100%; /* Ocupa toda a largura disponível */
-  box-sizing: border-box; /* Inclui o padding no cálculo de largura */
+  padding: 0.5rem 1rem;
+  /* Adicione padding para melhorar o espaçamento */
+  border-radius: 0.5rem;
+  /* Adicione bordas arredondadas para melhor aparência */
+  transition: background-color 0.3s ease;
+  /* Transição suave para o hover */
+  width: 100%;
+  /* Ocupa toda a largura disponível */
+  box-sizing: border-box;
+  /* Inclui o padding no cálculo de largura */
 }
 
 /* Fundo para links ativos */
 .active-link {
-  background-color: var(--first-color); /* Utilize a variável já definida */
+  background-color: var(--first-color);
+  /* Utilize a variável já definida */
 }
 
 /* Fundo azul-claro no hover para links ativos */
 .sidebar__link.active-link:hover {
-  background-color: #add8e6; /* Azul-claro */
+  background-color: #add8e6;
+  /* Azul-claro */
 }
 
 /* Fundo padrão no hover para todos os links */
 .sidebar__link:hover {
-  background-color: #3a4b73; /* Cor padrão de hover */
+  background-color: #3a4b73;
+  /* Cor padrão de hover */
 }
 
 /* Tamanho e espaçamento dos ícones */
@@ -314,32 +332,42 @@ body.dark-theme {
 .sidebar__theme {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  justify-content: center;
+  /* Centraliza o conteúdo horizontalmente */
   color: #fff;
   background: none;
   border: none;
-  padding: 0.5rem 1rem; /* Ajuste o padding conforme necessário */
-  width: 100%; /* Ocupa toda a largura disponível */
+  padding: 0.5rem 1rem;
+  /* Ajuste o padding conforme necessário */
+  width: 100%;
+  /* Ocupa toda a largura disponível */
   cursor: pointer;
-  border-radius: 0.5rem; /* Bordas arredondadas para melhor aparência */
-  transition: background-color 0.3s ease; /* Transição suave para o hover */
+  border-radius: 0.5rem;
+  /* Bordas arredondadas para melhor aparência */
+  transition: background-color 0.3s ease;
+  /* Transição suave para o hover */
 }
 
 .sidebar__theme:hover {
-  background-color: #3a4b73; /* Cor padrão de hover */
+  background-color: #3a4b73;
+  /* Cor padrão de hover */
 }
 
 .sidebar__theme i {
-  margin-right: 0.5rem; /* Espaço entre o ícone e o texto */
+  margin-right: 0.5rem;
+  /* Espaço entre o ícone e o texto */
   font-size: 1.5rem;
   color: #fff;
 }
 
 /* Estilo do HR */
 hr {
-  border: none; /* Remove a borda padrão */
-  border-top: 1px solid #fff; /* Adiciona uma linha horizontal fina */
-  margin: 3rem 0; /* Aumenta as margens acima e abaixo do HR */
+  border: none;
+  /* Remove a borda padrão */
+  border-top: 1px solid #fff;
+  /* Adiciona uma linha horizontal fina */
+  margin: 3rem 0;
+  /* Aumenta as margens acima e abaixo do HR */
 }
 
 /* Classe para ocultar elementos */
@@ -372,7 +400,8 @@ hr {
 .menu__dash-link:hover,
 .menu__dash-link:focus,
 .menu__dash-link.active {
-  color: var(--textMenu-color); /* Cor do texto para hover e active */
+  color: var(--textMenu-color);
+  /* Cor do texto para hover e active */
   border-radius: 0 10px 10px 0;
 }
 
@@ -385,9 +414,8 @@ hr {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: var(
-    --textMenu-color
-  ); /* Linha embaixo com a cor do texto */
+  background-color: var(--textMenu-color);
+  /* Linha embaixo com a cor do texto */
   border-radius: 0 10px 10px 0;
 }
 
@@ -395,23 +423,30 @@ hr {
 /* Remove o hover e estilos ativos especificamente para o link do input */
 .input__menu .menu__dash-link:hover,
 .input__menu .menu__dash-link.active::after {
-  content: none; /* Remove a linha decorativa quando em hover ou ativo */
+  content: none;
+  /* Remove a linha decorativa quando em hover ou ativo */
 }
 
 .input__menu .menu__dash-link:hover,
 .input__menu .menu__dash-link:focus,
 .input__menu .menu__dash-link.active {
-  background-color: transparent; /* Não altera a cor de fundo */
-  color: inherit; /* Mantém a cor do texto original */
-  border-radius: 0; /* Remove o arredondamento no hover */
+  background-color: transparent;
+  /* Não altera a cor de fundo */
+  color: inherit;
+  /* Mantém a cor do texto original */
+  border-radius: 0;
+  /* Remove o arredondamento no hover */
 }
+
 /* === FIM DAS ALTERAÇÕES === */
 
 /* Remove o hover para o input dentro do menu */
 .input__menu .menu__dash-link:hover,
 .input__menu .menu__dash-link:focus {
-  background-color: transparent; /* Remove qualquer cor de fundo no hover */
-  color: inherit; /* Mantém a cor original */
+  background-color: transparent;
+  /* Remove qualquer cor de fundo no hover */
+  color: inherit;
+  /* Mantém a cor original */
 }
 
 /* Ajuste para o próprio input, caso precise */
@@ -449,6 +484,7 @@ hr {
   display: flex;
   justify-self: flex-start;
 }
+
 .card__container-1 {
   padding-top: 1rem;
   gap: 3rem;
@@ -460,6 +496,7 @@ hr {
   padding-top: -1rem;
   grid-template-columns: repeat(3, 1fr);
 }
+
 .card__info1 {
   display: flex;
   flex-direction: column;
@@ -481,6 +518,7 @@ hr {
   color: var(--text-color);
   background-color: var(--container-colorr);
 }
+
 .info1__renda {
   display: flex;
   justify-content: space-between;
@@ -503,7 +541,8 @@ hr {
   background-color: rgba(57, 217, 138, 1);
   border-radius: 5px;
 
-  margin-top: auto; /* empurra a div para a parte inferior */
+  margin-top: auto;
+  /* empurra a div para a parte inferior */
   height: 3rem;
 }
 
@@ -517,7 +556,8 @@ hr {
 
 /* Estilos para garantir que os cards fiquem lado a lado */
 .card__container {
-  display: flex; /* Coloca os cards lado a lado */
+  display: flex;
+  /* Coloca os cards lado a lado */
 }
 
 .card__info3,
@@ -526,7 +566,8 @@ hr {
   border: 1px solid #929397;
   height: 10rem;
   background-color: #ffffff;
-  border-radius: 1rem 1rem 0 0; /* Apenas a parte superior arredondada */
+  border-radius: 1rem 1rem 0 0;
+  /* Apenas a parte superior arredondada */
   color: #283d5c;
   display: flex;
   flex-direction: column;
@@ -544,9 +585,11 @@ hr {
   width: 2rem;
   height: 2rem;
   background-color: #e6eaf5;
-  padding: 0.5rem; /* Ajuste o padding conforme necessário */
+  padding: 0.5rem;
+  /* Ajuste o padding conforme necessário */
   border-radius: 100%;
-  box-sizing: content-box; /* Garante que o padding não afete o tamanho da imagem */
+  box-sizing: content-box;
+  /* Garante que o padding não afete o tamanho da imagem */
 }
 
 .card__duvida {
@@ -590,19 +633,25 @@ hr {
 }
 
 .card__grow p {
-  width: auto; /* Permite que o texto ocupe o espaço necessário */
-  white-space: nowrap; /* Impede a quebra de linha */
+  width: auto;
+  /* Permite que o texto ocupe o espaço necessário */
+  white-space: nowrap;
+  /* Impede a quebra de linha */
 }
 
 /* Propriedades comuns para todas as classes */
 .debito,
 .credito,
 .resultado {
-  width: 0.7rem; /* Aumente o valor conforme necessário */
-  height: 0.7rem; /* Aumente o valor conforme necessário */
-  padding: 0.4rem; /* Ajuste o padding conforme necessário */
+  width: 0.7rem;
+  /* Aumente o valor conforme necessário */
+  height: 0.7rem;
+  /* Aumente o valor conforme necessário */
+  padding: 0.4rem;
+  /* Ajuste o padding conforme necessário */
   border-radius: 100%;
-  box-sizing: content-box; /* Certifique-se que o padding não afete o tamanho da imagem */
+  box-sizing: content-box;
+  /* Certifique-se que o padding não afete o tamanho da imagem */
 }
 
 /* Propriedade de cor específica para .debito */
@@ -618,8 +667,10 @@ hr {
 
 /* Estilos da imagem */
 .card__grow img {
-  width: 0.7rem; /* Aumente o valor conforme necessário */
-  height: 0.7rem; /* Aumente o valor conforme necessário */
+  width: 0.7rem;
+  /* Aumente o valor conforme necessário */
+  height: 0.7rem;
+  /* Aumente o valor conforme necessário */
 }
 
 .card__number {
@@ -651,11 +702,16 @@ hr {
 .info3__barra,
 .info4__barra,
 .info5__barra {
-  height: 1.2rem; /* Ajuste a altura conforme necessário */
-  margin: 0; /* Remove qualquer margem */
-  padding: 0; /* Remove qualquer padding */
-  border-radius: 0; /* Remove o arredondado das barras */
-  width: 100%; /* Garante que a barra ocupe toda a largura do card */
+  height: 1.2rem;
+  /* Ajuste a altura conforme necessário */
+  margin: 0;
+  /* Remove qualquer margem */
+  padding: 0;
+  /* Remove qualquer padding */
+  border-radius: 0;
+  /* Remove o arredondado das barras */
+  width: 100%;
+  /* Garante que a barra ocupe toda a largura do card */
   border-top: solid 0.01px #929397;
 }
 
@@ -675,18 +731,22 @@ hr {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(2, 1fr);
-  height: 28vh; /* Faz o container ocupar toda a altura da tela */
+  height: 28vh;
+  /* Faz o container ocupar toda a altura da tela */
 }
 
 .card__info6,
 .card__info7 {
   border: 1px solid #929397;
   padding: 1rem;
-  width: 100%; /* Ocupa o espaço total da coluna */
-  height: auto; /* Deixa a altura ajustável conforme o conteúdo */
+  width: 100%;
+  /* Ocupa o espaço total da coluna */
+  height: auto;
+  /* Deixa a altura ajustável conforme o conteúdo */
   background-color: #ffffff;
   border-radius: 0.75rem;
-  box-sizing: border-box; /* Garante que o padding seja incluído no tamanho */
+  box-sizing: border-box;
+  /* Garante que o padding seja incluído no tamanho */
 }
 
 .card__upper {
@@ -704,7 +764,8 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Certifique-se de que fique acima de outros elementos */
+  z-index: 1000;
+  /* Certifique-se de que fique acima de outros elementos */
 }
 
 .info-popup__content {
@@ -713,8 +774,10 @@ hr {
   border-radius: 0.75rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   position: relative;
-  max-width: 400px; /* Limita a largura do popup */
-  width: 90%; /* Responsivo */
+  max-width: 400px;
+  /* Limita a largura do popup */
+  width: 90%;
+  /* Responsivo */
 }
 
 .close {
@@ -723,7 +786,8 @@ hr {
   right: 15px;
   cursor: pointer;
   font-size: 1.5rem;
-  color: #333; /* Cor do botão de fechar */
+  color: #333;
+  /* Cor do botão de fechar */
 }
 
 .popup-card__title {
@@ -902,12 +966,14 @@ hr {
 
 .card__info8 ul {
   display: grid;
-  grid-template-columns: repeat(8, 1fr); /* Colunas com largura igual */
+  grid-template-columns: repeat(8, 1fr);
+  /* Colunas com largura igual */
   gap: 0.5rem;
   margin: 0.4rem 1rem;
   padding: 0;
   list-style: none;
-  text-align: center; /* Centraliza o texto */
+  text-align: center;
+  /* Centraliza o texto */
 }
 
 .card__info8 ul li {
@@ -916,13 +982,15 @@ hr {
   overflow: visible;
   text-overflow: unset;
   background: none;
-  align-self: center; /* Alinha verticalmente */
+  align-self: center;
+  /* Alinha verticalmente */
 }
 
 /* Estilos para a descrição */
 .description {
   border-radius: 0.4rem;
-  text-align: center; /* Centraliza o texto dentro da descrição */
+  text-align: center;
+  /* Centraliza o texto dentro da descrição */
 }
 
 .certo {
@@ -978,7 +1046,8 @@ hr {
   font-weight: bold;
   font-size: 13px;
   color: rgba(145, 149, 171, 1);
-  text-align: center; /* Centraliza o título */
+  text-align: center;
+  /* Centraliza o título */
 }
 
 .list__title li {
@@ -1057,6 +1126,7 @@ hr {
 .menu__container ul li {
   margin-right: 2rem;
 }
+
 .input-container2 {
   border: none;
   margin: 0 4rem;
@@ -1106,8 +1176,10 @@ hr {
 
 /* Estilização para link clicado (ativo) */
 .item__time.active {
-  background-color: rgba(239, 246, 255, 1); /* Mesmo estilo do hover */
-  color: rgba(0, 99, 247, 1); /* Mesmo estilo do hover */
+  background-color: rgba(239, 246, 255, 1);
+  /* Mesmo estilo do hover */
+  color: rgba(0, 99, 247, 1);
+  /* Mesmo estilo do hover */
 }
 
 .first {
@@ -1197,12 +1269,14 @@ hr {
   .sidebar__link span {
     display: none;
   }
+
   .sidebar__user,
   .sidebar__list,
   .sidebar__actions {
     justify-content: center;
     order: 1;
   }
+
   .sidebar__user,
   .sidebar__link {
     grid-template-columns: max-content;
@@ -1211,12 +1285,15 @@ hr {
   .header__toggle {
     padding: 0 2rem;
   }
+
   .sidebar__user {
     padding: 0;
   }
+
   .sidebar__link {
     padding-inline: 2rem;
   }
+
   .sidebar__title {
     padding-inline: 0.5rem;
     margin-inline: auto;
@@ -1246,10 +1323,12 @@ hr {
     padding-left: 21rem;
     transition: padding 0.4s;
   }
+
   .header__container {
     height: calc(var(--header-height) + 2rem);
     padding-inline: 2rem;
   }
+
   .header__logo {
     order: 2;
   }
@@ -1257,6 +1336,7 @@ hr {
   .icon-1 {
     display: none;
   }
+
   .icon-1 {
     display: none;
   }
@@ -1284,10 +1364,12 @@ hr {
     left: 0;
     width: 316px;
   }
+
   .sidebar__info,
   .sidebar__link span {
     transition: opacity 0.4s;
   }
+
   .sidebar__user,
   .sidebar__title {
     transition: padding 0.4s;
@@ -1301,10 +1383,12 @@ hr {
   .show-sidebar .sidebar__user {
     padding-left: 1.25rem;
   }
+
   .show-sidebar .sidebar__title {
     padding-left: 0;
     margin-inline: auto;
   }
+
   .show-sidebar .sidebar__info,
   .show-sidebar .sidebar__link span {
     opacity: 0;
@@ -1386,13 +1470,15 @@ hr {
 
 /* Controla a visibilidade das imagens sem remover a estrutura do layout */
 .popup__imagem img {
-  width: 100%; /* Ajusta o tamanho da imagem para o container */
+  width: 100%;
+  /* Ajusta o tamanho da imagem para o container */
   height: auto;
 }
 
 /* Quando o switch desativa, esconde a imagem mas mantém a estrutura flex */
 .popup__imagem.hidden {
-  visibility: hidden; /* Esconde a imagem, mas preserva o espaço no layout */
+  visibility: hidden;
+  /* Esconde a imagem, mas preserva o espaço no layout */
 }
 
 /* Especificamente para a div .saldo */
@@ -1401,7 +1487,8 @@ hr {
   gap: 2rem;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: nowrap; /* Garante que as imagens fiquem sempre lado a lado */
+  flex-wrap: nowrap;
+  /* Garante que as imagens fiquem sempre lado a lado */
 }
 
 .grafico {
@@ -1462,14 +1549,16 @@ hr {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  margin-top: 20px; /* Espaço acima da tabela */
-  
+  margin-top: 20px;
+  /* Espaço acima da tabela */
+
 }
 
 .arquivo-container label {
-  margin-left: 5px; /* Espaçamento entre os rótulos e os inputs */
+  margin-left: 5px;
+  /* Espaçamento entre os rótulos e os inputs */
   margin-top: 10px;
-  
+
 }
 
 
@@ -1483,7 +1572,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-.search-input, .date-filter, .filter-btn {
+.search-input,
+.date-filter,
+.filter-btn {
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ddd;
@@ -1505,7 +1596,8 @@ thead {
   background-color: #f1f3f5;
 }
 
-th, td {
+th,
+td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #8A8A8A;
@@ -1578,8 +1670,10 @@ td .sem-id {
 /* Estilos para os Cards */
 .cards-container {
   display: flex;
-  gap: 20px; /* Espaçamento entre os cards */
-  margin-bottom: 50px; /* Espaço abaixo dos cards */
+  gap: 20px;
+  /* Espaçamento entre os cards */
+  margin-bottom: 50px;
+  /* Espaço abaixo dos cards */
 }
 
 .card {
@@ -1627,19 +1721,27 @@ td .sem-id {
 
 /* Especificações de cores */
 .card-notas .card-icon {
-  background-color: #252C58; /* Azul escuro */
+  background-color: #252C58;
+  /* Azul escuro */
 }
 
 .card-governo .card-icon {
-  background-color: #39D98A; /* Verde */
+  background-color: #39D98A;
+  /* Verde */
 }
 
 .card-creditos .card-icon {
-  background-color: #5C8BBF; /* Azul claro */
+  background-color: #5C8BBF;
+  /* Azul claro */
 }
 
 
 /*=============== DASHBOARD TELA ===============*/
+#dashboard-dash {
+  display: flex;
+  gap: 2rem;
+}
+
 #dashboard-container {
   height: auto;
   width: 46rem;
@@ -1715,7 +1817,7 @@ td .sem-id {
 
 #dashboard-dados {
   margin-left: 3.5rem;
-  gap: 4.6rem;
+  gap: 5rem;
 }
 
 #dashboard-dados h2 {
@@ -1764,11 +1866,136 @@ td .sem-id {
   background-color: #217efd;
   color: #ffffff;
   border-radius: 5px;
-  padding: 0 1rem; /* Ajusta o padding para diminuir a altura */
+  padding: 0 1rem;
+  /* Ajusta o padding para diminuir a altura */
   margin-right: 3.2rem;
   cursor: pointer;
   width: 5rem;
 }
+
+.dashboard-cadastro {
+  background-color: white;
+  /* Cor de fundo do contêiner */
+  border-radius: 15px;
+  /* Arredonda os cantos do contêiner */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Adiciona sombra ao contêiner */
+  width: 300px;
+  /* Largura fixa do contêiner */
+  padding: 20px;
+  /* Espaçamento interno do contêiner */
+  position: relative;
+  /* Posicionamento relativo para elementos internos */
+  text-align: left;
+  /* Alinhamento do texto à esquerda */
+  min-height: 500px;
+  /* Define uma altura mínima para o contêiner */
+}
+
+/* TITULO */
+
+.dashboard-titulo {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #1a1f36;
+  text-align: left;
+}
+
+.id {
+  font-size: 14px;
+  /* Tamanho da fonte do ID */
+  margin-bottom: 15px;
+  /* Espaçamento abaixo do ID */
+  color: #5581B2;
+  /* Cor do texto do ID */
+  text-align: left;
+  /* Alinhamento do ID à esquerda */
+}
+
+.dashboard-selecionar {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-desc {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.dashboard-desc label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+textarea {
+  resize: none;
+  border-radius: 5px;
+}
+
+/*  fonte dos rótulos */
+.dashboard-assunto {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #1a1f36;
+  padding: 0;
+  border: none;
+}
+
+.dashboard-assunto:focus,
+.dashboard-descricao:focus {
+  border-color: #5581B2;
+  /* Cor da borda ao focar em seletores e área de texto */
+}
+
+a {
+  color: #5581B2;
+  /* Cor do texto dos links */
+  text-decoration: none;
+  /* Remove sublinhado dos links */
+}
+
+a:hover {
+  text-decoration: underline;
+  /* Adiciona sublinhado aos links ao passar o mouse */
+}
+
+.close-btn {
+  position: absolute;
+  /* Posiciona o botão de fechar em relação ao contêiner */
+  top: 10px;
+  /* Distância do topo do contêiner */
+  left: 130px;
+  /* Distância da esquerda do contêiner */
+  background-color: transparent;
+  /* Fundo transparente para o botão de fechar */
+  border: none;
+  /* Remove a borda padrão do botão */
+  font-size: 18px;
+  /* Tamanho da fonte do botão de fechar */
+  color: #333;
+  /* Cor do texto do botão de fechar */
+  cursor: pointer;
+  /* Muda o cursor ao passar o mouse sobre o botão de fechar */
+  padding: 0;
+  /* Remove espaçamento interno do botão de fechar */
+  line-height: 1;
+  /* Ajusta o espaçamento vertical do texto do botão de fechar */
+}
+
+.dashboard-finalizar {
+  background-color: #5581B2; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  width: 95%; /* Largura total do botão */
+  padding: 10px; /* Espaçamento interno do botão */
+  border: none; /* Remove a borda padrão do botão */
+  border-radius: 5px; /* Arredonda os cantos do botão */
+  cursor: pointer; /* Muda o cursor ao passar o mouse sobre o botão */
+  font-size: 14px; /* Tamanho da fonte do botão */
+  margin-top: 20px; /* Espaçamento acima do botão */
+  text-align: center; /* Centraliza o texto do botão */
+}
+
 
 /*=============== CONTROLE TELA ===============*/
 .controle-tela {
@@ -1944,34 +2171,38 @@ td .sem-id {
   background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  border-radius: 34px; /* Certifica-se de que o fundo seja arredondado */
+  border-radius: 34px;
+  /* Certifica-se de que o fundo seja arredondado */
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 14px; /* Reduz o tamanho da bolinha */
+  height: 14px;
+  /* Reduz o tamanho da bolinha */
   width: 14px;
   left: 3px;
   bottom: 3px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  border-radius: 50%; /* Bolinha arredondada */
+  border-radius: 50%;
+  /* Bolinha arredondada */
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: rgba(0, 79, 198, 1);
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px rgba(0, 79, 198, 1);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
-  transform: translateX(20px); /* Ajustado para o tamanho da bolinha menor */
+  transform: translateX(20px);
+  /* Ajustado para o tamanho da bolinha menor */
 }
 
 /*=============== BREAKPOINTS ===============*/
@@ -2125,19 +2356,23 @@ input:checked + .slider:before {
 
   /* Para o ícone de calendário */
   .menu__calendar i {
-    margin-right: 0.5rem; /* Espaçamento entre o ícone e o texto */
+    margin-right: 0.5rem;
+    /* Espaçamento entre o ícone e o texto */
   }
 
   /* Se a tela for muito pequena, fazer os itens quebrarem */
   .menu__right,
   .menu__calendar {
-    flex: 1 1 auto; /* Permite que os itens ocupem o espaço disponível */
-    min-width: 180px; /* Define um limite mínimo para os itens não ficarem muito pequenos */
+    flex: 1 1 auto;
+    /* Permite que os itens ocupem o espaço disponível */
+    min-width: 180px;
+    /* Define um limite mínimo para os itens não ficarem muito pequenos */
   }
 
   /* Estilo para o contêiner que permite a escolha entre confins */
   .confins__choose {
-    display: none; /* Por enquanto, mantemos este div oculto */
+    display: none;
+    /* Por enquanto, mantemos este div oculto */
   }
 
   .item__time {
@@ -2173,6 +2408,7 @@ input:checked + .slider:before {
   .menu__container2 {
     padding-left: 5.9rem;
   }
+
   .input-container {
     border: none;
 
@@ -2189,12 +2425,16 @@ input:checked + .slider:before {
 
   .content {
     display: grid;
-    grid-template-columns: 60px 1fr; /* Define a sidebar de 60px e o restante para o conteúdo */
-    grid-gap: 2rem; /* Espaçamento entre os itens */
+    grid-template-columns: 60px 1fr;
+    /* Define a sidebar de 60px e o restante para o conteúdo */
+    grid-gap: 2rem;
+    /* Espaçamento entre os itens */
     padding: 1rem;
-    max-width: 1200px; /* Limita a largura máxima */
+    max-width: 1200px;
+    /* Limita a largura máxima */
     margin: 0 auto;
-    overflow-x: hidden; /* Impede o transbordamento horizontal */
+    overflow-x: hidden;
+    /* Impede o transbordamento horizontal */
   }
 
   /* O conteúdo principal ocupa a segunda coluna do grid */
@@ -2207,23 +2447,28 @@ input:checked + .slider:before {
 
   /* Reorganiza o card "Nome da Empresa" para ficar após "Divergências" */
   .card__container-1 {
-    order: 2; /* Move para a última posição */
+    order: 2;
+    /* Move para a última posição */
   }
 
   /* Reorganiza o card de "Divergências" para ficar acima */
   .card__container-8 {
-    order: 1; /* Coloca divergências no topo */
+    order: 1;
+    /* Coloca divergências no topo */
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr; /* Mantém em uma única coluna */
+    grid-template-columns: 1fr;
+    /* Mantém em uma única coluna */
   }
 
   /* Layout dos outros cards em grid de duas colunas */
   .card__container-3,
   .card__container-6 {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dois cartões por linha */
-    gap: 1rem; /* Espaçamento entre os cartões */
+    grid-template-columns: repeat(2, 1fr);
+    /* Dois cartões por linha */
+    gap: 1rem;
+    /* Espaçamento entre os cartões */
     max-width: 100%;
   }
 

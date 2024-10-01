@@ -360,6 +360,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+
 /*=============== ARQUIVO FUNCTIONALITY ===============*/
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -495,3 +497,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
