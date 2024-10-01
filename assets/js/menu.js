@@ -38,15 +38,19 @@ const iconTheme = "ri-sun-fill";
 
 const getCurrentTheme = () =>
   document.body.classList.contains(darkTheme) ? "dark" : "light";
+
 const getCurrentIcon = () =>
   themeButton.classList.contains(iconTheme)
     ? "ri-moon-clear-fill"
     : "ri-sun-fill";
 
-// Load previously selected theme and icon
+// Função para carregar o tema salvo no LocalStorage
 const loadTheme = () => {
   const selectedTheme = localStorage.getItem("selected-theme");
   const selectedIcon = localStorage.getItem("selected-icon");
+
+  console.log("Loaded theme:", selectedTheme);
+  console.log("Loaded icon:", selectedIcon);
 
   if (selectedTheme) {
     document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
@@ -57,44 +61,67 @@ const loadTheme = () => {
     ](iconTheme);
   }
 };
-loadTheme();
 
-// Toggle theme on button click
-themeButton.addEventListener("click", () => {
-  document.body.classList.toggle(darkTheme);
-  themeButton.classList.toggle(iconTheme);
-  localStorage.setItem("selected-theme", getCurrentTheme());
-  localStorage.setItem("selected-icon", getCurrentIcon());
-});
+// Limpa o LocalStorage para evitar problemas com valores corrompidos
+const clearLocalStorage = () => {
+  localStorage.removeItem("selected-theme");
+  localStorage.removeItem("selected-icon");
+};
 
-// Seleciona todos os links do menu principal
-const menuDashLinks = document.querySelectorAll(".menu__dash-link");
+// Verifique se o botão existe antes de adicionar o evento
+if (themeButton) {
+  loadTheme();
 
-// Função para adicionar a classe 'active' ao link clicado
-function handleMenuLinkClick() {
-  // Remove a classe 'active' de todos os links
-  menuDashLinks.forEach((link) => link.classList.remove("active"));
+  themeButton.addEventListener("click", () => {
+    console.log("Theme button clicked");
+    document.body.classList.toggle(darkTheme);
+    themeButton.classList.toggle(iconTheme);
 
-  // Adiciona a classe 'active' ao link clicado
-  this.classList.add("active");
+    // Armazena o tema e ícone no LocalStorage
+    localStorage.setItem("selected-theme", getCurrentTheme());
+    localStorage.setItem("selected-icon", getCurrentIcon());
+
+    console.log("Current theme:", getCurrentTheme());
+    console.log("Current icon:", getCurrentIcon());
+  });
+} else {
+  console.log("Theme button not found");
 }
 
-/*=============== LINK ACTIVE PARA MENU TIME ===============*/
-const setActiveLinkForMenuTime = (selector) => {
-  const links = document.querySelectorAll(selector);
+/*=============== HOVER DUVIDA ===============*/
+const duvidaIcons = document.querySelectorAll(".duvidaIcon");
+const tooltip = document.createElement("div");
+tooltip.className = "tooltip";
+tooltip.textContent =
+  "Pedidos refere a compensações de pagamentos recolhidos indevidamente ou a maior.";
+document.body.appendChild(tooltip);
 
-  links.forEach((link) => {
-    link.addEventListener("click", function (event) {
-      event.preventDefault(); // Previne o comportamento padrão do link
+const tooltipStyle = document.createElement("style");
+tooltipStyle.innerHTML = `
+ .tooltip {
+   position: absolute;
+   background-color: #333;
+   color: #fff;
+   padding: 0.5rem;
+   border-radius: 4px;
+   font-size: 0.9rem;
+   pointer-events: none;
+   z-index: 1000;
+   white-space: nowrap;
+ }
+ `;
+document.head.appendChild(tooltipStyle);
 
-      // Remove a classe 'active' de todos os links
-      links.forEach((l) => l.classList.remove("active"));
-
-      // Adiciona a classe 'active' ao link clicado
-      this.classList.add("active");
-    });
+duvidaIcons.forEach((icon) => {
+  icon.addEventListener("mouseover", (event) => {
+    tooltip.style.display = "block";
+    tooltip.style.left = event.pageX + "px";
+    tooltip.style.top = event.pageY + 20 + "px";
   });
-};
+  icon.addEventListener("mouseout", () => {
+    tooltip.style.display = "none";
+  });
+});
 
 // Aplica a função aos links no menu de tempo
 setActiveLinkForMenuTime(".item__time");

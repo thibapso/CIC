@@ -32,6 +32,11 @@
                 >
               </li>
               <li>
+                <a id="arquivo-link" class="menu__link" href="#arquivo"
+                  >Lista</a
+                >
+              </li>
+              <li>
                 <a id="controle-link" class="menu__link" href="#dashboard"
                   >Controle</a
                 >
@@ -39,16 +44,6 @@
               <li>
                 <a id="biblioteca-link" class="menu__link" href="#controle"
                   >Biblioteca</a
-                >
-              </li>
-              <li>
-                <a id="compliance-link" class="menu__link" href="#compliance"
-                  >Compliance</a
-                >
-              </li>
-              <li>
-                <a id="arquivo-link" class="menu__link" href="#arquivo"
-                  >Arquivo</a
                 >
               </li>
             </ul>
@@ -112,8 +107,14 @@
         <div class="sidebar__content">
           <div>
             <div class="sidebar__list">
-              <a href="#dashboard" class="sidebar__link">
+
+              <a href="#arquivo" class="sidebar__link">
                 <i class="ri-list-check"></i>
+                <span>Lista</span>
+              </a>
+
+              <a href="#dashboard" class="sidebar__link">
+                <i class="ri-file-line"></i>
                 <span>Controle</span>
               </a>
 
@@ -122,15 +123,6 @@
                 <span>Biblioteca</span>
               </a>
 
-              <a href="#compliance" class="sidebar__link">
-                <i class="ri-calendar-fill"></i>
-                <span>Compliance</span>
-              </a>
-
-              <a href="#arquivo" class="sidebar__link">
-                <i class="ri-arrow-up-down-line"></i>
-                <span>Arquivo</span>
-              </a>
             </div>
           </div>
 
@@ -685,6 +677,150 @@
                 });
               </script>
             </div>
+          </section>
+
+          <!--=============== MAIN ARQUIVO ===============-->
+          <section class="arquivo-tela" id="arquivo-container">
+            <div class="cards-container">
+              <!-- Card 1 -->
+              <div class="card card-notas">
+                  <div class="card-icon">
+                      <img src="./assets/img/icons/iconewallet.png" alt="Ícone Carteira">
+                  </div>
+                  <div class="card-content">
+                      <h4>Valores Notas</h4>
+                      <div class="value">R$230.000</div>
+                  </div>
+              </div>
+      
+              <!-- Card 2 -->
+              <div class="card card-governo">
+                  <div class="card-icon">
+                      <img src="assets/img/icons/iconepasta.png" alt="Ícone Governo">
+                  </div>
+                  <div class="card-content">
+                      <h4>Valores Governo</h4>
+                      <div class="value">R$228.000</div>
+                  </div>
+              </div>
+      
+              <!-- Card 3 -->
+              <div class="card card-creditos">
+                  <div class="card-icon">
+                      <img src="assets/img/icons/iconetime.png" alt="Ícone Créditos">
+                  </div>
+                  <div class="card-content">
+                      <h4>Créditos</h4>
+                      <div class="value">R$2.000</div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="arquivo-container">
+            <h1>Divergências</h1>
+            <div class="search-filter">
+                <input type="text" placeholder="Pesquisar" class="search-input">
+                <label for="date-filter">De</label>
+                <input type="date" value="2024-05-10" class="date-filter">
+                <label for="date-filter">a</label>
+                <input type="date" value="2024-05-20" class="date-filter">
+                <button class="filter-btn">Filtrar</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Município</th>
+                        <th>Valor da Nota</th>
+                        <th>R$ Governo</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                        <th>Crédito</th>
+                        <th>Diferença</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Linhas de exemplo -->
+                    <tr>
+                        <td><a href="#">0005000</a></td>
+                        <td>(SP)</td>
+                        <td>R$90.000</td>
+                        <td>R$50.000</td>
+                        <td>22/05/2024</td>
+                        <td><span class="status resolvido">Resolvido</span></td>
+                        <td class="credit green">R$ 40.000</td>
+                        <td>R$ -</td>
+                        <td><button class="details-btn">Detalhes</button></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">0005001</a></td>
+                        <td>(RJ)</td>
+                        <td>R$55.000</td>
+                        <td>R$46.245</td>
+                        <td>19/05/2024</td>
+                        <td><span class="status verificar">Verificar</span></td>
+                        <td>R$ 0</td>
+                        <td>- R$8.755</td>
+                        <td><button class="details-btn">Detalhes</button></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">0006589</a></td>
+                        <td>(SP)</td>
+                        <td>R$80.000</td>
+                        <td>R$100.000</td>
+                        <td>01/05/2024</td>
+                        <td><span class="status verificar">Verificar</span></td>
+                        <td>R$ 0</td>
+                        <td>- R$20.000</td>
+                        <td><button class="details-btn">Detalhes</button></td>
+                    </tr>
+                    <tr>
+                        <td>-------</td>
+                        <td>(RJ)</td>
+                        <td>R$ -</td>
+                        <td>R$ -</td>
+                        <td>19/05/2024</td>
+                        <td><span class="status sem-id">Sem Id</span></td>
+                        <td>R$ 0</td>
+                        <td>-----</td>
+                        <td><button class="details-btn">Detalhes</button></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">0008888</a></td>
+                        <td>(MG)</td>
+                        <td>R$10.000</td>
+                        <td>R$10.000</td>
+                        <td>12/05/2024</td>
+                        <td><span class="status resolvido">Resolvido</span></td>
+                        <td>R$ 0</td>
+                        <td>R$ -</td>
+                        <td><button class="details-btn">Detalhes</button></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">0000033</a></td>
+                        <td>(RJ)</td>
+                        <td>R$8.245</td>
+                        <td>R$8.245</td>
+                        <td>10/05/2024</td>
+                        <td><span class="status resolvido">Resolvido</span></td>
+                        <td>R$ 0</td>
+                        <td>R$ -</td>
+                        <td><button class="details-btn">Detalhes</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button class="page-btn">&laquo;</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <span>...</span>
+                <button class="page-btn">40</button>
+                <button class="page-btn">&raquo;</button>
+            </div>
+        </div>
           </section>
 
           <!--=============== MAIN DASHBOARD ===============-->

@@ -72,9 +72,13 @@ document.addEventListener("DOMContentLoaded", () => {
       ? "ri-moon-clear-fill"
       : "ri-sun-fill";
 
+  // Função para carregar o tema salvo no LocalStorage
   const loadTheme = () => {
     const selectedTheme = localStorage.getItem("selected-theme");
     const selectedIcon = localStorage.getItem("selected-icon");
+
+    console.log("Loaded theme:", selectedTheme);
+    console.log("Loaded icon:", selectedIcon);
 
     if (selectedTheme) {
       document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
@@ -85,14 +89,32 @@ document.addEventListener("DOMContentLoaded", () => {
       ](iconTheme);
     }
   };
-  loadTheme();
 
-  themeButton.addEventListener("click", () => {
-    document.body.classList.toggle(darkTheme);
-    themeButton.classList.toggle(iconTheme);
-    localStorage.setItem("selected-theme", getCurrentTheme());
-    localStorage.setItem("selected-icon", getCurrentIcon());
-  });
+  // Limpa o LocalStorage para evitar problemas com valores corrompidos
+  const clearLocalStorage = () => {
+    localStorage.removeItem("selected-theme");
+    localStorage.removeItem("selected-icon");
+  };
+
+  // Verifique se o botão existe antes de adicionar o evento
+  if (themeButton) {
+    loadTheme();
+
+    themeButton.addEventListener("click", () => {
+      console.log("Theme button clicked");
+      document.body.classList.toggle(darkTheme);
+      themeButton.classList.toggle(iconTheme);
+
+      // Armazena o tema e ícone no LocalStorage
+      localStorage.setItem("selected-theme", getCurrentTheme());
+      localStorage.setItem("selected-icon", getCurrentIcon());
+
+      console.log("Current theme:", getCurrentTheme());
+      console.log("Current icon:", getCurrentIcon());
+    });
+  } else {
+    console.log("Theme button not found");
+  }
 
   /*=============== HOVER DUVIDA ===============*/
   const duvidaIcons = document.querySelectorAll(".duvidaIcon");
@@ -104,18 +126,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tooltipStyle = document.createElement("style");
   tooltipStyle.innerHTML = `
-   .tooltip {
-     position: absolute;
-     background-color: #333;
-     color: #fff;
-     padding: 0.5rem;
-     border-radius: 4px;
-     font-size: 0.9rem;
-     pointer-events: none;
-     z-index: 1000;
-     white-space: nowrap;
-   }
-   `;
+ .tooltip {
+   position: absolute;
+   background-color: #333;
+   color: #fff;
+   padding: 0.5rem;
+   border-radius: 4px;
+   font-size: 0.9rem;
+   pointer-events: none;
+   z-index: 1000;
+   white-space: nowrap;
+ }
+ `;
   document.head.appendChild(tooltipStyle);
 
   duvidaIcons.forEach((icon) => {
@@ -223,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mostra o popup e o overlay
     document.getElementById("popup").style.display = "block";
     document.getElementById("overlay").style.display = "block";
-  }  
+  }
   // Função para fechar o popup sem confirmar
   function fecharPopup() {
     // Se o usuário cancelar, reativa o link anterior e remove 'active' do atual
@@ -338,12 +360,82 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/*=============== ARQUIVO FUNCTIONALITY ===============*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Seleciona a seção completa
+  const arquivoSection = document.querySelector(".arquivo-tela");
+  
+  // Define a seção como oculta inicialmente
+  arquivoSection.classList.add("hidden");
+
+  // Seleciona o link "arquivo"
+  const controleLink = document.querySelector(
+    '.sidebar a.sidebar__link[href="#arquivo"]'
+  );
+
+  // Seleciona todos os outros links na sidebar
+  const otherLinks = document.querySelectorAll(
+    '.sidebar a.sidebar__link:not([href="#arquivo"])'
+  );
+
+  // Seleciona o menu que você deseja ocultar
+  const menuContainer = document.querySelector(".menu__container2");
+
+  // Verifica se o link "arquivo" e a seção existem
+  if (controleLink && arquivoSection) {
+    controleLink.addEventListener("click", (event) => {
+      event.preventDefault(); // Previne o comportamento padrão do link
+
+      // Exibe a seção removendo a classe 'hidden'
+      arquivoSection.classList.remove("hidden");
+
+      // Oculta o menu
+      if (menuContainer) menuContainer.classList.add("hidden");
+
+      // Opcional: Exibe os elementos internos, se necessário
+      const controleMessage = document.getElementById("arquivo-message");
+      const controleParagraph = document.getElementById(
+        "arquivo-message-paragraph"
+      );
+      const controleConteudo = document.querySelector(".arquivo-conteudo");
+
+      if (controleMessage) controleMessage.classList.remove("hidden");
+      if (controleParagraph) controleParagraph.classList.remove("hidden");
+      if (controleConteudo) controleConteudo.classList.remove("hidden");
+    });
+  }
+
+  // Adiciona eventos aos outros links para ocultar a seção "arquivo"
+  otherLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      // Oculta a seção adicionando a classe 'hidden'
+      arquivoSection.classList.add("hidden");
+
+      // Mostra o menu novamente
+      if (menuContainer) menuContainer.classList.remove("hidden");
+
+      // Opcional: Oculta os elementos internos, se necessário
+      const controleMessage = document.getElementById("arquivo-message");
+      const controleParagraph = document.getElementById(
+        "arquivo-message-paragraph"
+      );
+      const controleConteudo = document.querySelector(".arquivo-conteudo");
+
+      if (controleMessage) controleMessage.classList.add("hidden");
+      if (controleParagraph) controleParagraph.classList.add("hidden");
+      if (controleConteudo) controleConteudo.classList.add("hidden");
+    });
+  });
+});
+
+
 /*=============== CONTROLE FUNCTIONALITY ===============*/
 
 document.addEventListener("DOMContentLoaded", () => {
   // Seleciona a seção completa
   const controleSection = document.querySelector(".controle-tela");
-  
+
   // Seleciona o link "Controle"
   const controleLink = document.querySelector(
     '.sidebar a.sidebar__link[href="#controle"]'
