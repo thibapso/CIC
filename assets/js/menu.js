@@ -98,18 +98,18 @@ document.body.appendChild(tooltip);
 
 const tooltipStyle = document.createElement("style");
 tooltipStyle.innerHTML = `
- .tooltip {
-   position: absolute;
-   background-color: #333;
-   color: #fff;
-   padding: 0.5rem;
-   border-radius: 4px;
-   font-size: 0.9rem;
-   pointer-events: none;
-   z-index: 1000;
-   white-space: nowrap;
- }
- `;
+.tooltip {
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  pointer-events: none;
+  z-index: 1000;
+  white-space: nowrap;
+}
+`;
 document.head.appendChild(tooltipStyle);
 
 duvidaIcons.forEach((icon) => {
@@ -123,27 +123,27 @@ duvidaIcons.forEach((icon) => {
   });
 });
 
+/*=============== LINK ACTIVE PARA MENU TIME ===============*/
+const setActiveLinkForMenuTime = (selector) => {
+  const links = document.querySelectorAll(selector);
+
+  links.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault(); // Previne o comportamento padrão do link
+
+      // Remove a classe 'active' de todos os links
+      links.forEach((l) => l.classList.remove("active"));
+
+      // Adiciona a classe 'active' ao link clicado
+      this.classList.add("active");
+    });
+  });
+};
+
 // Aplica a função aos links no menu de tempo
 setActiveLinkForMenuTime(".item__time");
 
-// Adiciona um evento de clique a cada link
-menuDashLinks.forEach((link) => {
-  link.addEventListener("click", handleMenuLinkClick);
-});
-
-/*=============== Hover Duvida ===============*/
-
-const duvidaIcons = document.querySelectorAll(".duvidaIcon");
-
-// Cria o tooltip
-const tooltip = document.createElement("div");
-tooltip.className = "tooltip";
-tooltip.textContent =
-  "Pedidos refere a compensações de pagamentos recolhidos indevidamente ou a maior.";
-document.body.appendChild(tooltip);
-
 /*=============== POPUP TAREFAS ===============*/
-
 const infoPopup6 = document.getElementById("infoPopup6");
 const closeInfoPopup6 = document.getElementById("closeInfoPopup6");
 const infoPopup7 = document.getElementById("infoPopup7");
@@ -152,21 +152,31 @@ const arrowIcons = document.querySelectorAll(
   ".card__date i.ri-arrow-down-s-line"
 );
 
-arrowIcons[0].addEventListener("click", () => {
-  infoPopup6.style.display = "flex"; // Mostra o popup do card 6
-});
+// Abrir popups de informação
+if (arrowIcons.length > 0 && infoPopup6 && closeInfoPopup6) {
+  arrowIcons[0].addEventListener("click", () => {
+    infoPopup6.style.display = "flex"; // Mostra o popup do card 6
+  });
+}
 
-arrowIcons[1].addEventListener("click", () => {
-  infoPopup7.style.display = "flex"; // Mostra o popup do card 7
-});
+if (arrowIcons.length > 1 && infoPopup7 && closeInfoPopup7) {
+  arrowIcons[1].addEventListener("click", () => {
+    infoPopup7.style.display = "flex"; // Mostra o popup do card 7
+  });
+}
 
-closeInfoPopup6.addEventListener("click", () => {
-  infoPopup6.style.display = "none"; // Esconde o popup do card 6
-});
+// Fechar popups de informação
+if (closeInfoPopup6 && infoPopup6) {
+  closeInfoPopup6.addEventListener("click", () => {
+    infoPopup6.style.display = "none"; // Esconde o popup do card 6
+  });
+}
 
-closeInfoPopup7.addEventListener("click", () => {
-  infoPopup7.style.display = "none"; // Esconde o popup do card 7
-});
+if (closeInfoPopup7 && infoPopup7) {
+  closeInfoPopup7.addEventListener("click", () => {
+    infoPopup7.style.display = "none"; // Esconde o popup do card 7
+  });
+}
 
 // Fecha os popups ao clicar fora do conteúdo
 window.addEventListener("click", (event) => {
@@ -178,44 +188,21 @@ window.addEventListener("click", (event) => {
   }
 });
 
-// Adiciona eventos de hover para cada ícone de dúvida
-duvidaIcons.forEach((icon) => {
-  icon.addEventListener("mouseover", function (event) {
-    tooltip.style.display = "block";
-    tooltip.style.left = event.pageX + "px";
-    tooltip.style.top = event.pageY + 20 + "px"; // Posiciona o tooltip
-  });
-
-  icon.addEventListener("mouseout", function () {
-    tooltip.style.display = "none";
-  });
-});
-
 /*=============== POPUP ===============*/
 
-// Variável para armazenar o link anteriormente selecionado
-let previousSelectedLink = document.querySelector(".menu__dash-link.active");
-let currentSelectedLink = null;
+// Seleciona todos os links do menu
+const menuDashLinks = document.querySelectorAll(".menu__dash-link");
 
-function confirmarEscolha() {
-  // Fecha o popup
-  fecharPopup();
-
-  // Remove a classe 'active' do item anterior, se houver
-  if (previousSelectedLink) {
-    previousSelectedLink.classList.remove("active");
-  }
-
-  // Verifica se o link clicado está armazenado e aplica o estilo 'active'
-  if (currentSelectedLink) {
-    currentSelectedLink.classList.add("active");
-  }
-
-  // Atualiza o anterior para o atual
-  previousSelectedLink = currentSelectedLink;
-
-  console.log("Escolha confirmada!");
+// Função para adicionar a classe 'active' ao link clicado
+function handleMenuLinkClick() {
+  menuDashLinks.forEach((link) => link.classList.remove("active"));
+  this.classList.add("active");
 }
+
+// Adiciona o evento de clique a cada link para gerenciar a classe 'active'
+menuDashLinks.forEach((link) => {
+  link.addEventListener("click", handleMenuLinkClick);
+});
 
 // Função para abrir o popup
 function abrirPopup(event) {
@@ -223,7 +210,7 @@ function abrirPopup(event) {
 
   // Verifica se o clique foi na última <li> (que contém o input de busca)
   const lastLi = document.querySelector(".menu__dash li.icon");
-  if (lastLi.contains(event.target)) {
+  if (lastLi && lastLi.contains(event.target)) {
     return; // Não faz nada se o clique foi na última li (input de busca)
   }
 
@@ -231,8 +218,12 @@ function abrirPopup(event) {
   currentSelectedLink = event.target;
 
   // Mostra o popup e o overlay
-  document.getElementById("popup").style.display = "block";
-  document.getElementById("overlay").style.display = "block";
+  const popup = document.getElementById("popup");
+  const overlay = document.getElementById("overlay");
+  if (popup && overlay) {
+    popup.style.display = "block";
+    overlay.style.display = "block";
+  }
 }
 
 // Função para fechar o popup sem confirmar
@@ -246,10 +237,19 @@ function fecharPopup() {
   }
 
   // Fecha o popup e o overlay
-  document.getElementById("popup").style.display = "none";
-  document.getElementById("overlay").style.display = "none";
+  const popup = document.getElementById("popup");
+  const overlay = document.getElementById("overlay");
+  if (popup && overlay) {
+    popup.style.display = "none";
+    overlay.style.display = "none";
+  }
 }
 
+// Variáveis para armazenar os links selecionados
+let previousSelectedLink = document.querySelector(".menu__dash-link.active");
+let currentSelectedLink = null;
+
+// Função para confirmar a escolha no popup
 function confirmarEscolha() {
   // Fecha o popup
   fecharPopup();
@@ -270,34 +270,36 @@ function confirmarEscolha() {
   // Controle de opacidade para "Gráficos - Erros de apuração"
   const graficoCheckbox = document.querySelector("[data-target='.grafico']");
   const cardInfo2 = document.querySelector(".card__info2");
-  cardInfo2.style.opacity = graficoCheckbox.checked ? "1" : "0";
+  if (graficoCheckbox && cardInfo2) {
+    cardInfo2.style.opacity = graficoCheckbox.checked ? "1" : "0";
+  }
 
   // Controle de opacidade para "Saldo acumulado"
   const saldoCheckbox = document.querySelector("[data-target='.saldo']");
   const cardContainer3 = document.querySelector(".card__container-3");
-  cardContainer3.style.opacity = saldoCheckbox.checked ? "1" : "0";
+  if (saldoCheckbox && cardContainer3) {
+    cardContainer3.style.opacity = saldoCheckbox.checked ? "1" : "0";
+  }
 
   // Controle de opacidade para "Priorização de tarefas"
-  const prioridadeCheckbox = document.querySelector(
-    "[data-target='.prioridade']"
-  );
+  const prioridadeCheckbox = document.querySelector("[data-target='.prioridade']");
   const cardContainer6 = document.querySelector(".card__container-6");
-  cardContainer6.style.opacity = prioridadeCheckbox.checked ? "1" : "0";
+  if (prioridadeCheckbox && cardContainer6) {
+    cardContainer6.style.opacity = prioridadeCheckbox.checked ? "1" : "0";
+  }
 
   // Controle de opacidade para "Divergências"
-  const divergenciasCheckbox = document.querySelector(
-    "[data-target='.divergencias']"
-  );
+  const divergenciasCheckbox = document.querySelector("[data-target='.divergencias']");
   const cardContainer8 = document.querySelector(".card__container-8");
-  cardContainer8.style.opacity = divergenciasCheckbox.checked ? "1" : "0";
+  if (divergenciasCheckbox && cardContainer8) {
+    cardContainer8.style.opacity = divergenciasCheckbox.checked ? "1" : "0";
+  }
 
   console.log("Escolha confirmada!");
 }
 
-// Seleciona todos os links do menu
-const menuLinks = document.querySelectorAll(".menu__dash-link");
-
 // Adiciona o evento de clique em cada link para abrir o popup
+const menuLinks = document.querySelectorAll(".menu__dash-link");
 menuLinks.forEach((link) => {
   link.addEventListener("click", abrirPopup);
 });
@@ -306,7 +308,7 @@ menuLinks.forEach((link) => {
 menuLinks.forEach((link) => {
   link.addEventListener("mouseenter", (event) => {
     const lastLi = document.querySelector(".menu__dash li.icon");
-    if (lastLi.contains(event.target)) {
+    if (lastLi && lastLi.contains(event.target)) {
       event.stopPropagation(); // Impede o hover de ativar o popup
     }
   });
@@ -315,21 +317,41 @@ menuLinks.forEach((link) => {
 // Seleciona o botão de "Salvar" e o popup
 const salvarButton = document.getElementById("dashboard-salvar");
 const popup = document.getElementById("popup");
+const overlay = document.getElementById("overlay"); // Assegure-se de que exista no HTML
 const closeButton = document.querySelector(".popup .close");
+const confirmButton = document.querySelector(".popup .confirm"); // Botão de confirmar no popup
 
 // Adiciona o evento de clique ao botão de "Salvar"
-salvarButton.addEventListener("click", () => {
-  popup.style.display = "block"; // Exibe o popup
-});
+if (salvarButton && popup) {
+  salvarButton.addEventListener("click", () => {
+    popup.style.display = "block"; // Exibe o popup
+    if (overlay) {
+      overlay.style.display = "block";
+    }
+  });
+}
 
 // Adiciona o evento de clique ao botão de fechar o popup
-closeButton.addEventListener("click", () => {
-  popup.style.display = "none"; // Esconde o popup
-});
+if (closeButton && popup) {
+  closeButton.addEventListener("click", () => {
+    popup.style.display = "none"; // Esconde o popup
+    if (overlay) {
+      overlay.style.display = "none";
+    }
+  });
+}
+
+// Adiciona o evento de clique ao botão de confirmar no popup
+if (confirmButton) {
+  confirmButton.addEventListener("click", confirmarEscolha);
+}
 
 // Fecha o popup ao clicar fora do conteúdo
 window.addEventListener("click", (event) => {
   if (event.target === popup) {
     popup.style.display = "none";
+    if (overlay) {
+      overlay.style.display = "none";
+    }
   }
 });
