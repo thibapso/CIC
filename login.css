@@ -9,6 +9,7 @@ body {
   height: 100vh; /* Ocupa toda a altura da viewport */
   margin: 0; /* Remove margens padrão */
   gap: 2rem;
+  overflow: hidden; /* Impede o scroll */
 }
 
 .logo {
@@ -22,7 +23,6 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
-  /* Remova ou ajuste margens se necessário */
 }
 
 .dados-email,
@@ -34,14 +34,7 @@ body {
 
 .dados-email label,
 .dados-senha label {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin-bottom: 0.5rem;
-}
-
-.login {
-  margin: auto;
 }
 
 .dados-login {
@@ -52,8 +45,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none; /* Remove a sublinha do link */
-  color: #ffffff; /* Cor do texto */
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .dados-login:hover {
@@ -62,40 +55,25 @@ body {
 }
 
 .dados-login p {
-  margin: 1rem 0; /* Ajuste de espaçamento para centralizar o texto */
-}
-
-.dados-login a {
-  text-decoration: none;
-  color: #ffffff;
+  margin: 1rem 0;
 }
 
 .email,
 .senha {
   resize: none;
-  height: 2.5rem;
-  /* Altura ajustada */
+  height: 3rem; /* Altura ajustada */
   width: 30rem;
   border-radius: 5px;
   border: 0.3px solid rgba(39, 39, 39, 0.341);
-  border-radius: 0.75rem;
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
-  /* Espaçamento superior */
-  box-sizing: border-box;
   padding-left: 0.5rem;
-  opacity: 0.6;
+  opacity: 0.8;
   text-align: left;
-  /* Garante que o texto digitado seja alinhado à esquerda */
 }
 
 .email::placeholder,
 .senha::placeholder {
   text-align: left;
-  /* Centraliza o texto do placeholder */
   color: rgba(39, 39, 39, 0.5);
-  /* Cor opcional do placeholder */
-  opacity: 1;
-  top: 0;
 }
 
 /* Media Queries para Responsividade */
@@ -108,69 +86,43 @@ body {
 
   .dados-email label,
   .dados-senha label {
-    font-size: 1.1rem;
+    font-size: 1.3rem; /* Aumenta o tamanho da fonte */
   }
 
   input {
-    font-size: 1.1rem;
-    padding: 0.7rem 0.6rem;
+    font-size: 1.2rem; /* Aumenta a fonte dos inputs */
+    height: 3.5rem; /* Aumenta a altura dos inputs */
   }
 
   .dados-login p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 }
 
 /* Smartphones (largura menor que 768px) */
-@media (max-width: 767px) and (min-width: 480px) {
+@media (max-width: 767px) {
   .logo {
-    width: 40%;
+    width: 50%;
   }
 
   .dados-email label,
   .dados-senha label {
-    font-size: 1.2rem;
-  }
-
-  input {
-    font-size: 1.2rem;
-    padding: 0.8rem 0.7rem;
-  }
-
-  .dados-login p {
     font-size: 1.4rem;
   }
-}
 
-/* Celulares pequenos (largura menor que 480px) */
-@media (max-width: 479px) {
-  .logo {
-    width: 60%;
-  }
-
-  .dados-email label,
-  .dados-senha label {
+  .email,
+  .senha {
     font-size: 1.3rem;
-  }
-
-  .email, .senha {
-    font-size: 1.3rem;
-    padding: 0.9rem 0.8rem;
-    /* Remover width fixa para evitar quebra */
+    height: 3.2rem; /* Aumenta a altura dos inputs */
     width: 25rem;
   }
 
-  .dados-login {
-    font-size: 1.5rem;
+  .dados-login p {
+    font-size: 1.6rem;
   }
 
-  /* Ajuste adicional para inputs e botões */
   .dados {
-    max-width: 90%; /* Aumenta a largura para ocupar mais espaço em telas pequenas */
-  }
-
-  .dados-login {
-    max-width: 100%;
+    max-width: 90%;
   }
 }
 
@@ -180,28 +132,14 @@ body {
     width: 70%;
   }
 
-  .dados-email label,
-  .dados-senha label {
-    font-size: 1rem;
+  .email,
+  .senha {
+    font-size: 1.2rem;
+    height: 3rem; /* Aumenta a altura dos inputs */
+    width: 20rem;
   }
 
-  .email, .senha {
-    font-size: 1rem;
-    padding: 0.7rem 0.6rem;
-    /* Remover width fixa para evitar quebra */
-    width: 18rem;
-  }
-
-  .dados-login {
-    font-size: 1rem;
-  }
-
-  /* Ajuste adicional para inputs e botões */
-  .dados {
-    max-width: 60%; /* Aumenta a largura para ocupar mais espaço em telas pequenas */
-  }
-
-  .dados-login {
-    max-width: 100%;
+  .dados-login p {
+    font-size: 1.4rem;
   }
 }
