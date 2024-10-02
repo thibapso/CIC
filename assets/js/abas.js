@@ -31,17 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
   /*=============== OCULTAR/EXIBIR ELEMENTOS ===============*/
   const hideLinks = document.querySelectorAll(
     '.sidebar a.sidebar__link[href="#dashboard"], ' +
-      '.sidebar a.sidebar__link[href="#controle"], ' +
-      '.sidebar a.sidebar__link[href="#compliance"], ' +
-      '.sidebar a.sidebar__link[href="#arquivo"]'
+    '.sidebar a.sidebar__link[href="#controle"], ' +
+    '.sidebar a.sidebar__link[href="#compliance"], ' +
+    '.sidebar a.sidebar__link[href="#arquivo"]'
   );
   const overviewLink = document.querySelector(
     '.sidebar a.sidebar__link[href="#overview"]'
   );
   const elementsToToggle = document.querySelectorAll(
     ".card__container-1, .card__info1, .card__info2, " +
-      ".card__container-3, .card__container-6, .card__container-8, " +
-      "#graficoU, .title_dash"
+    ".card__container-3, .card__container-6, .card__container-8, " +
+    "#graficoU, .title_dash"
   );
 
   const toggleElementsVisibility = (shouldShow) => {
@@ -161,21 +161,25 @@ document.addEventListener("DOMContentLoaded", () => {
     ".card__date i.ri-arrow-down-s-line"
   );
 
-  arrowIcons[0].addEventListener("click", () => {
-    infoPopup6.style.display = "flex"; // Mostra o popup do card 6
-  });
+  if (arrowIcons[0] && infoPopup6 && closeInfoPopup6) {
+    arrowIcons[0].addEventListener("click", () => {
+      infoPopup6.style.display = "flex"; // Mostra o popup do card 6
+    });
 
-  arrowIcons[1].addEventListener("click", () => {
-    infoPopup7.style.display = "flex"; // Mostra o popup do card 7
-  });
+    closeInfoPopup6.addEventListener("click", () => {
+      infoPopup6.style.display = "none"; // Esconde o popup do card 6
+    });
+  }
 
-  closeInfoPopup6.addEventListener("click", () => {
-    infoPopup6.style.display = "none"; // Esconde o popup do card 6
-  });
+  if (arrowIcons[1] && infoPopup7 && closeInfoPopup7) {
+    arrowIcons[1].addEventListener("click", () => {
+      infoPopup7.style.display = "flex"; // Mostra o popup do card 7
+    });
 
-  closeInfoPopup7.addEventListener("click", () => {
-    infoPopup7.style.display = "none"; // Esconde o popup do card 7
-  });
+    closeInfoPopup7.addEventListener("click", () => {
+      infoPopup7.style.display = "none"; // Esconde o popup do card 7
+    });
+  }
 
   // Fecha os popups ao clicar fora do conteúdo
   window.addEventListener("click", (event) => {
@@ -185,19 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === infoPopup7) {
       infoPopup7.style.display = "none";
     }
-  });
-
-  // Adiciona eventos de hover para cada ícone de dúvida
-  duvidaIcons.forEach((icon) => {
-    icon.addEventListener("mouseover", function (event) {
-      tooltip.style.display = "block";
-      tooltip.style.left = event.pageX + "px";
-      tooltip.style.top = event.pageY + 20 + "px"; // Posiciona o tooltip
-    });
-
-    icon.addEventListener("mouseout", function () {
-      tooltip.style.display = "none";
-    });
   });
 
   /*=============== POPUP ===============*/
@@ -317,141 +308,97 @@ document.addEventListener("DOMContentLoaded", () => {
   const dashboardLink = document.querySelector(
     '.sidebar a.sidebar__link[href="#dashboard"]'
   );
+  const dashboardContainer = document.getElementById("dashboard-container");
+  const dashboardInput = document.getElementById("dashboard-input");
 
   if (dashboardLink) {
     dashboardLink.addEventListener("click", (event) => {
       event.preventDefault(); // Previne o comportamento padrão do link
       dashboardMessage.classList.remove("hidden"); // Exibe o <h1>
       dashboardParagraph.classList.remove("hidden"); // Exibe o <p> se necessário
+      dashboardContainer.classList.remove("hidden"); // Exibe o dashboard-container
+      dashboardInput.classList.remove("hidden"); // Exibe o dashboard-input
     });
   }
 
-  const otherLinks = document.querySelectorAll(
+  const otherDashboardLinks = document.querySelectorAll(
     '.sidebar a.sidebar__link:not([href="#dashboard"])'
   );
-  otherLinks.forEach((link) => {
+  otherDashboardLinks.forEach((link) => {
     link.addEventListener("click", () => {
       dashboardMessage.classList.add("hidden"); // Oculta o <h1>
       dashboardParagraph.classList.add("hidden"); // Oculta o <p>
+      dashboardContainer.classList.add("hidden"); // Oculta o dashboard-container
+      dashboardInput.classList.add("hidden"); // Oculta o dashboard-input
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const dashboardContainer = document.getElementById("dashboard-container");
-  const dashboardLink = document.querySelector(
-    '.sidebar a.sidebar__link[href="#dashboard"]'
-  );
-
-  if (dashboardLink) {
-    dashboardLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      dashboardContainer.classList.remove("hidden"); // Exibe o dashboard
-    });
-  }
-
-  const otherLinks = document.querySelectorAll(
-    '.sidebar a.sidebar__link:not([href="#dashboard"])'
-  );
-  otherLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      dashboardContainer.classList.add("hidden"); // Oculta o dashboard quando outra aba é clicada
-    });
-  });
-});
-
-
-
-/*=============== ARQUIVO FUNCTIONALITY ===============*/
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Seleciona a seção completa
+  /*=============== ARQUIVO FUNCTIONALITY ===============*/
   const arquivoSection = document.querySelector(".arquivo-tela");
-  
-  // Define a seção como oculta inicialmente
   arquivoSection.classList.add("hidden");
 
-  // Seleciona o link "arquivo"
-  const controleLink = document.querySelector(
+  const arquivoLink = document.querySelector(
     '.sidebar a.sidebar__link[href="#arquivo"]'
   );
-
-  // Seleciona todos os outros links na sidebar
-  const otherLinks = document.querySelectorAll(
+  const arquivoOtherLinks = document.querySelectorAll(
     '.sidebar a.sidebar__link:not([href="#arquivo"])'
   );
+  const arquivoMenuContainer = document.querySelector(".menu__container2");
 
-  // Seleciona o menu que você deseja ocultar
-  const menuContainer = document.querySelector(".menu__container2");
-
-  // Verifica se o link "arquivo" e a seção existem
-  if (controleLink && arquivoSection) {
-    controleLink.addEventListener("click", (event) => {
+  if (arquivoLink && arquivoSection) {
+    arquivoLink.addEventListener("click", (event) => {
       event.preventDefault(); // Previne o comportamento padrão do link
 
       // Exibe a seção removendo a classe 'hidden'
       arquivoSection.classList.remove("hidden");
 
       // Oculta o menu
-      if (menuContainer) menuContainer.classList.add("hidden");
+      if (arquivoMenuContainer) arquivoMenuContainer.classList.add("hidden");
 
       // Opcional: Exibe os elementos internos, se necessário
-      const controleMessage = document.getElementById("arquivo-message");
-      const controleParagraph = document.getElementById(
+      const arquivoMessage = document.getElementById("arquivo-message");
+      const arquivoParagraph = document.getElementById(
         "arquivo-message-paragraph"
       );
-      const controleConteudo = document.querySelector(".arquivo-conteudo");
+      const arquivoConteudo = document.querySelector(".arquivo-conteudo");
 
-      if (controleMessage) controleMessage.classList.remove("hidden");
-      if (controleParagraph) controleParagraph.classList.remove("hidden");
-      if (controleConteudo) controleConteudo.classList.remove("hidden");
+      if (arquivoMessage) arquivoMessage.classList.remove("hidden");
+      if (arquivoParagraph) arquivoParagraph.classList.remove("hidden");
+      if (arquivoConteudo) arquivoConteudo.classList.remove("hidden");
     });
   }
 
-  // Adiciona eventos aos outros links para ocultar a seção "arquivo"
-  otherLinks.forEach((link) => {
+  arquivoOtherLinks.forEach((link) => {
     link.addEventListener("click", () => {
       // Oculta a seção adicionando a classe 'hidden'
       arquivoSection.classList.add("hidden");
 
       // Mostra o menu novamente
-      if (menuContainer) menuContainer.classList.remove("hidden");
+      if (arquivoMenuContainer) arquivoMenuContainer.classList.remove("hidden");
 
       // Opcional: Oculta os elementos internos, se necessário
-      const controleMessage = document.getElementById("arquivo-message");
-      const controleParagraph = document.getElementById(
+      const arquivoMessage = document.getElementById("arquivo-message");
+      const arquivoParagraph = document.getElementById(
         "arquivo-message-paragraph"
       );
-      const controleConteudo = document.querySelector(".arquivo-conteudo");
+      const arquivoConteudo = document.querySelector(".arquivo-conteudo");
 
-      if (controleMessage) controleMessage.classList.add("hidden");
-      if (controleParagraph) controleParagraph.classList.add("hidden");
-      if (controleConteudo) controleConteudo.classList.add("hidden");
+      if (arquivoMessage) arquivoMessage.classList.add("hidden");
+      if (arquivoParagraph) arquivoParagraph.classList.add("hidden");
+      if (arquivoConteudo) arquivoConteudo.classList.add("hidden");
     });
   });
-});
 
-
-/*=============== CONTROLE FUNCTIONALITY ===============*/
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Seleciona a seção completa
+  /*=============== CONTROLE FUNCTIONALITY ===============*/
   const controleSection = document.querySelector(".controle-tela");
-
-  // Seleciona o link "Controle"
   const controleLink = document.querySelector(
     '.sidebar a.sidebar__link[href="#controle"]'
   );
-
-  // Seleciona todos os outros links na sidebar
-  const otherLinks = document.querySelectorAll(
+  const controleOtherLinks = document.querySelectorAll(
     '.sidebar a.sidebar__link:not([href="#controle"])'
   );
+  const controleMenuContainer = document.querySelector(".menu__container2");
 
-  // Seleciona o menu que você deseja ocultar
-  const menuContainer = document.querySelector(".menu__container2");
-
-  // Verifica se o link "Controle" e a seção existem
   if (controleLink && controleSection) {
     controleLink.addEventListener("click", (event) => {
       event.preventDefault(); // Previne o comportamento padrão do link
@@ -460,7 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
       controleSection.classList.remove("hidden");
 
       // Oculta o menu
-      if (menuContainer) menuContainer.classList.add("hidden");
+      if (controleMenuContainer) controleMenuContainer.classList.add("hidden");
 
       // Opcional: Exibe os elementos internos, se necessário
       const controleMessage = document.getElementById("controle-message");
@@ -475,14 +422,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Adiciona eventos aos outros links para ocultar a seção "Controle"
-  otherLinks.forEach((link) => {
+  controleOtherLinks.forEach((link) => {
     link.addEventListener("click", () => {
       // Oculta a seção adicionando a classe 'hidden'
       controleSection.classList.add("hidden");
 
       // Mostra o menu novamente
-      if (menuContainer) menuContainer.classList.remove("hidden");
+      if (controleMenuContainer) controleMenuContainer.classList.remove("hidden");
 
       // Opcional: Oculta os elementos internos, se necessário
       const controleMessage = document.getElementById("controle-message");
@@ -497,4 +443,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
