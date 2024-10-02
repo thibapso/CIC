@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -29,5 +29,61 @@
 
     <script src="popup.js"></script>
 
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./tabela.css">
+    <title>Tabela</title>
+    <script>
+        function filtrarTabela(coluna) {
+            // Obtém o valor do input de filtro correspondente
+            var input = document.getElementById('filtro' + coluna);
+            var filtro = input.value.toUpperCase();
+            var tabela = document.getElementById('minhaTabela');
+            var linhas = tabela.getElementsByTagName('tr');
+
+            // Loop pelas linhas da tabela
+            for (var i = 1; i < linhas.length; i++) {
+                var celula = linhas[i].getElementsByTagName('td')[coluna];
+                if (celula) {
+                    var valor = celula.textContent || celula.innerText;
+                    if (valor.toUpperCase().indexOf(filtro) > -1) {
+                        linhas[i].style.display = '';
+                    } else {
+                        linhas[i].style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table id="minhaTabela">
+        <thead>
+            <tr>
+                <th scope="col">ID Divergência<br><input type="text" id="filtro0" onkeyup="filtrarTabela(0)" placeholder="Filtrar ID"></th>
+                <th scope="col">Data<br><input type="text" id="filtro1" onkeyup="filtrarTabela(1)" placeholder="Filtrar Data"></th>
+                <th scope="col">Tipo<br><input type="text" id="filtro2" onkeyup="filtrarTabela(2)" placeholder="Filtrar Tipo"></th>
+                <th scope="col">Responsável<br><input type="text" id="filtro3" onkeyup="filtrarTabela(3)" placeholder="Filtrar Responsável"></th>
+                <th scope="col">Descrição<br><input type="text" id="filtro4" onkeyup="filtrarTabela(4)" placeholder="Filtrar Descrição"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0005000</td>
+                <td>01/03/2024</td>
+                <td>COFINS</td>
+                <td>Fabio Lucena</td>
+                <td>Conclusão: A correção de divergências no pagamento do COFINS demanda uma revisão cuidadosa das operações fiscais...</td>
+            </tr>
+            <!-- Outras linhas da tabela aqui -->
+        </tbody>
+    </table>
 </body>
 </html>

@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./tabela.css">
+    <link rel="stylesheet" href="./assets/css/tabela.css">
     <title>Tabela</title>
+    <script src="./assets/js/filtro.js"></script> <!-- Referência ao arquivo JavaScript externo -->
 </head>
 <body>
-    <table>
+    <table id="minhaTabela">
         <thead>
             <tr>
                 <th scope="col">ID Divergência</th>
-                <th scope="col">Data</th>
+                <th scope="col">Data<br><input type="text" id="filtro1" onkeyup="filtrarTabela(1)" placeholder="Filtrar Data"></th>
                 <th scope="col">Tipo</th>
-                <th scope="col">Responsável</th>
-                <th scope="col">Descrição</th>
+                <th scope="col">Responsável<br><input type="text" id="filtro3" onkeyup="filtrarTabela(3)" placeholder="Filtrar Responsável"></th>
+                <th scope="col">Descrição<br><input type="text" id="filtro4" onkeyup="filtrarTabela(4)" placeholder="Filtrar Descrição"></th>
             </tr>
         </thead>
         <tbody>
