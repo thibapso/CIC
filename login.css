@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+body {
+    font-family: "Lexend", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.logo {
+    width: 20%;
+    height: 20%;
+    margin-bottom: 5rem;
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.dados-email,
+.dados-senha {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dados-email label,
+.dados-senha label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+
+.login {
+    margin: auto;
+}
+
+.dados-login {
+    background-color: #0064f7;
+    border-radius: 5px;
+    margin-top: 2rem;
+    width: 30rem;
+}
+
+.dados-login:hover {
+    transition: ease-in-out .5s;
+    background-color: #0547ab;
+}
+
+.dados-login a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.dados-login p {
+    display: flex;
+    justify-content: center;
+}
+
+textarea {
+    resize: none;
+    height: 2.5rem;
+    /* Altura ajustada */
+    width: 30rem;
+    border-radius: 5px;
+    border: 0.3px solid rgba(39, 39, 39, 0.341);
+    border-radius: 0.75rem;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
+    padding-top: 0.6rem;
+    /* Espaçamento superior */
+    box-sizing: border-box;
+    padding-left: 0.5rem;
+    opacity: 0.6;
+    text-align: left;
+    /* Garante que o texto digitado seja alinhado à esquerda */
+}
+
+textarea::placeholder {
+    text-align: left;
+    /* Centraliza o texto do placeholder */
+    color: rgba(39, 39, 39, 0.5);
+    /* Cor opcional do placeholder */
+    opacity: 1;
+}
