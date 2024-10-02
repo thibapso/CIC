@@ -1,92 +1,207 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 
 body {
-    font-family: "Lexend", sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
+  font-family: "Lexend", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  height: 100vh; /* Ocupa toda a altura da viewport */
+  margin: 0; /* Remove margens padrão */
+  gap: 2rem;
 }
 
 .logo {
-    width: 20%;
-    height: 20%;
-    margin-bottom: 5rem;
+  width: auto;
+  height: auto; /* Mantém a proporção da imagem */
+  margin-bottom: 2rem; /* Ajuste conforme necessário */
 }
 
 .dados {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  /* Remova ou ajuste margens se necessário */
 }
 
 .dados-email,
 .dados-senha {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dados-email label,
 .dados-senha label {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
-
 .login {
-    margin: auto;
+  margin: auto;
 }
 
 .dados-login {
-    background-color: #0064f7;
-    border-radius: 5px;
-    margin-top: 2rem;
-    width: 30rem;
+  background-color: #0064f7;
+  border-radius: 5px;
+  margin-top: 2rem;
+  width: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Remove a sublinha do link */
+  color: #ffffff; /* Cor do texto */
 }
 
 .dados-login:hover {
-    transition: ease-in-out .5s;
-    background-color: #0547ab;
-}
-
-.dados-login a {
-    text-decoration: none;
-    color: #ffffff;
+  transition: ease-in-out 0.5s;
+  background-color: #0547ab;
 }
 
 .dados-login p {
-    display: flex;
-    justify-content: center;
+  margin: 1rem 0; /* Ajuste de espaçamento para centralizar o texto */
 }
 
-textarea {
-    resize: none;
-    height: 2.5rem;
-    /* Altura ajustada */
-    width: 30rem;
-    border-radius: 5px;
-    border: 0.3px solid rgba(39, 39, 39, 0.341);
-    border-radius: 0.75rem;
-    box-shadow: 20px 20px 60px #bebebe,
-        -20px -20px 60px #ffffff;
-    padding-top: 0.6rem;
-    /* Espaçamento superior */
-    box-sizing: border-box;
-    padding-left: 0.5rem;
-    opacity: 0.6;
-    text-align: left;
-    /* Garante que o texto digitado seja alinhado à esquerda */
+.dados-login a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
-textarea::placeholder {
-    text-align: left;
-    /* Centraliza o texto do placeholder */
-    color: rgba(39, 39, 39, 0.5);
-    /* Cor opcional do placeholder */
-    opacity: 1;
+.email,
+.senha {
+  resize: none;
+  height: 2.5rem;
+  /* Altura ajustada */
+  width: 30rem;
+  border-radius: 5px;
+  border: 0.3px solid rgba(39, 39, 39, 0.341);
+  border-radius: 0.75rem;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  /* Espaçamento superior */
+  box-sizing: border-box;
+  padding-left: 0.5rem;
+  opacity: 0.6;
+  text-align: left;
+  /* Garante que o texto digitado seja alinhado à esquerda */
+}
+
+.email::placeholder,
+.senha::placeholder {
+  text-align: left;
+  /* Centraliza o texto do placeholder */
+  color: rgba(39, 39, 39, 0.5);
+  /* Cor opcional do placeholder */
+  opacity: 1;
+  top: 0;
+}
+
+/* Media Queries para Responsividade */
+
+/* Tablets (largura entre 768px e 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .logo {
+    width: 30%;
+  }
+
+  .dados-email label,
+  .dados-senha label {
+    font-size: 1.1rem;
+  }
+
+  input {
+    font-size: 1.1rem;
+    padding: 0.7rem 0.6rem;
+  }
+
+  .dados-login p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Smartphones (largura menor que 768px) */
+@media (max-width: 767px) and (min-width: 480px) {
+  .logo {
+    width: 40%;
+  }
+
+  .dados-email label,
+  .dados-senha label {
+    font-size: 1.2rem;
+  }
+
+  input {
+    font-size: 1.2rem;
+    padding: 0.8rem 0.7rem;
+  }
+
+  .dados-login p {
+    font-size: 1.4rem;
+  }
+}
+
+/* Celulares pequenos (largura menor que 480px) */
+@media (max-width: 479px) {
+  .logo {
+    width: 60%;
+  }
+
+  .dados-email label,
+  .dados-senha label {
+    font-size: 1.3rem;
+  }
+
+  .email, .senha {
+    font-size: 1.3rem;
+    padding: 0.9rem 0.8rem;
+    /* Remover width fixa para evitar quebra */
+    width: 25rem;
+  }
+
+  .dados-login {
+    font-size: 1.5rem;
+  }
+
+  /* Ajuste adicional para inputs e botões */
+  .dados {
+    max-width: 90%; /* Aumenta a largura para ocupar mais espaço em telas pequenas */
+  }
+
+  .dados-login {
+    max-width: 100%;
+  }
+}
+
+/* Celulares muito pequenos (largura menor que 420px) */
+@media (max-width: 420px) {
+  .logo {
+    width: 70%;
+  }
+
+  .dados-email label,
+  .dados-senha label {
+    font-size: 1rem;
+  }
+
+  .email, .senha {
+    font-size: 1rem;
+    padding: 0.7rem 0.6rem;
+    /* Remover width fixa para evitar quebra */
+    width: 18rem;
+  }
+
+  .dados-login {
+    font-size: 1rem;
+  }
+
+  /* Ajuste adicional para inputs e botões */
+  .dados {
+    max-width: 60%; /* Aumenta a largura para ocupar mais espaço em telas pequenas */
+  }
+
+  .dados-login {
+    max-width: 100%;
+  }
 }

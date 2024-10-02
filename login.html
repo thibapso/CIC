@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link rel="stylesheet" href="login.css">
-</head>
-
-<body>
-    <img class="logo" src="assets/img/cic.png" alt="">
+  <body>
+    <img class="logo" src="assets/img/cic.png" alt="" />
 
     <div class="dados">
-        <div class="dados-email">
-            <label for="descricao">Email</label> 
-            <textarea id="dashboard-descricao" rows="5" placeholder="Enter your email"></textarea>
-        </div>
+      <div class="dados-email">
+        <label for="dashboard-email">E-mail</label>
+        <input
+          class="email"
+          type="text"
+          id="dashboard-email"
+          rows="5"
+          placeholder="Entre com seu e-mail"
+        />
+      </div>
 
-        <div class="dados-senha">
-            <label for="descricao">Password</label> 
-            <textarea id="dashboard-descricao" rows="5" placeholder="Enter your password"></textarea>
-        </div>
+      <div class="dados-senha">
+        <label for="dashboard-senha">Senha</label>
+        <input
+          class="senha"
+          type="password"
+          id="dashboard-senha"
+          rows="5"
+          placeholder="Entre com sua senha"
+        />
+      </div>
 
-        <div class="dados-login">
-            <p><a href="index.html">Login</a></p>
-        </div>
+      <!-- Tornar toda a div um link clicável -->
+      <a href="index.html" class="dados-login">
+        <p>Login</p>
+      </a>
     </div>
-</body>
-
+  </body>
 </html>
